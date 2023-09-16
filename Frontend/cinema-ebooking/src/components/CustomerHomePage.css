@@ -1,12 +1,13 @@
 .navbar {
     display: flex;
     height: 50px;
-    background-color: blue;
+    background-color: rgb(105, 105, 230);
     justify-content: space-between;
     padding: 5px 10px;
 }
 
 .titlelogo {
+    margin-top: 0.5%;
     font-weight: bold;
     font-size: larger;
 }
@@ -21,4 +22,35 @@
 .login-button:hover {
     background-color: gray;
     transition: 1s;
+    cursor: pointer;
+}
+
+.currently-running-title {
+    margin-top: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.movie-display {
+    display: flex;
+    justify-content: space-around;
+}
+
+.poster {
+    width: 150px;
+    height: 220px;
+}
+
+.showtime {
+    border: none;
+    background-color: white;
+    font-weight: bold;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+
+.showtime:hover {
+    background-color: rgb(185, 185, 185);
+    transition: 0.5s;
+    cursor: pointer;
 }
