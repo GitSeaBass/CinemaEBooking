@@ -1,0 +1,24 @@
+.navbar {
+    display: flex;
+    height: 50px;
+    background-color: blue;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+.titlelogo {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.login-button {
+    width:100px;
+    border-radius: 10px;
+    transition: 1s;
+    font-size: larger;
+}
+
+.login-button:hover {
+    background-color: gray;
+    transition: 1s;
+}
