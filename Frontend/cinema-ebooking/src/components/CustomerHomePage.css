@@ -40,17 +40,3 @@
     width: 150px;
     height: 220px;
 }
-
-.showtime {
-    border: none;
-    background-color: white;
-    font-weight: bold;
-    transition: 0.5s;
-    border-radius: 5px;
-}
-
-.showtime:hover {
-    background-color: rgb(185, 185, 185);
-    transition: 0.5s;
-    cursor: pointer;
-}

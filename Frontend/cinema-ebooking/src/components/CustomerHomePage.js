@@ -35,10 +35,6 @@ function CustomerHomePage() {
                     <div className='movie-card'>
                         <img src={item.poster} alt={item.title} className='poster'/>
                         <div>{item.title}</div>
-                        <div>Showtimes: </div>
-                        {item.showtime.map((times) => (
-                            <button className='showtime'>{times}</button>
-                        ))}
                     </div>
                 ))}
             </div>
