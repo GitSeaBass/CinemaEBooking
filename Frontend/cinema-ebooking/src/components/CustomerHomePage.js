@@ -1,6 +1,9 @@
 import './CustomerHomePage.css'
+import { useNavigate } from 'react-router-dom';
 
-function CustomerHomePage() {
+function CustomerHomePage(props) {
+    const navigate = useNavigate();
+
     const moviearray = [
         {
             title: 'Barbie',
@@ -18,12 +21,20 @@ function CustomerHomePage() {
             showtime: ['9:30', '8:00']
         }
     ];
-    
+
+    function loggingIn() {
+        navigate('/login');
+    }
+
     return (
         <>
             <div className='navbar'>
                 <b1 className='titlelogo'>Cinema E-Booking A8</b1>
-                <button className='login-button'>Login</button>
+
+                {props.user.length === 0?
+
+                <button className='login-button' onClick={loggingIn}>Login</button> :
+                <d3>{props.user}</d3>}
             </div>
 
             <div className='currently-running-title'>
