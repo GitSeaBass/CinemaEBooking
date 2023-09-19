@@ -1,0 +1,45 @@
+.login-container {
+    text-align: center;
+}
+
+.login-title {
+    font-size: 240%;
+    position: relative;
+    top: 125px;
+    right: 130px;
+    color: blueviolet;
+}
+
+.form-container {
+    margin: 7% auto 0 auto;
+    width: 20%;
+    height: 500px;
+    border: solid black 2px;
+    border-radius: 5px;
+    padding-top: 10px;
+}
+
+input {
+    margin-bottom: 40%;
+    border-radius: 5px;
+    width: 80%;
+    height: 30px;
+    font-size: large;
+}
+
+.submit {
+    width: 40%;
+    height: 50px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.submit:hover {
+    transition: 0.5s;
+    background-color: rgb(175, 173, 173);
+    cursor: pointer;
+}
+
+label {
+    font-weight: bold;
+}
