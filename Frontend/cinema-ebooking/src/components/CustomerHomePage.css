@@ -34,9 +34,26 @@
 .movie-display {
     display: flex;
     justify-content: space-around;
+    background-color: gray;
+    padding: 10px;
 }
 
 .poster {
     width: 150px;
     height: 220px;
+}
+
+.movie-card > div {
+    font-weight: bold;
+}
+
+.right-navbar {
+    width: 10%;
+}
+
+.right-navbar > button{
+    height: 100%;
+    margin-left: 10%;
+    width: 50%;
+    border-radius: 10%;
 }
