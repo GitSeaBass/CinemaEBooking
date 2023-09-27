@@ -1,3 +1,7 @@
+#root {
+    background-color: rgb(31, 30, 30);
+}
+
 .navbar {
     display: flex;
     height: 50px;
@@ -9,7 +13,7 @@
 .titlelogo {
     margin-top: 0.5%;
     font-weight: bold;
-    font-size: larger;
+    font-size: 1.5em;
 }
 
 .login-button {
@@ -29,22 +33,55 @@
     margin-top: 20px;
     font-weight: bold;
     padding: 10px;
+    padding-left: 30px;
+    background-color: rgb(31, 30, 30);
+    color: white;
+    font-size: 2em;
 }
 
 .movie-display {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: auto;
     background-color: gray;
     padding: 10px;
+    justify-items: center;
 }
 
 .poster {
     width: 150px;
-    height: 220px;
+    height: 240px;
+    transition: 0.5s;
+}
+
+.poster:hover{
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.5s;
 }
 
 .movie-card > div {
     font-weight: bold;
+}
+
+.trailer-button{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.trailer-button > a {
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px;
+    background-color: rgb(230, 39, 39);
+    color: white;
+    transition: 0.5s;
+}
+
+.trailer-button > a:hover{
+    background-color: rgb(141, 25, 25);
+    transition: 0.5s;
 }
 
 .right-navbar {
