@@ -17,6 +17,7 @@
     border: solid black 2px;
     border-radius: 5px;
     padding-top: 10px;
+    background-color: gray;
 }
 
 input {
