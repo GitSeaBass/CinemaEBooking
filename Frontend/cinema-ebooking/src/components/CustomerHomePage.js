@@ -1,30 +1,11 @@
 import './CustomerHomePage.css'
-import { useNavigate } from 'react-router-dom';
+import NavBar from './NavBar';
 
 function CustomerHomePage(props) {
-    const navigate = useNavigate();
-
-    function loggingIn() {
-        navigate('/login');
-    }
-
-    function loggingOut() {
-        props.setUser('');
-    }
 
     return (
         <>
-            <div className='navbar'>
-                <b1 className='titlelogo'>Cinema E-Booking A8</b1>
-
-                {props.user.length === 0?
-
-                <button className='login-button' onClick={loggingIn}>Login</button>:
-                <div className='right-navbar'>
-                    <d3>{props.user}</d3>
-                    <button onClick={loggingOut}>Logout</button>
-                </div>}
-            </div>
+            <NavBar user={props.user} setUser={props.setUser}/>
 
             <div className='currently-running-title'>
                 Now Playing

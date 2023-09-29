@@ -2,33 +2,6 @@ body {
     background-color: rgb(31, 30, 30);
 }
 
-.navbar {
-    display: flex;
-    height: 50px;
-    background-color: rgb(105, 105, 230);
-    justify-content: space-between;
-    padding: 5px 10px;
-}
-
-.titlelogo {
-    margin-top: 0.5%;
-    font-weight: bold;
-    font-size: 1.5em;
-}
-
-.login-button {
-    width:100px;
-    border-radius: 10px;
-    transition: 1s;
-    font-size: larger;
-}
-
-.login-button:hover {
-    background-color: gray;
-    transition: 1s;
-    cursor: pointer;
-}
-
 .currently-running-title {
     margin-top: 20px;
     font-weight: bold;
@@ -82,15 +55,4 @@ body {
 .trailer-button > a:hover{
     background-color: rgb(141, 25, 25);
     transition: 0.5s;
-}
-
-.right-navbar {
-    width: 20%;
-}
-
-.right-navbar > button{
-    height: 100%;
-    margin-left: 10%;
-    width: 50%;
-    border-radius: 10%;
 }
