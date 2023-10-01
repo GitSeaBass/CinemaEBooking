@@ -33,10 +33,14 @@ body {
     transition: 0.5s;
 }
 
+.movie-card {
+    display: flex;
+}
+
 .movie-card > div {
     font-weight: bold;
 }
-
+/*
 .trailer-button{
     margin-top: 10px;
     text-align: center;
@@ -55,4 +59,4 @@ body {
 .trailer-button > a:hover{
     background-color: rgb(141, 25, 25);
     transition: 0.5s;
-}
+}*/

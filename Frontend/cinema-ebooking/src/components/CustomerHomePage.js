@@ -14,10 +14,14 @@ function CustomerHomePage(props) {
             <div className='movie-display'>
                 {props.moviearray.filter((item) => item.status === 'now').map((item) => (
                     <div className='movie-card'>
-                        <img src={item.poster} alt={item.title} className='poster'/>
-                        <div>{item.title}</div>
-                        <div>⭐{item.rating}/10</div>
-                        <div className='trailer-button'> <a href={item.trailer} target='_blank' rel='noreferrer'>Trailer</a> </div>        
+                        <div className='left-movie'>
+                            <img src={item.poster} alt={item.title} className='poster'/>
+                            <div>{item.title}</div>
+                            <div>⭐{item.rating}/10</div>
+                        </div>
+                        <div className='right-movie'>
+                            <iframe src={item.trailer} title={item.title} className="trailer"/>
+                        </div>      
                     </div>
                 ))}
             </div>
@@ -29,10 +33,14 @@ function CustomerHomePage(props) {
             <div className='movie-display'>
                 {props.moviearray.filter((item) => item.status === 'soon').map((item) => (
                     <div className='movie-card'>
-                        <img src={item.poster} alt={item.title} className='poster'/>
-                        <div>{item.title}</div>
-                        <div>⭐{item.rating}/10</div>
-                        <div className='trailer-button'> <a href={item.trailer} target='_blank' rel='noreferrer'>Trailer</a> </div>
+                        <div className='left-movie'>
+                            <img src={item.poster} alt={item.title} className='poster'/>
+                            <div>{item.title}</div>
+                            <div>⭐{item.rating}/10</div>
+                        </div>
+                        <div className='right-movie'>
+                            <iframe src={item.trailer} title={item.title} className="trailer"/>
+                        </div> 
                     </div>
                 ))}
             </div>
