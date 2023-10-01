@@ -50,11 +50,11 @@ function App() {
         trailer: 'https://www.youtube.com/embed/oZ6iiRrz1SY'
     },
     {
-        title: 'Spongebob Movie',
-        poster: 'https://m.media-amazon.com/images/M/MV5BZjM5YjI0NmQtOTk4OS00NTNiLThkNzQtNTZlNGE4Y2VmNmU3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg',
+        title: 'Spider-Man: Into the Spider-Verse',
+        poster: 'https://i.ebayimg.com/images/g/NlwAAOSwT1di4wY0/s-l1600.jpg',
         rating: 9.9,
         status: 'soon',
-        trailer: 'https://www.youtube.com/embed/vZ734NWnAHA'
+        trailer: 'https://www.youtube.com/embed/g4Hbz2jLxvQ'
     },
     {
         title: 'Jurassic World',
@@ -64,46 +64,46 @@ function App() {
         trailer: 'https://www.youtube.com/embed/RFinNxS5KN4'
     },
     {
-        title: 'Spongebob Movie',
-        poster: 'https://m.media-amazon.com/images/M/MV5BZjM5YjI0NmQtOTk4OS00NTNiLThkNzQtNTZlNGE4Y2VmNmU3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg',
+        title: 'Oppenheimer',
+        poster: 'https://m.media-amazon.com/images/I/71lqDylcvGL.jpg',
         rating: 9.9,
         status: 'soon',
-        trailer: 'https://www.youtube.com/embed/vZ734NWnAHA'
+        trailer: 'https://www.youtube.com/embed/bK6ldnjE3Y0'
     },
     {
-        title: 'Jurassic World',
-        poster: 'https://cdn.europosters.eu/image/1300/posters/jurassic-world-i114154.jpg',
+        title: 'Scream VI',
+        poster: 'https://alternativemovieposters.com/wp-content/uploads/2023/01/Glen-Matthew-Fechalin_Scream6.jpg',
         rating: 9.0,
         status: 'now',
-        trailer: 'https://www.youtube.com/embed/RFinNxS5KN4'
+        trailer: 'https://www.youtube.com/embed/h74AXqw4Opc'
     },
     {
-        title: 'Spongebob Movie',
-        poster: 'https://m.media-amazon.com/images/M/MV5BZjM5YjI0NmQtOTk4OS00NTNiLThkNzQtNTZlNGE4Y2VmNmU3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg',
+        title: 'Mortal Kombat (2021)',
+        poster: 'https://m.media-amazon.com/images/M/MV5BY2ZlNWIxODMtN2YwZi00ZjNmLWIyN2UtZTFkYmZkNDQyNTAyXkEyXkFqcGdeQXVyODkzNTgxMDg@._V1_.jpg',
         rating: 9.9,
         status: 'soon',
-        trailer: 'https://www.youtube.com/embed/vZ734NWnAHA'
+        trailer: 'https://www.youtube.com/embed/55QjhYwmdJs'
     },
     {
-        title: 'Jurassic World',
-        poster: 'https://cdn.europosters.eu/image/1300/posters/jurassic-world-i114154.jpg',
+        title: 'Kingsman: The Secret Service',
+        poster: 'https://m.media-amazon.com/images/M/MV5BYTM3ZTllNzItNTNmOS00NzJiLTg1MWMtMjMxNDc0NmJhODU5XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_FMjpg_UX1000_.jpg',
         rating: 9.0,
         status: 'now',
-        trailer: 'https://www.youtube.com/embed/RFinNxS5KN4'
+        trailer: 'https://www.youtube.com/embed/m4NCribDx4U'
     },
     {
-        title: 'Spongebob Movie',
-        poster: 'https://m.media-amazon.com/images/M/MV5BZjM5YjI0NmQtOTk4OS00NTNiLThkNzQtNTZlNGE4Y2VmNmU3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg',
+        title: 'Godzilla vs. Kong',
+        poster: 'https://m.media-amazon.com/images/M/MV5BZmYzMzU4NjctNDI0Mi00MGExLWI3ZDQtYzQzYThmYzc2ZmNjXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg',
         rating: 9.9,
         status: 'soon',
-        trailer: 'https://www.youtube.com/embed/vZ734NWnAHA'
+        trailer: 'https://www.youtube.com/embed/odM92ap8_c0'
     },
     {
-        title: 'Jurassic World',
-        poster: 'https://cdn.europosters.eu/image/1300/posters/jurassic-world-i114154.jpg',
+        title: 'TENET',
+        poster: 'https://m.media-amazon.com/images/M/MV5BYzg0NGM2NjAtNmIxOC00MDJmLTg5ZmYtYzM0MTE4NWE2NzlhXkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_.jpg',
         rating: 9.0,
         status: 'now',
-        trailer: 'https://www.youtube.com/embed/RFinNxS5KN4'
+        trailer: 'https://www.youtube.com/embed/LdOM0x0XDMo'
     },
   ];
   
