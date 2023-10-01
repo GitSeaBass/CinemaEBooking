@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 @Controller
 @RequestMapping(path="/demo")
 public class MainController {
@@ -17,7 +18,7 @@ public class MainController {
     @PostMapping(path="/add")
     public @ResponseBody String addNewMovie(@RequestParam String title, @RequestParam String director) {
         Movies movie = new Movies();
-        movie.setId(1);
+        //movie.setId(1);
         movie.setTitle(title);
         movie.setDirector(director);
         movieRepository.save(movie);
@@ -28,4 +29,8 @@ public class MainController {
     public @ResponseBody Iterable<Movies> getAllMovies() {
         return movieRepository.findAll();
     }
+
+
+
+
 }
