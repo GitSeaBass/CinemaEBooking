@@ -5,7 +5,7 @@ function CustomerHomePage(props) {
 
     return (
         <>
-            <NavBar user={props.user} setUser={props.setUser}/>
+            <NavBar user={props.user} setUser={props.setUser} moviearray={props.moviearray}/>
 
             <div className='currently-running-title'>
                 Now Playing

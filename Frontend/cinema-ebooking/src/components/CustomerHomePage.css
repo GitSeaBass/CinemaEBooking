@@ -14,7 +14,7 @@ body {
 
 .movie-display {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     background-color: gray;
     padding: 10px;
@@ -40,23 +40,9 @@ body {
 .movie-card > div {
     font-weight: bold;
 }
-/*
-.trailer-button{
-    margin-top: 10px;
-    text-align: center;
-}
 
-.trailer-button > a {
-    text-decoration: none;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 3px;
-    background-color: rgb(230, 39, 39);
-    color: white;
-    transition: 0.5s;
+.trailer {
+    width: 400px;
+    height: 200px;
+    margin-top: 15px;
 }
-
-.trailer-button > a:hover{
-    background-color: rgb(141, 25, 25);
-    transition: 0.5s;
-}*/
