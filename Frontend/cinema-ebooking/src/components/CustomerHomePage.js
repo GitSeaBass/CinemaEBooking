@@ -5,11 +5,16 @@ import { useState, useEffect } from 'react';
 
 function CustomerHomePage(props) {
 
+    const[testtitle, setTesttitle] = useState('TEST')
+    const addTesttitle = (e) => {
+        setTesttitle(e)
+    }
+
     useEffect(() => {
         fetch(`http://localhost:8080/system/search?title=jaws`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                addTesttitle(data[0].title)
             })
     })
 
@@ -18,6 +23,7 @@ function CustomerHomePage(props) {
             <NavBar user={props.user} setUser={props.setUser} moviearray={props.moviearray}/>
 
             <button>TEST BUTTON</button>
+            <div>{testtitle}</div>
 
             <div className='currently-running-title'>
                 Now Playing
