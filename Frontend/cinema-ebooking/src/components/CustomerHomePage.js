@@ -7,11 +7,11 @@ function CustomerHomePage(props) {
 
     useEffect(() => {
         axios  
-            .get(`http://localhost:8080system/search?title=jaws`)
+            .get(`http://localhost:8080/system/search?title=jaws`)
             .then((res) => {
                 console.log(res)
             }).catch((err) => {
-                console.log('Error')
+                console.log(err)
             })
     })
 
