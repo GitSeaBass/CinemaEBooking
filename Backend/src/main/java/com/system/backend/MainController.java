@@ -17,6 +17,7 @@ public class MainController {
     @PostMapping(path="/add")
     public @ResponseBody String addNewMovie(@RequestParam String title, @RequestParam String director) {
         Movies movie = new Movies();
+        movie.setId(1);
         movie.setTitle(title);
         movie.setDirector(director);
         movieRepository.save(movie);
