@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
-@RequestMapping(path="/demo")
+@RequestMapping(path="/system")
 public class MainController {
     @Autowired
     private MovieRepository movieRepository;
@@ -28,6 +28,11 @@ public class MainController {
     @GetMapping(path="/all")
     public @ResponseBody Iterable<Movies> getAllMovies() {
         return movieRepository.findAll();
+    }
+
+    @GetMapping(path="/search")
+    public @ResponseBody Iterable<Movies> getByTitle(@RequestParam String title) {
+        return movieRepository.findByTitle(title);
     }
 
 
