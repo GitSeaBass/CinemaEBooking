@@ -1,16 +1,12 @@
-.login-container {
-    text-align: center;
-}
-
-.login-title {
+.create-title {
     font-size: 240%;
     position: relative;
     top: 125px;
-    right: 130px;
+    right: 40px;
     color: blueviolet;
 }
 
-.login-form-container {
+.create-form-container {
     margin: 7% auto 0 auto;
     width: 20%;
     height: 500px;
@@ -20,35 +16,27 @@
     background-color: gray;
 }
 
-.login-input {
-    margin-bottom: 40%;
+.create-input {
+    margin-bottom: 22%;
     border-radius: 5px;
     width: 80%;
     height: 30px;
     font-size: large;
 }
 
-.login-submit {
+.create-submit {
     width: 40%;
     height: 50px;
     border-radius: 10px;
     transition: 0.5s;
 }
 
-.login-submit:hover {
+.create-submit:hover {
     transition: 0.5s;
     background-color: rgb(175, 173, 173);
     cursor: pointer;
 }
 
-.login-form > label {
+.create-form > label {
     font-weight: bold;
-}
-
-.create-account-question {
-    color: white;
-}
-
-.create-account-link {
-    color: rgb(118, 55, 213);
 }

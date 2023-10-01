@@ -18,15 +18,18 @@ function LoginPage(props) {
     return(
         <div className='login-container'>
             <div className='login-title'>Login</div>
-            <div className="form-container">
+            <div className="login-form-container">
                 <form className='login-form' onSubmit={onSubmit}>
                     <label>Email</label><br/>
-                    <input type='text' onChange={addEmail} required></input><br/>
+                    <input type='text' className='login-input'  onChange={addEmail} required></input><br/>
                     <label>Password</label><br/>
-                    <input type='password' required></input><br/>
-                    <input type='submit' className='submit'></input>
+                    <input type='password' className='login-input'  required></input><br/>
+                    <input type='submit' className='login-submit'></input>
                 </form>
             </div>
+            <b6 className='create-account-question'>Don't Have an Account?</b6>
+            <br></br>
+            <a className='create-account-link' href='/createaccount'>Create one Here</a>
         </div>
     );
 }
