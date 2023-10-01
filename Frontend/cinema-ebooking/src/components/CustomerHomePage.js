@@ -1,11 +1,25 @@
 import './CustomerHomePage.css'
 import NavBar from './NavBar';
+import axios from "axios";
+import { useState, useEffect } from 'react';
 
 function CustomerHomePage(props) {
+
+    useEffect(() => {
+        axios  
+            .get(`http://localhost:8080system/search?title=jaws`)
+            .then((res) => {
+                console.log(res)
+            }).catch((err) => {
+                console.log('Error')
+            })
+    })
 
     return (
         <>
             <NavBar user={props.user} setUser={props.setUser} moviearray={props.moviearray}/>
+
+            <button>TEST BUTTON</button>
 
             <div className='currently-running-title'>
                 Now Playing
