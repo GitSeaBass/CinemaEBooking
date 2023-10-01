@@ -6,8 +6,7 @@ import { useState, useEffect } from 'react';
 function CustomerHomePage(props) {
 
     useEffect(() => {
-        axios  
-            .get(`http://localhost:8080/system/search?title=jaws`)
+        fetch(`http://localhost:8080/system/search?title=jaws`)
             .then((res) => {
                 console.log(res)
             }).catch((err) => {
