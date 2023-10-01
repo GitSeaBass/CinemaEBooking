@@ -7,10 +7,9 @@ function CustomerHomePage(props) {
 
     useEffect(() => {
         fetch(`http://localhost:8080/system/search?title=jaws`)
-            .then((res) => {
-                console.log(res)
-            }).catch((err) => {
-                console.log(err)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
             })
     })
 
