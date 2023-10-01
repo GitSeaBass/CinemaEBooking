@@ -5,6 +5,7 @@ import CustomerHomePage from './components/CustomerHomePage';
 import LoginPage from './components/LoginPage';
 import SearchPage from './components/SearchPage';
 import CreateAccountPage from './components/CreateAccountPage';
+import ConfirmationWindow from './components/ConfirmationWindow';
 
 function App() {
   const moviearray = [
@@ -118,6 +119,7 @@ function App() {
             <Route path="/login" element={<LoginPage user={user} setUser={setUser}/>} />
             <Route path="/search" element={<SearchPage moviearray={moviearray} user={user} setUser={setUser}/>}/>
             <Route path="createaccount" element={<CreateAccountPage setUser={setUser}/>}/>
+            <Route path="/confirmwindow" element={<ConfirmationWindow />}/>
         </Routes>
       </div>
     </Router>
