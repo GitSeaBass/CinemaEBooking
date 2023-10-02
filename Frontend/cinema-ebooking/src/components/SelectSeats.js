@@ -53,8 +53,9 @@ function SelectSeats(props) {
     }
 
     function confirm() {
-        let price = 5 * parseInt(child) + 10 * parseInt(adult) + 7.5 * parseInt(senior)
-        props.setTicketPrice(price)
+        props.setChildTickets(child)
+        props.setAdultTickets(adult)
+        props.setSeniorTickets(senior)
         navigate('/checkout')
     }
 

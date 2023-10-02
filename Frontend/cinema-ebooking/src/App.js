@@ -138,7 +138,12 @@ function App() {
   
   const[user, setUser] = useState('');
 
-  const[ticketPrice, setTicketPrice] = useState(0.00)
+  const[selectedMovie, setSelectedMovie] = useState('');
+  const[selectedDate, setSelectedDate] = useState('');
+  const[selectedTime, setSelectedTime] = useState('');
+  const[childTickets, setChildTickets] = useState(0);
+  const[adultTickets, setAdultTickets] = useState(0);
+  const[seniorTickets, setSeniorTickets] = useState(0);
 
   return (
     <Router>
@@ -146,15 +151,16 @@ function App() {
         <Routes>
             <Route exact path="/" element={<CustomerHomePage user={user} setUser={setUser} moviearray={moviearray}/>} />
             <Route path="/login" element={<LoginPage user={user} setUser={setUser}/>} />
-            <Route path="/search/:id" element={<SearchPage moviearray={moviearray} user={user} setUser={setUser}/>}/>
+            <Route path="/search/:id" element={<SearchPage moviearray={moviearray} user={user} setUser={setUser} setSelectedMovie={setSelectedMovie}/>}/>
             <Route path="createaccount" element={<CreateAccountPage setUser={setUser}/>}/>
             <Route path="/confirmwindow" element={<ConfirmationWindow />}/>
             <Route path="/profile" element={<ViewProfile />}/>
             <Route path="/admin" element={<AdminHomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray}/>}/>
-            <Route path="/showings" element={<SelectShowing />}/>
-            <Route path="/times" element={<SelectTime />}/>
-            <Route path="/seatselect" element={<SelectSeats setTicketPrice={setTicketPrice}/>}/>
-            <Route path="/checkout" element={<Checkout ticketPrice={ticketPrice}/>}/>
+
+            <Route path="/showings" element={<SelectShowing setSelectedDate={setSelectedDate}/>}/>
+            <Route path="/times" element={<SelectTime setSelectedTime={setSelectedTime}/>}/>
+            <Route path="/seatselect" element={<SelectSeats setChildTickets={setChildTickets} setAdultTickets={setAdultTickets} setSeniorTickets={setSeniorTickets}/>}/>
+            <Route path="/checkout" element={<Checkout movie={selectedMovie} date={selectedDate} time={selectedTime} child={childTickets} adult={adultTickets} senior={seniorTickets}/>}/>
             <Route path="/orderconfirm" element={<OrderConfirm />}/>
         </Routes>
       </div>
