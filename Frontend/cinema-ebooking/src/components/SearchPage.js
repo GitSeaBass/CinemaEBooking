@@ -24,7 +24,7 @@ function SearchPage(props) {
         <NavBar user={props.user} setUser={props.setUser}/>
 
         <div className="movie-container">
-
+            {movie[0].title}
         </div>
     </>
     )
