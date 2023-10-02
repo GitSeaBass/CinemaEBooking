@@ -31,8 +31,14 @@ function AddMovies(props) {
     }
 
     function submitMovie() {
-        console.log("Data: " + data);
-        fetch("http://localhost:8080/system/add?title=title&category=category&cast=cast&director=director&producer=producer&synopsis=synopsis&reviews=reviews&poster_url=poster&trailer_url=trailer&mpaa_rating=mpaa&show_date=date&show_time=time", { method: "POST", body: JSON.stringify(data) })
+        console.log("Data: " + data.title);
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({title: 'title'})
+        };
+
+        fetch("http://localhost:8080/system/add", requestOptions)
             .then(res => res.json())
             .then(response => console.log('Success:', JSON.stringify(response)))
             .catch(error => console.error('Error:', error))
