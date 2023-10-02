@@ -1,5 +1,5 @@
 import './AddMovies.css'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 function AddMovies(props) {
     const [title, setTitle] = useState('');
@@ -15,10 +15,14 @@ function AddMovies(props) {
     const [showdate, setShowdate] = useState('');
     const [showtime, setShowtime] = useState('');
 
-    const data = { title, category, cast, director, producer, synopsis, reviews, poster, trailer, mpaa, showdate, showtime }
+    const[data, setData] = useState({ title, category, cast, director, producer, synopsis, reviews, poster, trailer, mpaa, showdate, showtime })
+
+    useEffect(() => {
+        setData({ title, category, cast, director, producer, synopsis, reviews, poster, trailer, mpaa, showdate, showtime })
+    }, [title, category, cast, director, producer, synopsis, reviews, poster, trailer, mpaa, showdate, showtime])
 
     function submitMovie() {
-        console.log(data);
+        console.log("Data: " + data);
         fetch("http://localhost:8080/system/add", { method: "POST", body: JSON.stringify(data) })
             .then(res => res.json())
             .then(response => console.log('Success:', JSON.stringify(response)))
