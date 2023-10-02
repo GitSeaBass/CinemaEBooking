@@ -30,6 +30,9 @@ function LoginPage(props) {
             <h4 className='create-account-question'>Don't Have an Account?</h4>
             <br></br>
             <a className='create-account-link' href='/createaccount'>Create one Here</a>
+            <br></br>
+            <h4 className='create-account-question'>Or Return</h4>
+            <a className='create-account-link' href='/'>Home</a>
         </div>
     );
 }

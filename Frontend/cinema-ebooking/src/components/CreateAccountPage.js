@@ -46,6 +46,9 @@ function CreateAccountPage(props) {
             <h4 className='create-account-question'>Already Have an Account?</h4>
             <br></br>
             <a className='create-account-link' href='/login'>Login Here</a>
+            <br></br>
+            <h4 className='create-account-question'>Or Return</h4>
+            <a className='create-account-link' href='/'>Home</a>
         </div>
     )
 }

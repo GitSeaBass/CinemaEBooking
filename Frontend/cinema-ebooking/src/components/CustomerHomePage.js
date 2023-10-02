@@ -22,7 +22,7 @@ function CustomerHomePage(props) {
 
     return (
         <>
-            <NavBar user={props.user} setUser={props.setUser} moviearray={props.moviearray}/>
+            <NavBar user={props.user} setUser={props.setUser} moviearray={dbmovies}/>
 
             <div className='currently-running-title'>
                 Now Playing

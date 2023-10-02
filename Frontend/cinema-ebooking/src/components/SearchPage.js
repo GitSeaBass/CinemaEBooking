@@ -1,20 +1,32 @@
 import './SearchPage.css'
 import NavBar from './NavBar';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-function searchPage(props) {
-    const sortedmovies = props.moviearray.sort((a, b) => (a.title > b.title) ? 1 : -1)
+function SearchPage(props) {
+    const {id} = useParams();
+
+    const[movie, setMovie] = useState('');
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/system/search?title=${id}`)
+        .then(res => res.json())
+        .then(data => {
+            setMovie(data)
+        }).catch(err => {
+            console.log(err)
+        })
+    })
 
     return(
     <>
         <NavBar user={props.user} setUser={props.setUser}/>
 
         <div className="movie-container">
-            {sortedmovies.map((item) => (
-                <img src={item.poster} alt={item.title} className="poster"/>
-            ))}
+            {movie}
         </div>
     </>
     )
 }
 
-export default searchPage;
+export default SearchPage;
