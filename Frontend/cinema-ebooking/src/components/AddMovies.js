@@ -15,21 +15,24 @@ function AddMovies(props) {
     const [showdate, setShowdate] = useState('showdate');
     const [showtime, setShowtime] = useState('showtime');
 
+    const data = {
+        title: 'testtitle',
+        category: 'category',
+        cast: 'cast',
+        director: 'director',
+        producer: 'producer',
+        synopsis: 'synopsis',
+        reviews: 'reviews',
+        poster_url: 'poster',
+        trailer_url: 'trailer',
+        mpaa_rating: 'mpaa',
+        show_date: 'showdate',
+        show_time: 'showtime'
+    }
+
     const submitMovie = async() => {
-        const data = {
-            title: 'title',
-            category: 'category',
-            cast: 'cast',
-            director: 'director',
-            producer: 'producer',
-            synopsis: 'synopsis',
-            reviews: 'reviews',
-            poster_url: 'poster',
-            trailer_url: 'trailer',
-            mpaa_rating: 'mpaa',
-            show_date: 'showdate',
-            show_time: 'showtime'
-        }
+        console.log(data.title)
+
 
         const requestOptions = {
             method: 'POST',
