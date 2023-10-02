@@ -138,6 +138,8 @@ function App() {
   
   const[user, setUser] = useState('');
 
+  const[ticketPrice, setTicketPrice] = useState(0.00)
+
   return (
     <Router>
       <div>
@@ -151,8 +153,8 @@ function App() {
             <Route path="/admin" element={<AdminHomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray}/>}/>
             <Route path="/showings" element={<SelectShowing />}/>
             <Route path="/times" element={<SelectTime />}/>
-            <Route path="/seatselect" element={<SelectSeats />}/>
-            <Route path="/checkout" element={<Checkout />}/>
+            <Route path="/seatselect" element={<SelectSeats setTicketPrice={setTicketPrice}/>}/>
+            <Route path="/checkout" element={<Checkout ticketPrice={ticketPrice}/>}/>
             <Route path="/orderconfirm" element={<OrderConfirm />}/>
         </Routes>
       </div>

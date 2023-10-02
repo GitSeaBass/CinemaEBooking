@@ -1,33 +1,84 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-function SelectSeats() {
+function SelectSeats(props) {
     const navigate = useNavigate();
     
-    const seats = ['A1', 'A2', 'A3', 'A4', 'B1', 'B2', 'B3', 'B4', 'C1', 'C2', 'C3', 'C4']
+    const seats = [
+        {
+            seat: '1',
+            status: 'open'
+        },
+        {
+            seat: '2',
+            status: 'open'
+        },
+        {
+            seat: '3',
+            status: 'open'
+        },
+        {
+            seat: '4',
+            status: 'open'
+        },
+        {
+            seat: '5',
+            status: 'taken'
+        },
+        {
+            seat: '6',
+            status: 'open'
+        },
+        {
+            seat: '7',
+            status: 'open'
+        },
+        {
+            seat: '8',
+            status: 'open'
+        },
+    ]
     
-    const[number, setNumber] = useState(0);
-    const addNumber = (e) => {
-        setNumber(e.target.value)
+    const[child, setChild] = useState(0);
+    const addChild = e => {
+        setChild(e.target.value)
+    }
+    const[adult, setAdult] = useState(0);
+    const addAdult = e => {
+        setAdult(e.target.value)
+    }
+    const[senior, setSenior] = useState(0);
+    const addSenior = e => {
+        setSenior(e.target.value)
     }
 
     function confirm() {
+        let price = 5 * parseInt(child) + 10 * parseInt(adult) + 7.5 * parseInt(senior)
+        props.setTicketPrice(price)
         navigate('/checkout')
     }
 
     return (
         
         <div>
+            <h1>Select Seats</h1>
             <form>
-                <label>Number of Seats: </label>
-                <input type="number" min="1" max="10" onChange={addNumber}></input>
+                <label>Child($5.00): </label>
+                <input type="number" min="0" max="3" onChange={addChild}></input>
+                <br></br>
+                <label>Adult($10.00): </label>
+                <input type="number" min="0" max="3" onChange={addAdult}></input>
+                <br></br>
+                <label>Senior($7.50): </label>
+                <input type="number" min="0" max="3" onChange={addSenior}></input>
             </form>
 
+            <h3>Seats:</h3>
             {seats.map((item) => (
-                <button>{item}</button>
+                item.status === 'open' ? <button>{item.seat}</button>:<button disabled>{item.seat}</button> 
             ))}
             <br></br>
-            <button onClick={confirm}>CONFIRM SELECTION</button>
+            <button onClick={confirm}>Confirm Selection of Tickets</button>
         </div>
     )
 }
