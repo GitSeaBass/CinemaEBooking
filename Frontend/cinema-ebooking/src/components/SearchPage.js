@@ -13,6 +13,7 @@ function SearchPage(props) {
         .then(res => res.json())
         .then(data => {
             setMovie(data)
+            console.log(movie)
         }).catch(err => {
             console.log(err)
         })
@@ -23,7 +24,7 @@ function SearchPage(props) {
         <NavBar user={props.user} setUser={props.setUser}/>
 
         <div className="movie-container">
-            {movie}
+
         </div>
     </>
     )
