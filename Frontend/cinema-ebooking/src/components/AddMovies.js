@@ -16,18 +16,18 @@ function AddMovies(props) {
     const [showtime, setShowtime] = useState('showtime');
 
     const data = {
-         "title": title,
-         "category": category,
-         "cast": cast,
-         "director": director,
-         "producer": producer,
-         "synopsis": synopsis,
-         "reviews": reviews,
-         "poster_url": poster,
-         "trailer_url": trailer,
-         "mpaa_rating": mpaa,
-         "show_date": showdate,
-         "show_time": showtime
+         title: 'title',
+         category: 'category',
+         cast: 'cast',
+         director: 'director',
+         producer: 'producer',
+         synopsis: 'synopsis',
+         reviews: 'reviews',
+         poster_url: 'poster',
+         trailer_url: 'trailer',
+         mpaa_ratinh: 'mpaa',
+         show_date: 'showdate',
+         show_time: 'showtime'
     }
 
     function submitMovie() {
