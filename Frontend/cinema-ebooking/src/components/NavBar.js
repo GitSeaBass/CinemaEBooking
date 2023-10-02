@@ -28,7 +28,7 @@ function NavBar(props) {
 
     return (
         <div className='navbar'>
-            <b1 className='titlelogo' onClick={goHome}>Cinema E-Booking A8</b1>
+            <h1 className='titlelogo' onClick={goHome}>Cinema E-Booking A8</h1>
             <form className='search-form' onSubmit={onClick}>
                 <input type='string' onChange={addSearch}></input>
                 <input className='search-button' value="Search" type='submit'></input>
@@ -39,7 +39,7 @@ function NavBar(props) {
                     <button className='login-button' onClick={loggingIn}>Login</button>
                 </div> :
                 <div className='right-navbar'>
-                    <d3 className='navbar-email'>{props.user}</d3>
+                    <h3 className='navbar-email'>{props.user}</h3>
                     <button onClick={loggingOut}>Logout</button>
                 </div>}
         </div>
