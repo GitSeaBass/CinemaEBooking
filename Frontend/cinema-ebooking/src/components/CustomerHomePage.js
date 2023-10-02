@@ -9,11 +9,19 @@ function CustomerHomePage(props) {
         setTesttitle(e)
     }
 
+    const[dbmovies, setDbMovies] = useState([])
+    const addDbMovies = (e) => {
+        setDbMovies(e)
+    }
+
     useEffect(() => {
-        fetch(`http://localhost:8080/system/search?title=jaws`)
+        fetch(`http://localhost:8080/system/all`)
             .then(res => res.json())
             .then(data => {
-                addTesttitle(data[0].title)
+                addDbMovies(data)
+                console.log(dbmovies)
+            }).catch(err => {
+                console.log(err)
             })
     })
 
@@ -21,7 +29,6 @@ function CustomerHomePage(props) {
         <>
             <NavBar user={props.user} setUser={props.setUser} moviearray={props.moviearray}/>
 
-            <button>TEST BUTTON</button>
             <div>{testtitle}</div>
 
             <div className='currently-running-title'>
