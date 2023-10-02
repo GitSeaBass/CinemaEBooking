@@ -38,7 +38,7 @@ function SearchPage(props) {
         </div>
         <img src={poster} alt={movie}/>
         <iframe src={trailer} title={movie}/>
-        <button onClick={book}>BOOK TICKETS</button>
+        <button onClick={book}>BOOK MOVIE</button>
     </>
     )
 }
