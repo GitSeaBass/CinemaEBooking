@@ -15,10 +15,36 @@ function AddMovies(props) {
     const [showdate, setShowdate] = useState('');
     const [showtime, setShowtime] = useState('');
 
-    const[data, setData] = useState({ title, category, cast, director, producer, synopsis, reviews, poster, trailer, mpaa, showdate, showtime })
+    const[data, setData] = useState({
+         'title': title,
+         'category': category,
+         'cast': cast,
+         'director': director,
+         'producer': producer,
+         'synopsis': synopsis,
+         'reviews': reviews,
+         'poster': poster,
+         'trailer': trailer,
+         'mpaa': mpaa,
+         'showdate': showdate,
+         'showtime': showtime
+    })
 
     useEffect(() => {
-        setData({ title, category, cast, director, producer, synopsis, reviews, poster, trailer, mpaa, showdate, showtime })
+        setData({
+            'title': title,
+            'category': category,
+            'cast': cast,
+            'director': director,
+            'producer': producer,
+            'synopsis': synopsis,
+            'reviews': reviews,
+            'poster': poster,
+            'trailer': trailer,
+            'mpaa': mpaa,
+            'showdate': showdate,
+            'showtime': showtime
+       })
     }, [title, category, cast, director, producer, synopsis, reviews, poster, trailer, mpaa, showdate, showtime])
 
     function submitMovie() {
