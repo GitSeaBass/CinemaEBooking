@@ -39,7 +39,7 @@ function AdminHomePage(props) {
                 <button className='admin-button' onClick={promoclick}>Manage Promotions</button>
             </div>
 
-            <AddMovies moviearray={props.moviearray}></AddMovies>
+            <AddMovies moviearray={props.moviearray} />
             <ManageMovies moviearray={props.moviearray} />
             <ManageUsers userarray={props.userarray} />
             <ManagePromotions promoarray={props.promoarray} />
