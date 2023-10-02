@@ -1,9 +1,10 @@
 import './SearchPage.css'
 import NavBar from './NavBar';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 function SearchPage(props) {
+    const navigate = useNavigate();
     const {id} = useParams();
 
     const[movie, setMovie] = useState([]);
@@ -23,6 +24,10 @@ function SearchPage(props) {
         })
     }, [])
 
+    function book() {
+        navigate('/showings')
+    }
+
     return(
     <>
         <NavBar user={props.user} setUser={props.setUser}/>
@@ -32,6 +37,7 @@ function SearchPage(props) {
         </div>
         <img src={poster} alt={movie}/>
         <iframe src={trailer} title={movie}/>
+        <button onClick={book}>BOOK TICKETS</button>
     </>
     )
 }

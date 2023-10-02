@@ -8,6 +8,11 @@ import CreateAccountPage from './components/CreateAccountPage';
 import ConfirmationWindow from './components/ConfirmationWindow';
 import ViewProfile from './components/ViewProfile';
 import AdminHomePage from './components/AdminHomePage';
+import SelectShowing from './components/SelectShowing';
+import SelectTime from './components/SelectTime';
+import SelectSeats from './components/SelectSeats';
+import OrderConfirm from './components/OrderConfirm';
+import Checkout from './components/Checkout';
 
 function App() {
   const moviearray = [
@@ -144,6 +149,11 @@ function App() {
             <Route path="/confirmwindow" element={<ConfirmationWindow />}/>
             <Route path="/profile" element={<ViewProfile />}/>
             <Route path="/admin" element={<AdminHomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray}/>}/>
+            <Route path="/showings" element={<SelectShowing />}/>
+            <Route path="/times" element={<SelectTime />}/>
+            <Route path="/seatselect" element={<SelectSeats />}/>
+            <Route path="/checkout" element={<Checkout />}/>
+            <Route path="/orderconfirm" element={<OrderConfirm />}/>
         </Routes>
       </div>
     </Router>
