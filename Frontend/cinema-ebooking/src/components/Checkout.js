@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 function Checkout(props) {
     const navigate = useNavigate();
-    
+
     function clickCheckout() {
         navigate('/orderconfirm')
     }
@@ -13,11 +13,11 @@ function Checkout(props) {
         navigate('/')
     }
 
-    const[child, setChild] = useState(props.child)
-    const[adult, setAdult] = useState(props.adult)
-    const[senior, setSenior] = useState(props.senior)
+    const [child, setChild] = useState(props.child)
+    const [adult, setAdult] = useState(props.adult)
+    const [senior, setSenior] = useState(props.senior)
 
-    const[total, setTotal] = useState(5 * parseInt(child) + 10 * parseInt(adult) + 7.5 * parseInt(senior))
+    const [total, setTotal] = useState(5 * parseInt(child) + 10 * parseInt(adult) + 7.5 * parseInt(senior))
 
     function removeChild() {
         let num = parseInt(child) - 1
