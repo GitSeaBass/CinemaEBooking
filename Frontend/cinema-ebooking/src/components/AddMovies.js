@@ -15,36 +15,35 @@ function AddMovies(props) {
     const [showdate, setShowdate] = useState('showdate');
     const [showtime, setShowtime] = useState('showtime');
 
-    const data = {
-        "title": 'testtitle',
-        "category": 'category',
-        "cast": 'cast',
-        "director": 'director',
-        "producer": 'producer',
-        "synopsis": 'synopsis',
-        "reviews": 'reviews',
-        "poster_url": 'poster',
-        "trailer_url": 'trailer',
-        "mpaa_rating": 'mpaa',
-        "show_date": 'showdate',
-        "show_time": 'showtime'
-    }
+    const [data, setData] = useState({
+        'title': title,
+        'category': category,
+        'cast': cast,
+        'director': director,
+        'producer': producer,
+        'synopsis': synopsis,
+        'reviews': reviews,
+        'poster_url': poster,
+        'trailer_url': trailer,
+        'mpaa_rating': mpaa,
+        'show_date': showdate,
+        'show_time': showtime
+    })
 
-    const submitMovie = async() => {
-        console.log(data.title)
-
+    const submitMovie = async () => {
+        setData();
 
         const requestOptions = {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json' 
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         };
 
         const result = await fetch("http://localhost:8080/system/add", requestOptions)
-            
+
         const resultinJSON = await result.json();
         console.log(resultinJSON)
     }
