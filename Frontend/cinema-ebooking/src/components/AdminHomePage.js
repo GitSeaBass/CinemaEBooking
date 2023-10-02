@@ -39,10 +39,18 @@ function AdminHomePage(props) {
                 <button className='admin-button' onClick={promoclick}>Manage Promotions</button>
             </div>
 
-            <AddMovies moviearray={props.moviearray} />
-            <ManageMovies moviearray={props.moviearray} />
-            <ManageUsers userarray={props.userarray} />
-            <ManagePromotions promoarray={props.promoarray} />
+            {option === 1 && 
+                <AddMovies moviearray={props.moviearray} />
+            }
+            {option === 2 && 
+                <ManageMovies moviearray={props.moviearray} />
+            }
+            {option === 3 && 
+                <ManageUsers userarray={props.userarray} />
+            }
+            {option === 4 && 
+                <ManagePromotions promoarray={props.promoarray} />
+            }            
         </>
     )
 }
