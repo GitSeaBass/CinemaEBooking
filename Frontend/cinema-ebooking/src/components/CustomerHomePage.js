@@ -1,6 +1,5 @@
 import './CustomerHomePage.css'
 import NavBar from './NavBar';
-import axios from "axios";
 import { useState, useEffect } from 'react';
 
 function CustomerHomePage(props) {

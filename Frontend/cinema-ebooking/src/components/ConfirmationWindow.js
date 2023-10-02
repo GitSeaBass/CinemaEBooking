@@ -10,9 +10,9 @@ function ConfirmationWindow() {
 
     return (
         <div className="confirm-window">
-            <b2>You're Account Has Been Created!</b2>
+            <h2>You're Account Has Been Created!</h2>
             <br></br>
-            <b2>An Email Confirmation has been sent to you're email</b2>
+            <h2>An Email Confirmation has been sent to you're email</h2>
             <br></br>
                 <button className='' onClick={goHome}>Return To Home Page</button>
         </div>

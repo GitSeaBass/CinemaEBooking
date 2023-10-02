@@ -1,0 +1,12 @@
+.options {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px 0;
+}
+
+.admin-button {
+    width: 200px;
+    height: 100px;
+    font-weight: bold;
+    font-size: 2em;
+}

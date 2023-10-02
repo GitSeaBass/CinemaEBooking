@@ -6,6 +6,8 @@ import LoginPage from './components/LoginPage';
 import SearchPage from './components/SearchPage';
 import CreateAccountPage from './components/CreateAccountPage';
 import ConfirmationWindow from './components/ConfirmationWindow';
+import ViewProfile from './components/ViewProfile';
+import AdminHomePage from './components/AdminHomePage';
 
 function App() {
   const moviearray = [
@@ -108,6 +110,26 @@ function App() {
         trailer: 'https://www.youtube.com/embed/LdOM0x0XDMo'
     },
   ];
+
+  const userarray = [
+    {
+        email: 'admin'
+    },
+    {
+        email: 'user1'
+    }
+  ];
+
+  const promoarray = [
+    {
+        code: 'movie',
+        percent: 10
+    },
+    {
+        code: 'bigscreen',
+        percent: 20
+    }
+  ];
   
   const[user, setUser] = useState('');
 
@@ -120,6 +142,8 @@ function App() {
             <Route path="/search" element={<SearchPage moviearray={moviearray} user={user} setUser={setUser}/>}/>
             <Route path="createaccount" element={<CreateAccountPage setUser={setUser}/>}/>
             <Route path="/confirmwindow" element={<ConfirmationWindow />}/>
+            <Route path="/profile" element={<ViewProfile />}/>
+            <Route path="/admin" element={<AdminHomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray}/>}/>
         </Routes>
       </div>
     </Router>

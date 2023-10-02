@@ -43,7 +43,7 @@ function CreateAccountPage(props) {
                     <input type='submit' className='create-submit'></input>
                 </form>
             </div>
-            <b6 className='create-account-question'>Already Have an Account?</b6>
+            <h4 className='create-account-question'>Already Have an Account?</h4>
             <br></br>
             <a className='create-account-link' href='/login'>Login Here</a>
         </div>

@@ -27,7 +27,7 @@ function LoginPage(props) {
                     <input type='submit' className='login-submit'></input>
                 </form>
             </div>
-            <b6 className='create-account-question'>Don't Have an Account?</b6>
+            <h4 className='create-account-question'>Don't Have an Account?</h4>
             <br></br>
             <a className='create-account-link' href='/createaccount'>Create one Here</a>
         </div>
