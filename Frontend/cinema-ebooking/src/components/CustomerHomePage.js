@@ -18,7 +18,7 @@ function CustomerHomePage(props) {
             }).catch(err => {
                 console.log(err)
             })
-    })
+    }, [])
 
     return (
         <>
