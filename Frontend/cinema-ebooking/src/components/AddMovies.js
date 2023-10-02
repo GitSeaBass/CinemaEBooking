@@ -1,5 +1,5 @@
 import './AddMovies.css'
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 
 function AddMovies(props) {
     const [title, setTitle] = useState('title');
@@ -15,20 +15,20 @@ function AddMovies(props) {
     const [showdate, setShowdate] = useState('showdate');
     const [showtime, setShowtime] = useState('showtime');
 
-    const[data, setData] = useState({
-         'title': title,
-         'category': category,
-         'cast': cast,
-         'director': director,
-         'producer': producer,
-         'synopsis': synopsis,
-         'reviews': reviews,
-         'poster_url': poster,
-         'trailer_url': trailer,
-         'mpaa-rating': mpaa,
-         'show_date': showdate,
-         'show_time': showtime
-    })
+    const data = {
+         "title": title,
+         "category": category,
+         "cast": cast,
+         "director": director,
+         "producer": producer,
+         "synopsis": synopsis,
+         "reviews": reviews,
+         "poster_url": poster,
+         "trailer_url": trailer,
+         "mpaa_rating": mpaa,
+         "show_date": showdate,
+         "show_time": showtime
+    }
 
     function submitMovie() {
         console.log("Data: " + data);
