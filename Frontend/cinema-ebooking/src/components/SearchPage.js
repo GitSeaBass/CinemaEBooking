@@ -18,6 +18,7 @@ function SearchPage(props) {
             setMovie(data[0].title)
             setPoster(data[0].poster_url)
             setTrailer(data[0].trailer_url)
+            props.setSelectedMovie(data[0].title)
             console.log(movie)
         }).catch(err => {
             console.log(err)
