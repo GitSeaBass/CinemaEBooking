@@ -7,18 +7,66 @@ function AddMovies(props) {
             {<div className='form'>
                 <h3>Enter Information</h3>
                 <form>
-                    <label className='addInput'>Title:
-                        <input type='text'></input>
-                    </label>
-                    <label className='addInput'>Poster:
-                        <input type='text' placeholder='https://'></input>
-                    </label>
-                    <label className='addInput'>Rating:
-                        <input className='addInput' type='number' min='0' max='10' step='0.1'></input>
-                    </label>
-                    <label className='addInput'>Trailer:
-                        <input className='addInput' type='text' placeholder='https://'></input>
-                    </label>
+                    <div>
+                        <label className='addInput'>Title:
+                            <input className='addInput' type='text'></input>
+                        </label>
+                    </div>
+                    <div>
+                        <label className='addInput'>Category:
+                            <input className='addInput' type='text'></input>
+                        </label>
+                    </div>
+                    <div>
+                        <label className='addInput'>Cast:
+                            <input className='addInput' type='text'></input>
+                        </label>
+                    </div>
+                    <div>
+                        <label className='addInput'>Director:
+                            <input className='addInput' type='text'></input>
+                        </label>
+                    </div>
+                    <div>
+                        <label className='addInput'>Producer:
+                            <input className='addInput' type='text'></input>
+                        </label>
+                    </div>
+                    <div>
+                        <label className='addInput'>Synopsis:
+                            <input className='addInput' type='text'></input>
+                        </label>
+                    </div>
+                    <div>
+                        <label className='addInput'>Reviews:
+                            <input className='addInput' type='text'></input>
+                        </label>
+                    </div>
+                    <div>
+                        <label className='addInput'>Poster:
+                            <input className='addInput' type='text' placeholder='https://'></input>
+                        </label>
+                    </div>
+                    <div>
+                        <label className='addInput'>Trailer:
+                            <input className='addInput' type='text' placeholder='https://'></input>
+                        </label>
+                    </div>
+                    <div>
+                        <label className='addInput'>MPAA rating:
+                            <input className='addInput' type='text'></input>
+                        </label>
+                    </div>
+                    <div>
+                        <label className='addInput'>Show date:
+                            <input className='addInput' type='text'></input>
+                        </label>
+                    </div>
+                    <div>
+                        <label className='addInput'>Show time:
+                            <input className='addInput' type='text'></input>
+                        </label>
+                    </div>
                 </form>
                 <button type="submit" id="signup">Add</button>
             </div>}
