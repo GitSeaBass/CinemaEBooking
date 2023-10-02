@@ -20,8 +20,8 @@ public class MainController {
                                             @RequestParam String cast, @RequestParam String director,
                                             @RequestParam String producer, @RequestParam String synopsis,
                                             @RequestParam String reviews, @RequestParam String poster_url,
-                                            @RequestParam String trailer_url, @RequestParam String mpaa_rating,
-                                            @RequestParam Date date, @RequestParam LocalTime time) {
+                                            @RequestParam String trailer_url, @RequestParam String mpaa_rating
+                                            /*@RequestParam Date date, @RequestParam LocalTime time*/) {
         Movies movie = new Movies();
         //movie.setId(1);
         movie.setTitle(title);
@@ -34,8 +34,8 @@ public class MainController {
         movie.setPoster_url(poster_url);
         movie.setTrailer_url(trailer_url);
         movie.setMpaa_rating(mpaa_rating);
-        movie.setShow_date(date);
-        movie.setShow_time(time);
+        //movie.setShow_date(date);
+        //movie.setShow_time(time);
 
         movieRepository.save(movie);
         return "Saved";
