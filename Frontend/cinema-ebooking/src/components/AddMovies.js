@@ -2,18 +2,18 @@ import './AddMovies.css'
 import { useState,useEffect } from 'react';
 
 function AddMovies(props) {
-    const [title, setTitle] = useState('');
-    const [category, setCategory] = useState('');
-    const [cast, setCast] = useState('');
-    const [director, setDirector] = useState('');
-    const [producer, setProducer] = useState('');
-    const [synopsis, setSynopsis] = useState('');
-    const [reviews, setReviews] = useState('');
-    const [poster, setPoster] = useState('');
-    const [trailer, setTrailer] = useState('');
-    const [mpaa, setMpaa] = useState('');
-    const [showdate, setShowdate] = useState('');
-    const [showtime, setShowtime] = useState('');
+    const [title, setTitle] = useState('title');
+    const [category, setCategory] = useState('category');
+    const [cast, setCast] = useState('cast');
+    const [director, setDirector] = useState('director');
+    const [producer, setProducer] = useState('producer');
+    const [synopsis, setSynopsis] = useState('synopsis');
+    const [reviews, setReviews] = useState('review');
+    const [poster, setPoster] = useState('poster');
+    const [trailer, setTrailer] = useState('trailer');
+    const [mpaa, setMpaa] = useState('mpaa');
+    const [showdate, setShowdate] = useState('showdate');
+    const [showtime, setShowtime] = useState('showtime');
 
     const[data, setData] = useState({
          'title': title,
@@ -23,29 +23,12 @@ function AddMovies(props) {
          'producer': producer,
          'synopsis': synopsis,
          'reviews': reviews,
-         'poster': poster,
-         'trailer': trailer,
-         'mpaa': mpaa,
-         'showdate': showdate,
-         'showtime': showtime
+         'poster_url': poster,
+         'trailer_url': trailer,
+         'mpaa-rating': mpaa,
+         'show_date': showdate,
+         'show_time': showtime
     })
-
-    useEffect(() => {
-        setData({
-            'title': title,
-            'category': category,
-            'cast': cast,
-            'director': director,
-            'producer': producer,
-            'synopsis': synopsis,
-            'reviews': reviews,
-            'poster': poster,
-            'trailer': trailer,
-            'mpaa': mpaa,
-            'showdate': showdate,
-            'showtime': showtime
-       })
-    }, [title, category, cast, director, producer, synopsis, reviews, poster, trailer, mpaa, showdate, showtime])
 
     function submitMovie() {
         console.log("Data: " + data);
