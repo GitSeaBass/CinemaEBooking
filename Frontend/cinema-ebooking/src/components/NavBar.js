@@ -22,10 +22,6 @@ function NavBar(props) {
         props.setUser('');
     }
 
-    function viewMovies() {
-        navigate('/search')
-    }
-
     const onClick = () => {
         navigate(`/search/${search}`)
     }
@@ -35,7 +31,7 @@ function NavBar(props) {
             <b1 className='titlelogo' onClick={goHome}>Cinema E-Booking A8</b1>
             <form className='search-form' onSubmit={onClick}>
                 <input type='string' onChange={addSearch}></input>
-                <input className='search-button' type='submit'></input>
+                <input className='search-button' value="Search" type='submit'></input>
             </form>
 
             {props.user.length === 0 ?

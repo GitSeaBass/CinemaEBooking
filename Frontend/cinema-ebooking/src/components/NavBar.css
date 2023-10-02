@@ -28,6 +28,13 @@
     background-color: #cccccc;
 
     cursor: pointer;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+
+.search-button:hover {
+    background-color: rgb(149, 146, 146);
+    transition: 0.2s;
 }
 
 .login-button {
