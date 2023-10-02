@@ -31,7 +31,6 @@ function AddMovies(props) {
     }
 
     const submitMovie = async () => {
-        setData();
 
         const requestOptions = {
             method: 'POST',
