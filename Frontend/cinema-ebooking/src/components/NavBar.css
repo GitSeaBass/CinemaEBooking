@@ -20,8 +20,18 @@
     display: flex;
 }
 
+.search-button {
+    border: none;
+    border-top: 1px solid #797979;
+    border-right: 1px solid #818181;
+
+    background-color: #cccccc;
+
+    cursor: pointer;
+}
+
 .login-button {
-    width:100px;
+    width: 100px;
     border-radius: 10px;
     transition: 1s;
     font-size: larger;
@@ -39,11 +49,12 @@
     justify-content: space-between;
 }
 
-.right-navbar > button{
+.right-navbar>button {
     height: 100%;
     margin-left: 10%;
     width: 100px;
     border-radius: 20%;
+    cursor: pointer;
 }
 
 .navbar-email {

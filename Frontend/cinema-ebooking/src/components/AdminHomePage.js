@@ -14,7 +14,7 @@ function AdminHomePage(props) {
     }
 
     function addclick() {
-        setOption(1)
+        setOption(1);
     }
 
     function movieclick() {
