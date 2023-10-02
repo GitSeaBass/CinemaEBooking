@@ -13,15 +13,15 @@
     text-align: left;
 }
 
-.addInput {
+.add-input {
     display: block;
 }
 
-label.addInput {
+label.add-input {
     margin-top: 0.5rem;
 }
 
-input.addInput {
+input.add-input {
     width: 100%;
 }
 
