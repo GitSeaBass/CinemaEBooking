@@ -157,9 +157,9 @@ function App() {
             <Route path="/profile" element={<ViewProfile />}/>
             <Route path="/admin" element={<AdminHomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray}/>}/>
 
-            <Route path="/showings" element={<SelectShowing setSelectedDate={setSelectedDate}/>}/>
-            <Route path="/times" element={<SelectTime setSelectedTime={setSelectedTime}/>}/>
-            <Route path="/seatselect" element={<SelectSeats setChildTickets={setChildTickets} setAdultTickets={setAdultTickets} setSeniorTickets={setSeniorTickets}/>}/>
+            <Route path="/showings" element={<SelectShowing setSelectedDate={setSelectedDate} user={user} setUser={setUser}/>}/>
+            <Route path="/times" element={<SelectTime setSelectedTime={setSelectedTime} user={user} setUser={setUser}/>}/>
+            <Route path="/seatselect" element={<SelectSeats setChildTickets={setChildTickets} setAdultTickets={setAdultTickets} setSeniorTickets={setSeniorTickets} user={user} setUser={setUser}/>}/>
             <Route path="/checkout" element={<Checkout movie={selectedMovie} date={selectedDate} time={selectedTime} child={childTickets} adult={adultTickets} senior={seniorTickets}/>}/>
             <Route path="/orderconfirm" element={<OrderConfirm />}/>
         </Routes>

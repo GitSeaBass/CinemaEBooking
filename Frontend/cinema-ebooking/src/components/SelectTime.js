@@ -1,5 +1,6 @@
 import './SelectTime.css'
 import { useNavigate } from "react-router-dom";
+import NavBar from './NavBar';
 
 function SelectTime(props) {
     const navigate = useNavigate();
@@ -15,7 +16,8 @@ function SelectTime(props) {
     }
 
     return (
-        
+        <>
+        <NavBar user={props.user} setUser={props.setUser}/>
         <div className='timecontainer'>
             <h3 className='timetitle'>Select A Time</h3>
             {times.map((item) => (
@@ -24,6 +26,7 @@ function SelectTime(props) {
             <br/>
             <button className='confirmbutton' onClick={confirm}>Confirm</button>
         </div>
+        </>
     )
 }
 

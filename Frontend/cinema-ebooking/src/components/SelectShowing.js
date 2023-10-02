@@ -1,5 +1,6 @@
 import './SelectShowing.css'
 import { useNavigate } from "react-router-dom";
+import NavBar from './NavBar';
 
 function SelectShowing(props) {
     const navigate = useNavigate();
@@ -15,7 +16,8 @@ function SelectShowing(props) {
     }
 
     return (
-        
+        <>
+        <NavBar user={props.user} setUser={props.setUser}/>
         <div className='showingcontainer'>
             <h3 className='showingtitle'>Select A Date</h3>
             {dates.map((item) => (
@@ -24,6 +26,7 @@ function SelectShowing(props) {
             <br/>
             <button className='confirmbutton' onClick={confirmDate}>Confirm</button>
         </div>
+        </>
     )
 }
 

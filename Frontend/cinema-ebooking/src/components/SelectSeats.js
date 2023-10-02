@@ -1,6 +1,7 @@
 import './SelectSeats.css'
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import NavBar from './NavBar';
 
 function SelectSeats(props) {
     const navigate = useNavigate();
@@ -61,7 +62,8 @@ function SelectSeats(props) {
     }
 
     return (
-        
+        <>
+        <NavBar user={props.user} setUser={props.setUser}/>
         <div className='seatcontainer'>
             <h1 className="seattitle">Select Number of Tickets</h1>
             <form className="seatform">
@@ -84,6 +86,7 @@ function SelectSeats(props) {
             <br></br>
             <button className="confirmbutton" onClick={confirm}>Confirm Selection</button>
         </div>
+        </>
     )
 }
 
