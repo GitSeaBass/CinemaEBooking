@@ -25,14 +25,14 @@ function AddMovies(props) {
          reviews: 'reviews',
          poster_url: 'poster',
          trailer_url: 'trailer',
-         mpaa_ratinh: 'mpaa',
+         mpaa_rating: 'mpaa',
          show_date: 'showdate',
          show_time: 'showtime'
     }
 
     function submitMovie() {
         console.log("Data: " + data);
-        fetch("http://localhost:8080/system/add", { method: "POST", body: JSON.stringify(data) })
+        fetch("http://localhost:8080/system/add?title=title&category=category&cast=cast&director=director&producer=producer&synopsis=synopsis&reviews=reviews&poster_url=poster&trailer_url=trailer&mpaa_rating=mpaa&show_date=date&show_time=time", { method: "POST", body: JSON.stringify(data) })
             .then(res => res.json())
             .then(response => console.log('Success:', JSON.stringify(response)))
             .catch(error => console.error('Error:', error))
