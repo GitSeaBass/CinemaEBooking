@@ -36,15 +36,15 @@ function CustomerHomePage(props) {
             </div>
 
             <div className='movie-display'>
-                {props.moviearray.filter((item) => item.status === 'now').map((item) => (
+                {dbmovies.map((item) => (
                     <div className='movie-card'>
                         <div className='left-movie'>
-                            <img src={item.poster} alt={item.title} className='poster'/>
+                            <img src={item.poster_url} alt={item.title} className='poster'/>
                             <div>{item.title}</div>
-                            <div>⭐{item.rating}/10</div>
+                            <div>⭐{item.mpaa_rating}/10</div>
                         </div>
                         <div className='right-movie'>
-                            <iframe src={item.trailer} title={item.title} className="trailer"/>
+                            <iframe src={item.trailer_url} title={item.title} className="trailer"/>
                         </div>      
                     </div>
                 ))}
