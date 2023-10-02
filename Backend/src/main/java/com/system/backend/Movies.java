@@ -25,8 +25,8 @@ public class Movies {
     private String poster_url;
     private String trailer_url;
     private String mpaa_rating;
-    private Date show_date;
-    private LocalTime show_time;
+    private String show_date;
+    private String show_time;
 
     /*public Integer getId() {
         return id;
@@ -116,19 +116,19 @@ public class Movies {
         this.mpaa_rating = mpaa_rating;
     }
 
-    public Date getShow_date() {
+    public String getShow_date() {
         return show_date;
     }
 
-    public void setShow_date(Date show_date) {
+    public void setShow_date(String show_date) {
         this.show_date = show_date;
     }
 
-    public LocalTime getShow_time() {
+    public String getShow_time() {
         return show_time;
     }
 
-    public void setShow_time(LocalTime show_time) {
+    public void setShow_time(String show_time) {
         this.show_time = show_time;
     }
 } // Movie
