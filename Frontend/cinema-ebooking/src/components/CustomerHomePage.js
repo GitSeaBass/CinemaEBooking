@@ -29,7 +29,7 @@ function CustomerHomePage(props) {
             </div>
 
             <div className='movie-display'>
-                {dbmovies.filter((item) => item.category === 'now airing').map((item) => (
+                {dbmovies.filter((item) => item.category === 'Now Showing').map((item) => (
                     <div className='movie-card'>
                         <div className='left-movie'>
                             <img src={item.poster_url} alt={item.title} className='poster'/>
@@ -48,7 +48,7 @@ function CustomerHomePage(props) {
             </div>
 
             <div className='movie-display'>
-                {dbmovies.filter((item) => item.category === 'coming soon').map((item) => (
+                {dbmovies.filter((item) => item.category === 'Coming Soon').map((item) => (
                     <div className='movie-card'>
                         <div className='left-movie'>
                             <img src={item.poster_url} alt={item.title} className='poster'/>
