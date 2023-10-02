@@ -6,13 +6,13 @@ import { useEffect, useState } from 'react';
 function SearchPage(props) {
     const {id} = useParams();
 
-    const[movie, setMovie] = useState('');
+    const[movie, setMovie] = useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:8080/system/search?title=${id}`)
         .then(res => res.json())
         .then(data => {
-            setMovie(data)
+            setMovie(data[0].title)
             console.log(movie)
         }).catch(err => {
             console.log(err)
@@ -24,7 +24,7 @@ function SearchPage(props) {
         <NavBar user={props.user} setUser={props.setUser}/>
 
         <div className="movie-container">
-            {movie[0].title}
+            {movie}
         </div>
     </>
     )
