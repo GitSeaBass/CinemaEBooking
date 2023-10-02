@@ -4,11 +4,6 @@ import { useState, useEffect } from 'react';
 
 function CustomerHomePage(props) {
 
-    const[testtitle, setTesttitle] = useState('TEST')
-    const addTesttitle = (e) => {
-        setTesttitle(e)
-    }
-
     const[dbmovies, setDbMovies] = useState([])
     const addDbMovies = (e) => {
         setDbMovies(e)
@@ -29,14 +24,12 @@ function CustomerHomePage(props) {
         <>
             <NavBar user={props.user} setUser={props.setUser} moviearray={props.moviearray}/>
 
-            <div>{testtitle}</div>
-
             <div className='currently-running-title'>
                 Now Playing
             </div>
 
             <div className='movie-display'>
-                {dbmovies.map((item) => (
+                {dbmovies.filter((item) => item.category === 'now airing').map((item) => (
                     <div className='movie-card'>
                         <div className='left-movie'>
                             <img src={item.poster_url} alt={item.title} className='poster'/>
@@ -55,15 +48,15 @@ function CustomerHomePage(props) {
             </div>
 
             <div className='movie-display'>
-                {props.moviearray.filter((item) => item.status === 'soon').map((item) => (
+                {dbmovies.filter((item) => item.category === 'coming soon').map((item) => (
                     <div className='movie-card'>
                         <div className='left-movie'>
-                            <img src={item.poster} alt={item.title} className='poster'/>
+                            <img src={item.poster_url} alt={item.title} className='poster'/>
                             <div>{item.title}</div>
-                            <div>⭐{item.rating}/10</div>
+                            <div>{item.mpaa_rating}</div>
                         </div>
                         <div className='right-movie'>
-                            <iframe src={item.trailer} title={item.title} className="trailer"/>
+                            <iframe src={item.trailer_url} title={item.title} className="trailer"/>
                         </div> 
                     </div>
                 ))}
