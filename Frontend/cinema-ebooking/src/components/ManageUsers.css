@@ -1,0 +1,32 @@
+.user-row {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    padding: 20px;
+}
+
+.buttons {
+    margin-bottom: 5px;
+}
+
+.suspendbutton {
+    cursor: pointer;
+    border-radius: 5px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.suspendbutton:hover {
+    background-color: gray;
+}
+
+.adminbutton {
+    cursor: pointer;
+    border-radius: 5px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.adminbutton:hover {
+    background-color: gray;
+}

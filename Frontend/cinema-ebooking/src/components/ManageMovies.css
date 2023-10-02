@@ -1,0 +1,24 @@
+.movies-container {
+    background-color: gray;
+    font-size: 1.7em;
+    padding: 20px;
+    width: 80%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.movie-row {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.editbutton {
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.editbutton:hover {
+    background-color: gray;
+}
