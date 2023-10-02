@@ -36,7 +36,7 @@ function Checkout(props) {
 
     useEffect(() => {
         setTotal(5 * parseInt(child) + 10 * parseInt(adult) + 7.5 * parseInt(senior))
-    })
+    }, [child,adult,senior])
 
     return (
         <div className='checkoutcontainer'>

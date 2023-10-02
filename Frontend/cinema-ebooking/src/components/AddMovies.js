@@ -18,7 +18,7 @@ function AddMovies(props) {
     const data = { title, category, cast, director, producer, synopsis, reviews, poster, trailer, mpaa, showdate, showtime }
 
     function submitMovie() {
-        fetch("./", { method: "POST", body: JSON.stringify(data) })
+        fetch("localhost:8080/system/add", { method: "POST", body: JSON.stringify(data) })
             .then(res => res.json())
             .then(response => console.log('Success:', JSON.stringify(response)))
             .catch(error => console.error('Error:', error))
