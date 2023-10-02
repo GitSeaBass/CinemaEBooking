@@ -15,33 +15,35 @@ function AddMovies(props) {
     const [showdate, setShowdate] = useState('showdate');
     const [showtime, setShowtime] = useState('showtime');
 
-    const data = {
-         title: 'title',
-         category: 'category',
-         cast: 'cast',
-         director: 'director',
-         producer: 'producer',
-         synopsis: 'synopsis',
-         reviews: 'reviews',
-         poster_url: 'poster',
-         trailer_url: 'trailer',
-         mpaa_rating: 'mpaa',
-         show_date: 'showdate',
-         show_time: 'showtime'
-    }
+    const submitMovie = async() => {
+        const data = {
+            title: 'title',
+            category: 'category',
+            cast: 'cast',
+            director: 'director',
+            producer: 'producer',
+            synopsis: 'synopsis',
+            reviews: 'reviews',
+            poster_url: 'poster',
+            trailer_url: 'trailer',
+            mpaa_rating: 'mpaa',
+            show_date: 'showdate',
+            show_time: 'showtime'
+        }
 
-    function submitMovie() {
-        console.log("Data: " + data.title);
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({title: 'title'})
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify(data)
         };
 
-        fetch("http://localhost:8080/system/add", requestOptions)
-            .then(res => res.json())
-            .then(response => console.log('Success:', JSON.stringify(response)))
-            .catch(error => console.error('Error:', error))
+        const result = await fetch("http://localhost:8080/system/add", requestOptions)
+            
+        const resultinJSON = await result.json();
+        console.log(resultinJSON)
     }
 
     return (
