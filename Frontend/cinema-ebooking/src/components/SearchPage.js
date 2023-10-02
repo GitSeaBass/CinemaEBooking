@@ -35,10 +35,10 @@ function SearchPage(props) {
 
         <div className="movie-container">
             {movie}
+            <img className='searchposter' src={poster} alt={movie}/>
+            <iframe className='searchtrailer' src={trailer} title={movie}/>
+            <button className="bookbutton" onClick={book}>BOOK MOVIE</button>
         </div>
-        <img src={poster} alt={movie}/>
-        <iframe src={trailer} title={movie}/>
-        <button onClick={book}>BOOK MOVIE</button>
     </>
     )
 }

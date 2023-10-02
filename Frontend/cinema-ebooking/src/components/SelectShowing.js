@@ -1,3 +1,4 @@
+import './SelectShowing.css'
 import { useNavigate } from "react-router-dom";
 
 function SelectShowing(props) {
@@ -15,13 +16,13 @@ function SelectShowing(props) {
 
     return (
         
-        <div>
-            <h3>Select A Date</h3>
+        <div className='showingcontainer'>
+            <h3 className='showingtitle'>Select A Date</h3>
             {dates.map((item) => (
-                <button onClick={pickDate(item)}>{item}</button>
+                <button className='datebutton' onClick={pickDate(item)}>{item}</button>
             ))}
             <br/>
-            <button onClick={confirmDate}>Confirm</button>
+            <button className='confirmbutton' onClick={confirmDate}>Confirm</button>
         </div>
     )
 }

@@ -1,3 +1,4 @@
+import './SelectSeats.css'
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -61,25 +62,27 @@ function SelectSeats(props) {
 
     return (
         
-        <div>
-            <h1>Select Seats</h1>
-            <form>
-                <label>Child($5.00): </label>
+        <div className='seatcontainer'>
+            <h1 className="seattitle">Select Number of Tickets</h1>
+            <form className="seatform">
+                <label>Child ($5.00): </label>
                 <input type="number" min="0" max="3" onChange={addChild}></input>
                 <br></br>
-                <label>Adult($10.00): </label>
+                <label>Adult ($10.00): </label>
                 <input type="number" min="0" max="3" onChange={addAdult}></input>
                 <br></br>
-                <label>Senior($7.50): </label>
+                <label>Senior ($7.50): </label>
                 <input type="number" min="0" max="3" onChange={addSenior}></input>
             </form>
 
-            <h3>Seats:</h3>
-            {seats.map((item) => (
-                item.status === 'open' ? <button>{item.seat}</button>:<button disabled>{item.seat}</button> 
-            ))}
+            <h3 className="seattitle">Select Seats:</h3>
+            <div className='seatbuttoncontainer'>
+                {seats.map((item) => (
+                    item.status === 'open' ? <button className='seat'>{item.seat}</button>:<button className='seat' disabled>{item.seat}</button> 
+                ))}
+            </div>
             <br></br>
-            <button onClick={confirm}>Confirm Selection of Tickets</button>
+            <button className="confirmbutton" onClick={confirm}>Confirm Selection</button>
         </div>
     )
 }

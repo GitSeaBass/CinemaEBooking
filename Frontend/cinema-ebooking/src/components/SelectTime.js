@@ -1,3 +1,4 @@
+import './SelectTime.css'
 import { useNavigate } from "react-router-dom";
 
 function SelectTime(props) {
@@ -15,13 +16,13 @@ function SelectTime(props) {
 
     return (
         
-        <div>
-            <h3>Select A Time</h3>
+        <div className='timecontainer'>
+            <h3 className='timetitle'>Select A Time</h3>
             {times.map((item) => (
-                <button onClick={onClick(item)}>{item}</button>
+                <button className='timebutton' onClick={onClick(item)}>{item}</button>
             ))}
             <br/>
-            <button onClick={confirm}>Confirm</button>
+            <button className='confirmbutton' onClick={confirm}>Confirm</button>
         </div>
     )
 }
