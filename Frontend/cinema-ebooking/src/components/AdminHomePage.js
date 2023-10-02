@@ -4,14 +4,11 @@ import AddMovies from './AddMovies'
 import ManageMovies from './ManageMovies';
 import ManageUsers from './ManageUsers';
 import ManagePromotions from './ManagePromotions';
-import { createElement, useState } from 'react';
+import { useState } from 'react';
 
 
 function AdminHomePage(props) {
     const [option, setOption] = useState(0)
-    const addOption = (e) => {
-        setOption(e)
-    }
 
     function addclick() {
         setOption(1);
