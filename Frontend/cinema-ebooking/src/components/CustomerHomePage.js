@@ -53,7 +53,7 @@ function CustomerHomePage(props) {
                         <div className='left-movie'>
                             <img src={item.poster_url} alt={item.title} className='poster'/>
                             <div>{item.title}</div>
-                            <div>{item.mpaa_rating}</div>
+                            <div>MPAA: {item.mpaa_rating}</div>
                         </div>
                         <div className='right-movie'>
                             <iframe src={item.trailer_url} title={item.title} className="trailer"/>
