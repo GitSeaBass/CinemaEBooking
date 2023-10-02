@@ -9,3 +9,18 @@
     font-size: 1.5em;
     color: white;
 }
+
+.returnhomebutton {
+    width: 20%;
+    height: 50px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1em;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.returnhomebutton:hover {
+    transition: 0.2s;
+    background-color: gray;
+}

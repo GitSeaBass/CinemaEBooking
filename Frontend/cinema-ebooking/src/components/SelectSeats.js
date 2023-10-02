@@ -24,7 +24,7 @@ function SelectSeats(props) {
         },
         {
             seat: '5',
-            status: 'taken'
+            status: 'open'
         },
         {
             seat: '6',

@@ -69,6 +69,8 @@ function Checkout(props) {
                 <input type='text' required></input><br/>
                 <label>Address</label><br/>
                 <input type='text' required></input><br/>
+                <label>Promo Code</label><br/>
+                <input type='text'></input><br/>
                 <input type='submit' className='checkoutbutton' onClick={clickCheckout} value={'Checkout'}></input>
             </form>
             <button className='cancelbutton' onClick={cancel}>Cancel</button>

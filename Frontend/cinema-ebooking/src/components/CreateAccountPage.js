@@ -23,7 +23,7 @@ function CreateAccountPage(props) {
     function onSubmit() {
         if(password1 === password2) {
             props.setUser(email);
-            navigate('/');
+            navigate('/confirmwindow');
         } else {
             alert('Passwords Do NOT Match!')
         }
@@ -40,7 +40,9 @@ function CreateAccountPage(props) {
                     <input type='password' className='create-input' onChange={addPassword1} required></input><br/>
                     <label>Confirm Password</label><br/>
                     <input type='password' className='create-input' onChange={addPassword2} required></input><br/>
-                    <input type='submit' className='create-submit'></input>
+                    <label>Register for Promotions</label><br/>
+                    <input type='checkbox' className='create-input'></input><br/>
+                    <input type='submit' value='Create Account' className='create-submit'></input>
                 </form>
             </div>
             <h4 className='create-account-question'>Already Have an Account?</h4>

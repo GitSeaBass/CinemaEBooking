@@ -14,7 +14,7 @@ function ConfirmationWindow() {
             <br></br>
             <h2>An Email Confirmation has been sent to you're email</h2>
             <br></br>
-                <button className='' onClick={goHome}>Return To Home Page</button>
+            <button className='returnhomebutton' onClick={goHome}>Return To Home Page</button>
         </div>
     )
 }
