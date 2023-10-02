@@ -15,7 +15,7 @@ function AddMovies(props) {
     const [showdate, setShowdate] = useState('showdate');
     const [showtime, setShowtime] = useState('showtime');
 
-    const [data, setData] = useState({
+    const data = {
         'title': title,
         'category': category,
         'cast': cast,
@@ -28,7 +28,7 @@ function AddMovies(props) {
         'mpaa_rating': mpaa,
         'show_date': showdate,
         'show_time': showtime
-    })
+    }
 
     const submitMovie = async () => {
         setData();
