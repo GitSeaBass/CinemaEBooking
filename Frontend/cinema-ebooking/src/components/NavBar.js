@@ -20,6 +20,7 @@ function NavBar(props) {
 
     function loggingOut() {
         props.setUser('');
+        window.location.reload();
     }
 
     const onClick = () => {

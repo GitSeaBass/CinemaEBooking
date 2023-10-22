@@ -13,6 +13,7 @@ import SelectTime from './components/SelectTime';
 import SelectSeats from './components/SelectSeats';
 import OrderConfirm from './components/OrderConfirm';
 import Checkout from './components/Checkout';
+import HomePage from './components/HomePage';
 
 function App() {
   const moviearray = [
@@ -146,6 +147,7 @@ function App() {
   ];
   
   const[user, setUser] = useState('');
+  const[status, setStatus] = useState('');
 
   const[selectedMovie, setSelectedMovie] = useState('');
   const[selectedDate, setSelectedDate] = useState('');
@@ -158,13 +160,14 @@ function App() {
     <Router>
       <div>
         <Routes>
-            <Route exact path="/" element={<CustomerHomePage user={user} setUser={setUser} moviearray={moviearray}/>} />
-            <Route path="/login" element={<LoginPage user={user} setUser={setUser} userArray={userarray}/>} />
+            <Route exact path="/" element={<HomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray} status={status}/>} />
+            {/*}<Route exact path="/customerpage" element={<CustomerHomePage user={user} setUser={setUser} moviearray={moviearray}/>} />{*/}
+            <Route path="/login" element={<LoginPage user={user} setUser={setUser} userArray={userarray} setStatus={setStatus}/>} />
             <Route path="/search/:id" element={<SearchPage moviearray={moviearray} user={user} setUser={setUser} setSelectedMovie={setSelectedMovie}/>}/>
             <Route path="createaccount" element={<CreateAccountPage setUser={setUser}/>}/>
             <Route path="/confirmwindow" element={<ConfirmationWindow />}/>
             <Route path="/profile" element={<ViewProfile />}/>
-            <Route path="/admin" element={<AdminHomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray}/>}/>
+            {/*}<Route path="/admin" element={<AdminHomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray}/>}/>{*/}
 
             <Route path="/showings" element={<SelectShowing setSelectedDate={setSelectedDate} user={user} setUser={setUser}/>}/>
             <Route path="/times" element={<SelectTime setSelectedTime={setSelectedTime} user={user} setUser={setUser}/>}/>

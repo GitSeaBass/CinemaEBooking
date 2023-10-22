@@ -22,6 +22,7 @@ function LoginPage(props) {
         if (foundUser != null) {
             if (foundUser.password === password) {
                 props.setUser(email);
+                props.setStatus(foundUser.status)
                 navigate('/');
             } else {
                 alert("Email or Password is Incorrect")
