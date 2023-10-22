@@ -28,6 +28,10 @@
     font-size: large;
 }
 
+.create-input:focus {
+    outline: none;
+}
+
 .create-checkbox {
     margin-left: 5%;
     margin-bottom: 15%;
