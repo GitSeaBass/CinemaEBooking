@@ -118,10 +118,19 @@ function App() {
 
   const userarray = [
     {
-        email: 'admin'
+        email: 'admin',
+        status: 'admin',
+        password: 'admpass'
     },
     {
-        email: 'user1'
+        email: 'user1',
+        status: 'registered',
+        password: 'pass'
+    },
+    {
+        email: 'user2',
+        status: 'unregistered',
+        password: 'word'
     }
   ];
 
@@ -150,7 +159,7 @@ function App() {
       <div>
         <Routes>
             <Route exact path="/" element={<CustomerHomePage user={user} setUser={setUser} moviearray={moviearray}/>} />
-            <Route path="/login" element={<LoginPage user={user} setUser={setUser}/>} />
+            <Route path="/login" element={<LoginPage user={user} setUser={setUser} userArray={userarray}/>} />
             <Route path="/search/:id" element={<SearchPage moviearray={moviearray} user={user} setUser={setUser} setSelectedMovie={setSelectedMovie}/>}/>
             <Route path="createaccount" element={<CreateAccountPage setUser={setUser}/>}/>
             <Route path="/confirmwindow" element={<ConfirmationWindow />}/>
