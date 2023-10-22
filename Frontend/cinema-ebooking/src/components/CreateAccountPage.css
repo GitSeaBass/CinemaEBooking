@@ -1,42 +1,57 @@
+.create-container {
+    overflow: hidden;
+    position: relative;
+}
+
 .create-title {
     font-size: 240%;
     position: relative;
-    top: 125px;
-    right: 40px;
-    color: blueviolet;
+    text-align: center;
 }
 
 .create-form-container {
-    margin: 7% auto 0 auto;
-    width: 20%;
-    height: 500px;
+    width: 30%;
+    height: 98.5vh;
     border: solid black 2px;
     border-radius: 5px;
     padding-top: 10px;
-    background-color: gray;
+    background-color: white;
 }
 
 .create-input {
-    margin-bottom: 12%;
-    border-radius: 5px;
+    margin-bottom: 15%;
+    margin-left: 5%;
+    border: none;
+    border-bottom: solid black 1px;
     width: 80%;
     height: 30px;
     font-size: large;
 }
 
+.create-checkbox {
+    margin-left: 5%;
+    margin-bottom: 15%;
+}
+
 .create-submit {
     width: 40%;
     height: 50px;
-    border-radius: 10px;
+    border-radius: 100px;
     transition: 0.5s;
+    font-size: 1.3em;
+    margin-left: 30%;
+    background: linear-gradient(0.25turn, rgb(74, 211, 253) 0%, rgb(100, 249, 100) 30%, rgb(100, 249, 100) 70%, rgb(74, 211, 253) 100%);
+}
+
+.create-submit:hover {
+    transition: 0.5s;
+    cursor: pointer;
+    background-position: -112px;
+    box-shadow: 5px 5px 2px 1px gray;
 }
 
 .create-submit:hover {
     transition: 0.5s;
     background-color: rgb(175, 173, 173);
     cursor: pointer;
-}
-
-.create-form > label {
-    font-weight: bold;
 }

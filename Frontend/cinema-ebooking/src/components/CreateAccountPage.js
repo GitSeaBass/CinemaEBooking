@@ -30,27 +30,36 @@ function CreateAccountPage(props) {
     }
     
     return (
-        <div className='login-container'>
-            <div className='create-title'>Create Account</div>
+        <div className='create-container'>
+
+                <div className='image-container'>
+                    <div className='image'> Temporary Color Background</div>
+                </div>
+
             <div className="create-form-container">
+
+                <div className='create-title'>Create Account</div>
+
+                <h4 className='create-account-question'>Already Have an Account?
+                    <a className='create-account-link' href='/login'>Login Here</a>
+                </h4>
+
                 <form className='create-form' onSubmit={onSubmit}>
-                    <label>Email</label><br/>
-                    <input type='text' className='create-input' onChange={addEmail} required></input><br/>
-                    <label>Password</label><br/>
-                    <input type='password' className='create-input' onChange={addPassword1} required></input><br/>
-                    <label>Confirm Password</label><br/>
-                    <input type='password' className='create-input' onChange={addPassword2} required></input><br/>
-                    <label>Register for Promotions</label><br/>
-                    <input type='checkbox' className='create-input'></input><br/>
+                    <input type='text' className='create-input' onChange={addEmail} placeholder='Email' required></input><br/>
+                    <input type='password' className='create-input' onChange={addPassword1} placeholder='Password' required></input><br/>
+                    <input type='password' className='create-input' onChange={addPassword2} placeholder='Confirm Password' required></input><br/>
+                    <input type='checkbox' className='create-checkbox'></input>Register for Promotions<br/>
                     <input type='submit' value='Create Account' className='create-submit'></input>
                 </form>
+                
+                
+                <h4 className='create-account-question'>Return
+                    <a className='create-account-link' href='/'>Home</a>
+                </h4>
+                
+            
             </div>
-            <h4 className='create-account-question'>Already Have an Account?</h4>
-            <br></br>
-            <a className='create-account-link' href='/login'>Login Here</a>
-            <br></br>
-            <h4 className='create-account-question'>Or Return</h4>
-            <a className='create-account-link' href='/'>Home</a>
+            
         </div>
     )
 }
