@@ -17,8 +17,8 @@ function LoginPage(props) {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(props.userArray)
-        const foundUser = props.userArray.find((user) => user.email === email)
+        console.log(props.updatableUsers)
+        const foundUser = props.updatableUsers.find((user) => user.email === email)
         if (foundUser != null) {
             if (foundUser.password === password) {
                 props.setUser(email);
