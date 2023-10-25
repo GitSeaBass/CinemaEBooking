@@ -60,7 +60,7 @@ function LoginPage(props) {
                     </form>
 
                     <h4 className='create-account-question'>
-                        <a className='create-account-link' href='/'>Forgot Your Password? </a>
+                        <a className='create-account-link' href='/forgotpassword'>Forgot Your Password? </a>
                         <br/>
                         <br/>
                         Return

@@ -14,6 +14,7 @@ import SelectSeats from './components/SelectSeats';
 import OrderConfirm from './components/OrderConfirm';
 import Checkout from './components/Checkout';
 import HomePage from './components/HomePage';
+import ForgotPasswordPage from './components/ForgotPasswordPage';
 
 function App() {
   const moviearray = [
@@ -177,6 +178,7 @@ function App() {
             <Route path="createaccount" element={<CreateAccountPage setUser={setUser} addUpdatableUsers={addUpdatableUsers}/>}/>
             <Route path="/confirmwindow" element={<ConfirmationWindow />}/>
             <Route path="/profile" element={<ViewProfile />}/>
+            <Route path="/forgotpassword" element={<ForgotPasswordPage />}/>
             {/*}<Route path="/admin" element={<AdminHomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray}/>}/>{*/}
 
             <Route path="/showings" element={<SelectShowing setSelectedDate={setSelectedDate} user={user} setUser={setUser}/>}/>
