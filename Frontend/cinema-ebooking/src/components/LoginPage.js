@@ -21,9 +21,13 @@ function LoginPage(props) {
         const foundUser = props.updatableUsers.find((user) => user.email === email)
         if (foundUser != null) {
             if (foundUser.password === password) {
-                props.setUser(email);
-                props.setStatus(foundUser.status)
-                navigate('/');
+                if (foundUser.status === 'unregistered') {
+                    navigate('/confirmwindow')
+                } else {
+                    props.setUser(email);
+                    props.setStatus(foundUser.status)
+                    navigate('/');
+                }
             } else {
                 alert("Email or Password is Incorrect")
             }
