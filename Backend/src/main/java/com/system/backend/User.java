@@ -1,6 +1,6 @@
 package com.system.backend;
 
-public abstract class User {
+public class User {
     int id;
     String firstName;
     String lastName;

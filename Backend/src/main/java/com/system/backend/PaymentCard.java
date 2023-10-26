@@ -1,13 +1,17 @@
 package com.system.backend;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
 public class PaymentCard {
     @Id
+    @Column
     private Integer id;
+    @Column
     private Integer cardNumber;
+    @Column
     private String expirationDate;
 
 

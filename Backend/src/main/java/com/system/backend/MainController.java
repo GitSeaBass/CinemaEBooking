@@ -48,6 +48,11 @@ public class MainController {
         return movieRepository.findByTitle(title);
     }
 
+    @PostMapping(path= "/createaccount")
+    public @ResponseBody Customer createAccount(@RequestBody Customer customer) {
+        return customerRepository.save(customer);
+    }
+
     /**
      * Updates a customer's profile in the database
      * Precondition: there should already be a customer with the given ID in the database

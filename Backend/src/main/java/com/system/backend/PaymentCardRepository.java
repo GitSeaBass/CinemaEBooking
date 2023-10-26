@@ -5,5 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface PaymentCardRepository extends CrudRepository<PaymentCard, Integer> {
-    List<PaymentCard> findPaymentCardBy(Integer id);
+
+    List<PaymentCard> findByCardNumber(Integer cardNumber);
 }
