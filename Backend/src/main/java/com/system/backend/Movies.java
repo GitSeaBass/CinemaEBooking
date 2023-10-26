@@ -12,9 +12,8 @@ import java.time.LocalTime;
 @Entity
 public class Movies {
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    //private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String title;
     private String category;
     private String cast;
@@ -28,13 +27,13 @@ public class Movies {
     private String show_date;
     private String show_time;
 
-    /*public Integer getId() {
+    public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
-    }*/
+    }
 
     public String getTitle() {
         return title;

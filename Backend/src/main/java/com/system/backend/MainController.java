@@ -14,8 +14,9 @@ import java.time.LocalTime;
 public class MainController {
     @Autowired
     private MovieRepository movieRepository;
+    private CustomerRepository customerRepository;
 
-    @PostMapping(path="/add")
+    @PostMapping(path="/addmovie")
     public @ResponseBody Movies addNewMovie(@RequestBody Movies movie) {
        /* Movies movie = new Movies();
         //movie.setId(1);
@@ -35,6 +36,11 @@ public class MainController {
         return movieRepository.save(movie);
 
     } //addNewMovie
+
+    @PostMapping(path="/createaccount")
+    public @ResponseBody Customer addNewCustomer(@RequestBody Customer customer) {
+        return customerRepository.save(customer);
+    }
 
     @GetMapping(path="/all")
     public @ResponseBody Iterable<Movies> getAllMovies() {
