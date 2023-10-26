@@ -14,6 +14,7 @@ import SelectSeats from './components/SelectSeats';
 import OrderConfirm from './components/OrderConfirm';
 import Checkout from './components/Checkout';
 import HomePage from './components/HomePage';
+import ForgotPasswordPage from './components/ForgotPasswordPage';
 
 function App() {
   const moviearray = [
@@ -135,6 +136,16 @@ function App() {
     }
   ];
 
+  const[updatableUsers, setUpdatableUsers] = useState(userarray)
+  const addUpdatableUsers = (email, password) => {
+    setUpdatableUsers( [...updatableUsers, {
+        email: email,
+        status: 'unregistered',
+        password: password
+    }] )
+  }
+
+
   const promoarray = [
     {
         code: 'movie',
@@ -162,11 +173,12 @@ function App() {
         <Routes>
             <Route exact path="/" element={<HomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray} status={status}/>} />
             {/*}<Route exact path="/customerpage" element={<CustomerHomePage user={user} setUser={setUser} moviearray={moviearray}/>} />{*/}
-            <Route path="/login" element={<LoginPage user={user} setUser={setUser} userArray={userarray} setStatus={setStatus}/>} />
+            <Route path="/login" element={<LoginPage user={user} setUser={setUser} updatableUsers={updatableUsers} setStatus={setStatus}/>} />
             <Route path="/search/:id" element={<SearchPage moviearray={moviearray} user={user} setUser={setUser} setSelectedMovie={setSelectedMovie}/>}/>
-            <Route path="createaccount" element={<CreateAccountPage setUser={setUser}/>}/>
+            <Route path="createaccount" element={<CreateAccountPage setUser={setUser} addUpdatableUsers={addUpdatableUsers}/>}/>
             <Route path="/confirmwindow" element={<ConfirmationWindow />}/>
             <Route path="/profile" element={<ViewProfile />}/>
+            <Route path="/forgotpassword" element={<ForgotPasswordPage />}/>
             {/*}<Route path="/admin" element={<AdminHomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray}/>}/>{*/}
 
             <Route path="/showings" element={<SelectShowing setSelectedDate={setSelectedDate} user={user} setUser={setUser}/>}/>

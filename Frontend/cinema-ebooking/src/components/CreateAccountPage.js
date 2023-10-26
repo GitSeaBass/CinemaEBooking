@@ -20,9 +20,12 @@ function CreateAccountPage(props) {
         setPassword2(e.target.value);
     };
 
-    function onSubmit() {
+    const onSubmit = (e) => {
+        e.preventDefault();
+
         if(password1 === password2) {
-            props.setUser(email);
+            props.addUpdatableUsers(email, password1)      
+            //props.setUser(email);
             navigate('/confirmwindow');
         } else {
             alert('Passwords Do NOT Match!')

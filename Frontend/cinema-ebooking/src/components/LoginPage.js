@@ -17,13 +17,17 @@ function LoginPage(props) {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(props.userArray)
-        const foundUser = props.userArray.find((user) => user.email === email)
+        console.log(props.updatableUsers)
+        const foundUser = props.updatableUsers.find((user) => user.email === email)
         if (foundUser != null) {
             if (foundUser.password === password) {
-                props.setUser(email);
-                props.setStatus(foundUser.status)
-                navigate('/');
+                if (foundUser.status === 'unregistered') {
+                    navigate('/confirmwindow')
+                } else {
+                    props.setUser(email);
+                    props.setStatus(foundUser.status)
+                    navigate('/');
+                }
             } else {
                 alert("Email or Password is Incorrect")
             }
@@ -56,7 +60,7 @@ function LoginPage(props) {
                     </form>
 
                     <h4 className='create-account-question'>
-                        <a className='create-account-link' href='/'>Forgot Your Password? </a>
+                        <a className='create-account-link' href='/forgotpassword'>Forgot Your Password? </a>
                         <br/>
                         <br/>
                         Return

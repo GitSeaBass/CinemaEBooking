@@ -5,16 +5,19 @@ function ConfirmationWindow() {
     const navigate = useNavigate();
 
     function goHome() {
-        navigate('/')
+        navigate('/login')
     }
 
     return (
         <div className="confirm-window">
-            <h2>You're Account Has Been Created!</h2>
-            <br></br>
-            <h2>An Email Confirmation has been sent to you're email</h2>
-            <br></br>
-            <button className='returnhomebutton' onClick={goHome}>Return To Home Page</button>
+            <div className='message-window'>
+                <h2>You're Account Has Been Created!</h2>
+                <br></br>
+                <h2>A verification email has been sent to the provided email.</h2>
+                <h2>Your account must be verified before you can log in.</h2>
+                <br></br>
+                <button className='returnbutton' onClick={goHome}>Return To Login Page</button>
+            </div>
         </div>
     )
 }

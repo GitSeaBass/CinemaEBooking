@@ -1,8 +1,19 @@
 .confirm-window {
-    height: 500px;
-    width: 50%;
+    background: radial-gradient(rgb(100, 249, 100), rgb(74, 211, 253) 100%);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.message-window {
+    background-color: white;
+    width: 45%;
     margin: auto;
-    margin-top: 15%;
+    border-radius: 20px;
+    border: solid black 1px;
+    padding: 1%;
+    margin-top: 12%;
+    text-align: center;
 }
 
 .confirm-window > h2 {
@@ -10,17 +21,19 @@
     color: white;
 }
 
-.returnhomebutton {
-    width: 20%;
+.returnbutton {
+    width: 30%;
     height: 50px;
     border-radius: 10px;
     font-weight: bold;
     font-size: 1em;
-    transition: 0.2s;
+    transition: 0.5s;
     cursor: pointer;
+    background-color: rgb(56, 244, 181);
 }
 
-.returnhomebutton:hover {
-    transition: 0.2s;
-    background-color: gray;
+.returnbutton:hover {
+    transition: 0.5s;
+    box-shadow: 5px 5px 2px 1px gray;
+    background-color: rgb(47, 218, 161);
 }
