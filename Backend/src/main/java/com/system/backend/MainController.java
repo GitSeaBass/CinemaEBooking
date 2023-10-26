@@ -1,6 +1,7 @@
 package com.system.backend;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,7 +34,6 @@ public class MainController {
         movie.setMpaa_rating(mpaa_rating);
         //movie.setShow_date(date);
         //movie.setShow_time(time);*/
-
         return movieRepository.save(movie);
 
     } //addNewMovie
@@ -58,5 +58,15 @@ public class MainController {
     @PostMapping(path = "/updateProfile")
     public @ResponseBody Customer updateProfile(@RequestBody Customer updatedCustomerProfile) {
         return customerRepository.save(updatedCustomerProfile);
+    }
+
+    @PostMapping(path = "/testEmail")
+    public void testEmail() {
+        Emailer emailer = new Emailer();
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("cinemaebookinga8@gmail.com");
+        message.setSubject("subject");
+        message.setText("text");
+        emailer.send(message);
     }
 }
