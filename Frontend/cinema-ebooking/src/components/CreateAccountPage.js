@@ -51,6 +51,18 @@ function CreateAccountPage(props) {
                     <input type='text' className='create-input' onChange={addEmail} placeholder='Email' required></input><br/>
                     <input type='password' className='create-input' onChange={addPassword1} placeholder='Password' required></input><br/>
                     <input type='password' className='create-input' onChange={addPassword2} placeholder='Confirm Password' required></input><br/>
+                    
+                    <label className='create-label' value='Address'>Enter Address (Optional) </label><br/>
+                    <input type='text' className='create-input address-input' placeholder='Street'></input>
+                    <input type='text' className='create-input address-input' placeholder='City'></input><br/>
+                    <input type='text' className='create-input address-input' placeholder='State'></input>
+                    <input type='text' className='create-input address-input' placeholder='Zipcode'></input><br/>
+
+                    <label className='create-label' value='Address'>Enter Payment Card (Optional) </label><br/>
+                    <input type='text' className='create-input card-input card-number' placeholder='Card Number'></input>
+                    <input type='text' className='create-input card-input' placeholder='Expiration Date'></input><br/>
+                    
+                    <br/>
                     <input type='checkbox' className='create-checkbox'></input>Register for Promotions<br/>
                     <input type='submit' value='Create Account' className='create-submit'></input>
                 </form>

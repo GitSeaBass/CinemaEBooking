@@ -27,6 +27,10 @@ function NavBar(props) {
         navigate(`/search/${search}`)
     }
 
+    const viewProfile = () => {
+        navigate('/profile')
+    }
+
     return (
         <div className='navbar'>
             <h1 className='titlelogo' onClick={goHome}>Cinema E-Booking A8</h1>
@@ -41,6 +45,7 @@ function NavBar(props) {
                 </div> :
                 <div className='right-navbar'>
                     <h3 className='navbar-email'>{props.user}</h3>
+                    <button onClick={viewProfile}>Profile</button>
                     <button onClick={loggingOut}>Logout</button>
                 </div>}
         </div>

@@ -19,7 +19,7 @@
 }
 
 .create-input {
-    margin-bottom: 15%;
+    margin-bottom: 10%;
     margin-left: 5%;
     border: none;
     border-bottom: solid black 1px;
@@ -30,6 +30,26 @@
 
 .create-input:focus {
     outline: none;
+}
+
+.create-label {
+    margin-left: 4%;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.address-input {
+    width: 40%;
+    margin-bottom: 2%;
+}
+
+.card-input {
+    width: 30%;
+    margin-bottom: 2%;
+}
+
+.card-number {
+    width: 50%;
 }
 
 .create-checkbox {

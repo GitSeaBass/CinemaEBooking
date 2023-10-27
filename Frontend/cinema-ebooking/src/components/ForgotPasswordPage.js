@@ -47,7 +47,7 @@ function ForgotPasswordPage() {
                     }
                     {validEmail && 
                         <>
-                            <input className='forgot-input-locked' placeholder='Email' onChange={addEnteredEmail} value={enteredEmail} disabled required></input><br/>
+                            <input className='forgot-input-locked' placeholder='Email' onChange={addEnteredEmail} value={enteredEmail} readOnly disabled required></input><br/>
                             <label>Enter New Password</label> <br/>
                             <input className='forgot-input' placeholder='New Password' onChange={addNewPass} type='password' required></input>
                             <input className='forgot-input' placeholder='Confirm New Password' onChange={addConfirmPass} type='password' required></input> <br/>
@@ -55,6 +55,9 @@ function ForgotPasswordPage() {
                     }
                     <input className='forgot-submit' type='submit' value='Submit'></input>
                 </form>
+                <h4>
+                    Or <a className='cancel' href='/'>Cancel</a> and Return Home
+                </h4>
             </div>
         </div>
     )
