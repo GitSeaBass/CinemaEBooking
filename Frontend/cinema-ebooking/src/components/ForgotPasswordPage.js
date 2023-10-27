@@ -1,8 +1,8 @@
 import './ForgotPasswordPage.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function ForgotPasswordPage() {
+function ForgotPasswordPage(props) {
     const navigate = useNavigate();
 
     const [enteredEmail, setEnteredEmail] = useState('')
@@ -21,6 +21,14 @@ function ForgotPasswordPage() {
         setConfirmPass(e.target.value)
     }
 
+    useEffect(() => {
+        console.log(props.user)
+        if (props.user !== '') {
+            setEnteredEmail(props.user)
+            setValidEmail(true)
+        }
+    }, [props.user])
+
     const onSubmit = (e) => {
         e.preventDefault();
         if (validEmail === false) {
@@ -34,6 +42,9 @@ function ForgotPasswordPage() {
         }
     }
 
+    const returnHome = () => {
+        navigate('/')
+    }
     return (
         <div className='forgot-page'>
             <div className='forgot-window'>
@@ -56,7 +67,7 @@ function ForgotPasswordPage() {
                     <input className='forgot-submit' type='submit' value='Submit'></input>
                 </form>
                 <h4>
-                    Or <a className='cancel' href='/'>Cancel</a> and Return Home
+                    Or <button className='cancel' onClick={returnHome}> Cancel</button> and Return Home
                 </h4>
             </div>
         </div>

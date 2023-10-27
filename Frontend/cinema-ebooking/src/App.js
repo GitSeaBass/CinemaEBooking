@@ -178,7 +178,7 @@ function App() {
             <Route path="createaccount" element={<CreateAccountPage setUser={setUser} addUpdatableUsers={addUpdatableUsers}/>}/>
             <Route path="/confirmwindow" element={<ConfirmationWindow />}/>
             <Route path="/profile" element={<ViewProfile user={user}/>}/>
-            <Route path="/forgotpassword" element={<ForgotPasswordPage />}/>
+            <Route path="/forgotpassword" element={<ForgotPasswordPage user={user}/>}/>
             {/*}<Route path="/admin" element={<AdminHomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray}/>}/>{*/}
 
             <Route path="/showings" element={<SelectShowing setSelectedDate={setSelectedDate} user={user} setUser={setUser}/>}/>
