@@ -8,8 +8,17 @@ function ViewProfile(props) {
     const [currentUser, setCurrentUser] = useState('')
     const addCurrentUser = (e) => {
         setCurrentUser({
-            ...currentUser, [e.target.name]: e.target.value
+            ...currentUser, [e.target.name]: e.target.value, promo: promoStatus
         })
+        console.log(currentUser)
+    }
+
+    const [promoStatus, setPromoStatus] = useState(props.updatableUsers.find((item) => item.email === props.user).promo)
+    const addPromoStatus = () => {
+        setCurrentUser({
+            ...currentUser, promo: !promoStatus
+        })
+        setPromoStatus(!promoStatus)
     }
 
     useEffect(() => {
@@ -21,6 +30,7 @@ function ViewProfile(props) {
     const onSubmit = (e) => {
         e.preventDefault()
         props.updateUpdatableUsers(currentUser)
+        console.log(currentUser)
     }
 
     const returnHome = () => {
@@ -89,6 +99,18 @@ function ViewProfile(props) {
                         <label>Card Expiration Date</label>
                         <input value={currentUser.carddate} name='carddate' onChange={addCurrentUser}></input><br/>
                     </div>
+                    {promoStatus === true &&
+                        <div className='edit-div'>
+                            <label>Recieve Promos</label>
+                            <input type='checkbox' checked value={currentUser.carddate} onChange={addPromoStatus}></input><br/>
+                        </div>
+                    }
+                    {promoStatus === false &&
+                        <div className='edit-div'>
+                            <label>Recieve Promos</label>
+                            <input type='checkbox' value={currentUser.carddate} onChange={addPromoStatus}></input><br/>
+                        </div>
+                    }
 
                     <input className='save-changes-button' type='submit' value='Save Changes'></input>
                     <button className='save-changes-button' type='submit' onClick={returnHome}>Return Home</button>
