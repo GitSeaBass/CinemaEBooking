@@ -72,7 +72,7 @@ function ViewProfile(props) {
 
                     <div className='edit-div'>
                         <label className='password-label'>Password</label>
-                        <button onClick={resetPass}>Reset Password</button>
+                        <button className='reset-button' onClick={resetPass}>Reset Password</button>
                     </div>
 
                     <div className='edit-div'>
@@ -102,13 +102,13 @@ function ViewProfile(props) {
                     {promoStatus === true &&
                         <div className='edit-div'>
                             <label>Recieve Promos</label>
-                            <input type='checkbox' checked value={currentUser.carddate} onChange={addPromoStatus}></input><br/>
+                            <input className='promo-box' type='checkbox' checked value={currentUser.carddate} onChange={addPromoStatus}></input><br/>
                         </div>
                     }
                     {promoStatus === false &&
                         <div className='edit-div'>
                             <label>Recieve Promos</label>
-                            <input type='checkbox' value={currentUser.carddate} onChange={addPromoStatus}></input><br/>
+                            <input className='promo-box' type='checkbox' value={currentUser.carddate} onChange={addPromoStatus}></input><br/>
                         </div>
                     }
 
