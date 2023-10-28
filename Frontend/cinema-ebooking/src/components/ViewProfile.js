@@ -1,11 +1,26 @@
 import './ViewProfile.css'
 import { useNavigate } from 'react-router-dom'
+import { useState,useEffect } from 'react'
 
 function ViewProfile(props) {
     const navigate = useNavigate()
     
+    const [currentUser, setCurrentUser] = useState('')
+    const addCurrentUser = (e) => {
+        setCurrentUser({
+            ...currentUser, [e.target.name]: e.target.value
+        })
+    }
+
+    useEffect(() => {
+        setCurrentUser(
+            props.updatableUsers.find((item) => item.email === props.user)
+        )
+    }, [props.user, props.updatableUsers])
+
     const onSubmit = (e) => {
         e.preventDefault()
+        props.updateUpdatableUsers(currentUser)
     }
 
     const returnHome = () => {
@@ -30,8 +45,21 @@ function ViewProfile(props) {
                 <form className='edit-form' onSubmit={onSubmit}>
                     <div className='edit-div'>
                         <label>Email</label>
-                        <input></input><br/>
+                        <input value={currentUser.email} disabled></input><br/>
                     </div>
+                    <div className='edit-div'>
+                        <label>First Name</label>
+                        <input value={currentUser.firstname} name='firstname' onChange={addCurrentUser}></input><br/>
+                    </div>
+                    <div className='edit-div'>
+                        <label>Last Name</label>
+                        <input value={currentUser.lastname} name='lastname' onChange={addCurrentUser}></input><br/>
+                    </div>
+                    <div className='edit-div'>
+                        <label>Date of Birth</label>
+                        <input value={currentUser.dob} name='dob' onChange={addCurrentUser}></input><br/>
+                    </div>
+
                     <div className='edit-div'>
                         <label className='password-label'>Password</label>
                         <button onClick={resetPass}>Reset Password</button>
@@ -39,27 +67,27 @@ function ViewProfile(props) {
 
                     <div className='edit-div'>
                         <label>Street</label>
-                        <input></input><br/>
+                        <input value={currentUser.street} name='street' onChange={addCurrentUser}></input><br/>
                     </div>
                     <div className='edit-div'>
                         <label>City</label>
-                        <input></input><br/>
+                        <input value={currentUser.city} name='city' onChange={addCurrentUser}></input><br/>
                     </div>
                     <div className='edit-div'>
                         <label>State</label>
-                        <input></input><br/>
+                        <input value={currentUser.state} name='state' onChange={addCurrentUser}></input><br/>
                     </div>
                     <div className='edit-div'>
                         <label>Zipcode</label>
-                        <input></input><br/>
+                        <input value={currentUser.zip} name='zip' onChange={addCurrentUser}></input><br/>
                     </div>
                     <div className='edit-div'>
                         <label>Card Number</label>
-                        <input></input><br/>
+                        <input value={currentUser.cardno} name='cardno' onChange={addCurrentUser}></input><br/>
                     </div>
                     <div className='edit-div'>
-                        <label>Expiration Date</label>
-                        <input></input><br/>
+                        <label>Card Expiration Date</label>
+                        <input value={currentUser.carddate} name='carddate' onChange={addCurrentUser}></input><br/>
                     </div>
 
                     <input className='save-changes-button' type='submit' value='Save Changes'></input>

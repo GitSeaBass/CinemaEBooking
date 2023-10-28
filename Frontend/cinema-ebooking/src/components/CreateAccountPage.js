@@ -5,15 +5,31 @@ import { useNavigate } from 'react-router-dom';
 function CreateAccountPage(props) {
     const navigate = useNavigate();
 
-    const[email, setEmail] = useState('')
-    const addEmail = (e) => {
-        setEmail(e.target.value);
-    };
+    const [newUser, setNewUser] = useState({
+        firstname: "",
+        lastname: "",
+        dob: "",
+        status: "INACTIVE",
+        email: "",
+        password: "",
+        street: "",
+        city: "",
+        state: "",
+        zip: "",
+        cardno: "",
+        carddate: "",
+        promo: false
+    })
+    const addNewUser = (e) => {
+        setNewUser({
+            ...newUser, [e.target.name]: e.target.value, promo: promoState
+        })
+    }
 
-    const[password1, setPassword1] = useState('')
-    const addPassword1 = (e) => {
-        setPassword1(e.target.value);
-    };
+    const [promoState, setPromoState] = useState(false)
+    const addPromoState = () => {
+        setPromoState(!promoState)
+    }
 
     const[password2, setPassword2] = useState('')
     const addPassword2 = (e) => {
@@ -23,8 +39,10 @@ function CreateAccountPage(props) {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        if(password1 === password2) {
-            props.addUpdatableUsers(email, password1)      
+        if (newUser.email.indexOf('@') === -1) {
+            alert('Please Enter a Valid Email')
+        } else if(newUser.password === password2) {
+            props.addUpdatableUsers(newUser.email, newUser.password)      
             //props.setUser(email);
             navigate('/confirmwindow');
         } else {
@@ -36,7 +54,7 @@ function CreateAccountPage(props) {
         <div className='create-container'>
 
                 <div className='image-container'>
-                    <div className='image'> Temporary Color Background</div>
+                    <div className='image'> </div>
                 </div>
 
             <div className="create-form-container">
@@ -48,22 +66,28 @@ function CreateAccountPage(props) {
                 </h4>
 
                 <form className='create-form' onSubmit={onSubmit}>
-                    <input type='text' className='create-input' onChange={addEmail} placeholder='Email' required></input><br/>
-                    <input type='password' className='create-input' onChange={addPassword1} placeholder='Password' required></input><br/>
+                    <input type='text' className='create-input' name='email' onChange={addNewUser} placeholder='Email' required></input><br/>
+                    <input type='password' className='create-input' name='password' onChange={addNewUser} placeholder='Password' required></input><br/>
                     <input type='password' className='create-input' onChange={addPassword2} placeholder='Confirm Password' required></input><br/>
                     
+                    <input type='text' className='create-input create-name' placeholder='First Name' name='firstname' onChange={addNewUser} required></input>
+                    <input type='text' className='create-input create-name' placeholder='Last Name' name='lastname' onChange={addNewUser} required></input> <br/>
+                    
+                    <label className='create-label'>Enter Date of Birth</label> <br/>
+                    <input type='text' className='create-input' placeholder='MM/DD/YYYY' name='dob' onChange={addNewUser} required></input> <br/>
+
                     <label className='create-label' value='Address'>Enter Address (Optional) </label><br/>
-                    <input type='text' className='create-input address-input' placeholder='Street'></input>
-                    <input type='text' className='create-input address-input' placeholder='City'></input><br/>
-                    <input type='text' className='create-input address-input' placeholder='State'></input>
-                    <input type='text' className='create-input address-input' placeholder='Zipcode'></input><br/>
+                    <input type='text' className='create-input address-input' placeholder='Street' name='street' onChange={addNewUser}></input>
+                    <input type='text' className='create-input address-input' placeholder='City' name='city' onChange={addNewUser}></input><br/>
+                    <input type='text' className='create-input address-input' placeholder='State' name='state' onChange={addNewUser}></input>
+                    <input type='text' className='create-input address-input' placeholder='Zipcode' name='zip' onChange={addNewUser}></input><br/>
 
                     <label className='create-label' value='Address'>Enter Payment Card (Optional) </label><br/>
-                    <input type='text' className='create-input card-input card-number' placeholder='Card Number'></input>
-                    <input type='text' className='create-input card-input' placeholder='Expiration Date'></input><br/>
+                    <input type='text' className='create-input card-input card-number' placeholder='Card Number' name='cardno' onChange={addNewUser}></input>
+                    <input type='text' className='create-input card-input' placeholder='Expiration Date' name='carddate' onChange={addNewUser}></input><br/>
                     
                     <br/>
-                    <input type='checkbox' className='create-checkbox'></input>Register for Promotions<br/>
+                    <input type='checkbox' className='create-checkbox' name='promo' onChange={addPromoState}></input>Register for Promotions<br/>
                     <input type='submit' value='Create Account' className='create-submit'></input>
                 </form>
                 

@@ -21,7 +21,7 @@ function LoginPage(props) {
         const foundUser = props.updatableUsers.find((user) => user.email === email)
         if (foundUser != null) {
             if (foundUser.password === password) {
-                if (foundUser.status === 'unregistered') {
+                if (foundUser.status === 'INACTIVE') {
                     navigate('/confirmwindow')
                 } else {
                     props.setUser(email);
@@ -42,7 +42,7 @@ function LoginPage(props) {
 
                 <div className='image-container'>
                     {/* Potential Image}<img src='https://t3.ftcdn.net/jpg/00/47/40/02/360_F_47400213_AgAsGC2y45UJaYQoWmNc3pb3BtG1agta.jpg' alt='login' className='image'/>{*/}
-                    <div className='image'> Temporary Color Background</div>
+                    <div className='image'></div>
                 </div>
 
                 <div className="login-form-container">

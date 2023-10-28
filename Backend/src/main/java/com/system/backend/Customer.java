@@ -7,7 +7,7 @@ import org.hibernate.annotations.OnDeleteAction;
 @Entity
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE) //might need to be .IDENTITY
     private Integer id;
     private String firstName;
     private String lastName;

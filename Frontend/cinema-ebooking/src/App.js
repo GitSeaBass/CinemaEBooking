@@ -120,19 +120,34 @@ function App() {
 
   const userarray = [
     {
-        email: 'admin',
-        status: 'admin',
-        password: 'admpass'
+        firstname: "Ad",
+        lastname: "Min",
+        dob: "01/01/2001",
+        status: "ADMIN",
+        email: "admin@email",
+        password: "adminpassword",
+        street: "",
+        city: "",
+        state: "",
+        zip: "",
+        cardno: "",
+        carddate: "",
+        promo: false
     },
     {
-        email: 'user1',
-        status: 'registered',
-        password: 'pass'
-    },
-    {
-        email: 'user2',
-        status: 'unregistered',
-        password: 'word'
+        firstname: "Jane",
+        lastname: "Doe",
+        dob: "01/01/1999",
+        status: "ACTIVE",
+        email: "jane@mail.com",
+        password: "janespass",
+        street: "111 street",
+        city: "ville",
+        state: "NA",
+        zip: "10101",
+        cardno: "1111222233334444",
+        carddate: "01/29",
+        promo: true
     }
   ];
 
@@ -140,9 +155,15 @@ function App() {
   const addUpdatableUsers = (email, password) => {
     setUpdatableUsers( [...updatableUsers, {
         email: email,
-        status: 'unregistered',
+        status: 'INACTIVE',
         password: password
     }] )
+  }
+
+  const updateUpdatableUsers = (changedUser) => {
+    let newarr = updatableUsers.filter((item) => item.email !== changedUser.email)
+    newarr = [...newarr, changedUser]
+    setUpdatableUsers(newarr)
   }
 
 
@@ -177,7 +198,7 @@ function App() {
             <Route path="/search/:id" element={<SearchPage moviearray={moviearray} user={user} setUser={setUser} setSelectedMovie={setSelectedMovie}/>}/>
             <Route path="createaccount" element={<CreateAccountPage setUser={setUser} addUpdatableUsers={addUpdatableUsers}/>}/>
             <Route path="/confirmwindow" element={<ConfirmationWindow />}/>
-            <Route path="/profile" element={<ViewProfile user={user}/>}/>
+            <Route path="/profile" element={<ViewProfile user={user} updatableUsers={updatableUsers} updateUpdatableUsers={updateUpdatableUsers}/>}/>
             <Route path="/forgotpassword" element={<ForgotPasswordPage user={user}/>}/>
             {/*}<Route path="/admin" element={<AdminHomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray}/>}/>{*/}
 

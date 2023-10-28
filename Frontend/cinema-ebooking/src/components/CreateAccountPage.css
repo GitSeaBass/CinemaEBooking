@@ -19,7 +19,7 @@
 }
 
 .create-input {
-    margin-bottom: 10%;
+    margin-bottom: 6%;
     margin-left: 5%;
     border: none;
     border-bottom: solid black 1px;
@@ -41,6 +41,11 @@
 .address-input {
     width: 40%;
     margin-bottom: 2%;
+}
+
+.create-name {
+    width: 40%;
+    margin-bottom: 1%;
 }
 
 .card-input {
