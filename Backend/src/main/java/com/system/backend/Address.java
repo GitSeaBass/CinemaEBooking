@@ -1,5 +1,6 @@
 package com.system.backend;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -8,10 +9,15 @@ import jakarta.persistence.OneToMany;
 public class Address {
 
     @Id
+    @Column(name = "address_id")
     private Integer id;
+    @Column (name = "street")
     private String street;
+    @Column (name = "city")
     private String city;
+    @Column (name = "state")
     private String state;
+    @Column (name = "zipcode")
     private Integer zipcode;
 
     public Integer getId() {

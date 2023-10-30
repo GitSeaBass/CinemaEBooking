@@ -6,15 +6,23 @@ import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Customer {
+    public static enum Status {ACTIVE, INACTIVE, SUSPENDED};
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_id")
     private Integer id;
+    @Column (name = "first_name")
     private String firstName;
+    @Column (name = "last_name")
     private String lastName;
+    @Column (name = "email")
     private String email;
+    @Column (name = "password")
     private String password;
+    @Column (name = "date_of_birth")
     private String dateOfBirth;
-    public static enum Status {ACTIVE, INACTIVE, SUSPENDED};
+    @Column (name = "status")
     private Status status;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
