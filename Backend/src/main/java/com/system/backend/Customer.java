@@ -4,13 +4,10 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import static jakarta.persistence.GenerationType.IDENTITY;
-
-
 @Entity
 public class Customer {
     @Id
-    @GeneratedValue(strategy = IDENTITY) //might need to be .IDENTITY
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String firstName;
     private String lastName;
@@ -20,7 +17,7 @@ public class Customer {
     public static enum Status {ACTIVE, INACTIVE, SUSPENDED};
     private Status status;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "address_id", nullable = true)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Address address;
