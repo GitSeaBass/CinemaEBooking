@@ -43,6 +43,16 @@ public class MainController {
         return movieRepository.findAll();
     }
 
+    @GetMapping(path = "/getuser")
+    public @ResponseBody Iterable<Customer> getUser(@RequestParam String email) {
+        return customerRepository.findByEmail(email);
+    }
+
+    @GetMapping(path = "/getallusers")
+    public @ResponseBody Iterable<Customer> getAllUsers() {
+        return customerRepository.findAll();
+    }
+
     @GetMapping(path = "/search")
     public @ResponseBody Iterable<Movies> getByTitle(@RequestParam String title) {
         return movieRepository.findByTitle(title);
@@ -52,6 +62,7 @@ public class MainController {
     public @ResponseBody Customer createAccount(@RequestBody Customer customer) {
         return customerRepository.save(customer);
     }
+            
 
     /**
      * Updates a customer's profile in the database
