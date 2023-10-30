@@ -4,13 +4,13 @@ import { useState, useEffect } from 'react';
 
 function CustomerHomePage(props) {
 
-    const[dbmovies, setDbMovies] = useState([])
+    const [dbmovies, setDbMovies] = useState([])
     const addDbMovies = (e) => {
         setDbMovies(e)
     }
 
     useEffect(() => {
-        fetch(`http://localhost:8080/system/all`)
+        fetch(`http://localhost:3306/system/all`)
             .then(res => res.json())
             .then(data => {
                 addDbMovies(data)
@@ -22,7 +22,7 @@ function CustomerHomePage(props) {
 
     return (
         <>
-            <NavBar user={props.user} setUser={props.setUser} moviearray={dbmovies}/>
+            <NavBar user={props.user} setUser={props.setUser} moviearray={dbmovies} />
 
             <div className='currently-running-title'>
                 Now Playing
@@ -32,13 +32,13 @@ function CustomerHomePage(props) {
                 {dbmovies.filter((item) => item.category === 'Now Showing').map((item) => (
                     <div className='movie-card' key={item.id}>
                         <div className='left-movie'>
-                            <img src={item.poster_url} alt={item.title} className='poster'/>
+                            <img src={item.poster_url} alt={item.title} className='poster' />
                             <div>{item.title}</div>
                             <div>MPAA: {item.mpaa_rating}</div>
                         </div>
                         <div className='right-movie'>
-                            <iframe src={item.trailer_url} title={item.title} className="trailer"/>
-                        </div>      
+                            <iframe src={item.trailer_url} title={item.title} className="trailer" />
+                        </div>
                     </div>
                 ))}
             </div>
@@ -51,13 +51,13 @@ function CustomerHomePage(props) {
                 {dbmovies.filter((item) => item.category === 'Coming Soon').map((item) => (
                     <div className='movie-card' key={item.id}>
                         <div className='left-movie'>
-                            <img src={item.poster_url} alt={item.title} className='poster'/>
+                            <img src={item.poster_url} alt={item.title} className='poster' />
                             <div>{item.title}</div>
                             <div>MPAA: {item.mpaa_rating}</div>
                         </div>
                         <div className='right-movie'>
-                            <iframe src={item.trailer_url} title={item.title} className="trailer"/>
-                        </div> 
+                            <iframe src={item.trailer_url} title={item.title} className="trailer" />
+                        </div>
                     </div>
                 ))}
             </div>

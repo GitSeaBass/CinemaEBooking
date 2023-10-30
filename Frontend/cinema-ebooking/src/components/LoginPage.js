@@ -5,12 +5,12 @@ import { useNavigate } from 'react-router-dom';
 function LoginPage(props) {
     const navigate = useNavigate();
 
-    const[email, setEmail] = useState('')
+    const [email, setEmail] = useState('')
     const addEmail = (e) => {
         setEmail(e.target.value);
     };
 
-    const[password, setPassword] = useState('')
+    const [password, setPassword] = useState('')
     const addPassword = (e) => {
         setPassword(e.target.value);
     };
@@ -36,7 +36,7 @@ function LoginPage(props) {
         }
     }
 
-    return(
+    return (
         <>
             <div className='login-container'>
 
@@ -47,24 +47,21 @@ function LoginPage(props) {
 
                 <div className="login-form-container">
                     <div className='login-title'>Login</div>
-                        
+
                     <h4 className='create-account-question'>Don't Have an Account?
                         <a className='create-account-link' href='/createaccount'>Create One Here</a>
                     </h4>
-                    
+
 
                     <form className='login-form' onSubmit={onSubmit}>
-                        <input type='text' className='login-input' placeholder='Email' onChange={addEmail} required></input><br/>
-                        <input type='password' className='login-input' placeholder='Password' onChange={addPassword} required></input><br/>
+                        <input type='text' className='login-input' placeholder='Email' onChange={addEmail} required></input><br />
+                        <input type='password' className='login-input' placeholder='Password' onChange={addPassword} required></input><br />
                         <input type='submit' value='Login' className='login-submit'></input>
                     </form>
 
                     <h4 className='create-account-question'>
                         <a className='create-account-link' href='/forgotpassword'>Forgot Your Password? </a>
-                        <br/>
-                        <br/>
-                        Return
-                        <a className='create-account-link' href='/'>Home</a>
+                        <p>Return <a className='create-account-link' href='/'>Home</a></p>
                     </h4>
                 </div>
             </div>
