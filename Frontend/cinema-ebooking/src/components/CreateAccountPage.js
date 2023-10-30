@@ -36,6 +36,24 @@ function CreateAccountPage(props) {
         setPassword2(e.target.value);
     };
 
+    const createAccount = async () => {
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newUser)
+        };
+
+        const result = await fetch("http://localhost:8080/system/add", requestOptions)
+
+        const resultinJSON = await result.json();
+        console.log(resultinJSON)
+
+    }
+
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -43,6 +61,7 @@ function CreateAccountPage(props) {
             alert('Please Enter a Valid Email')
         } else if (newUser.password === password2) {
             props.addUpdatableUsers(newUser.email, newUser.password)
+
             //props.setUser(email);
             navigate('/confirmwindow');
         } else {
