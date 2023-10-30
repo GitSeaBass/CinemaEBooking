@@ -41,7 +41,7 @@ function AddMovies(props) {
             body: JSON.stringify(data)
         };
 
-        const result = await fetch("http://localhost:3306/system/add", requestOptions)
+        const result = await fetch("http://localhost:8080/system/add", requestOptions)
 
         const resultinJSON = await result.json();
         console.log(resultinJSON)

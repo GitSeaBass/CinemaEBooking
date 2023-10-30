@@ -10,7 +10,7 @@ function CustomerHomePage(props) {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:3306/system/all`)
+        fetch(`http://localhost:8080/system/all`)
             .then(res => res.json())
             .then(data => {
                 addDbMovies(data)
