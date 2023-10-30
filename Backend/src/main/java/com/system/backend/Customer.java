@@ -26,7 +26,7 @@ public class Customer {
     private Status status;
 
     @OneToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "address_id", nullable = true)
+    @JoinColumn(name = "address_address_id", nullable = true)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Address address;
 
