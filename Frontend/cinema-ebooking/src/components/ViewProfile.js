@@ -1,4 +1,5 @@
 import './ViewProfile.css'
+import AddCard from './AddCard.js'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
@@ -40,6 +41,18 @@ function ViewProfile(props) {
 
     const resetPass = () => {
         navigate('/forgotpassword')
+    }
+
+    const [view, setView] = useState(0)
+
+    function addClick() {
+        if (view === 0) {
+            setView(1)
+        } else if (view === 1) {
+            setView(0)
+        }
+
+
     }
 
     return (
@@ -101,7 +114,7 @@ function ViewProfile(props) {
                         <input value={currentUser.carddate} name='carddate' onChange={addCurrentUser}></input><br />
                     </div>
                     <div>
-                        <button className='add-card-button' type='submit'>Add a Card</button>
+                        <button className='add-card-button' type='button' onClick={addClick}>Add a Card</button>
                     </div>
                     {promoStatus === true &&
                         <div className='edit-div'>
@@ -120,6 +133,11 @@ function ViewProfile(props) {
                     <button className='save-changes-button' type='submit' onClick={returnHome}>Return Home</button>
                 </form>
             </div>
+
+            {
+                view === 1 &&
+                <AddCard props />
+            }
         </>
     )
 }
