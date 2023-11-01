@@ -26,7 +26,9 @@ function ViewProfile(props) {
         const result = await fetch(`http://localhost:8080/system/getuser?email=${props.user}`)
         const resultinJSON = await result.json();
         const resultUser = await resultinJSON
-        setCurrentUser(resultUser[0])
+        if (currentUser === '') {
+            setCurrentUser(resultUser[0])
+        }
     }
 
     useEffect(() => {
