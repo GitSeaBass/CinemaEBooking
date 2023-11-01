@@ -11,9 +11,10 @@ import java.time.LocalTime;
 
 @Entity
 public class Movies {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Id
     private String title;
     private String category;
     private String cast;

@@ -23,7 +23,7 @@ function SearchPage(props) {
         }).catch(err => {
             console.log(err)
         })
-    }, [])
+    }, [id, movie, props])
 
     function book() {
         navigate('/showings')

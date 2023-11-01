@@ -15,24 +15,34 @@ function LoginPage(props) {
         setPassword(e.target.value);
     };
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-        console.log(props.updatableUsers)
-        const foundUser = props.updatableUsers.find((user) => user.email === email)
-        if (foundUser != null) {
-            if (foundUser.password === password) {
-                if (foundUser.status === 'INACTIVE') {
+
+        console.log(email)
+
+        try {
+            const result = await fetch(`http://localhost:8080/system/getuser?email=${email}`)
+        
+            const resultinJSON = await result.json();
+            console.log(resultinJSON[0])
+        
+
+            //const foundUser = props.updatableUsers.find((user) => user.email === email)
+            
+            if (resultinJSON[0].password === password) {
+                if (resultinJSON[0].status === 'INACTIVE') {
                     navigate('/confirmwindow')
                 } else {
                     props.setUser(email);
-                    props.setStatus(foundUser.status)
+                    props.setStatus(resultinJSON[0].status)
                     navigate('/');
                 }
             } else {
                 alert("Email or Password is Incorrect")
             }
-        } else {
-            alert("Email or Password is Incorrect")
+
+        } catch (error) {
+        alert("Email or Password is Incorrect")
         }
     }
 

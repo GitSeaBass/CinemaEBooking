@@ -6,30 +6,30 @@ function CreateAccountPage(props) {
     const navigate = useNavigate();
 
     const [newUser, setNewUser] = useState({
-        firstname: "",
-        lastname: "",
-        dob: "",
+        firstName: "",
+        lastName: "",
+        dateOfBirth: "",
         status: "INACTIVE",
         email: "",
         password: "",
-        street: "",
+        /*street: "",
         city: "",
         state: "",
         zip: "",
         cardno: "",
         carddate: "",
-        promo: false
+        promo: false*/
     })
     const addNewUser = (e) => {
         setNewUser({
-            ...newUser, [e.target.name]: e.target.value, promo: promoState
+            ...newUser, [e.target.name]: e.target.value, /*promo: promoState*/
         })
     }
 
-    const [promoState, setPromoState] = useState(false)
+    /*const [promoState, setPromoState] = useState(false)
     const addPromoState = () => {
         setPromoState(!promoState)
-    }
+    }*/
 
     const [password2, setPassword2] = useState('')
     const addPassword2 = (e) => {
@@ -46,8 +46,9 @@ function CreateAccountPage(props) {
             },
             body: JSON.stringify(newUser)
         };
+        console.log(newUser)
 
-        const result = await fetch("http://localhost:8080/system/add", requestOptions)
+        const result = await fetch("http://localhost:8080/system/createaccount", requestOptions)
 
         const resultinJSON = await result.json();
         console.log(resultinJSON)
@@ -60,8 +61,8 @@ function CreateAccountPage(props) {
         if (newUser.email.indexOf('@') === -1) {
             alert('Please Enter a Valid Email')
         } else if (newUser.password === password2) {
-            props.addUpdatableUsers(newUser.email, newUser.password)
-
+            //props.addUpdatableUsers(newUser.email, newUser.password)
+            createAccount()
             //props.setUser(email);
             navigate('/confirmwindow');
         } else {
@@ -89,12 +90,13 @@ function CreateAccountPage(props) {
                     <input type='password' className='create-input' name='password' onChange={addNewUser} placeholder='Password' required></input><br />
                     <input type='password' className='create-input' onChange={addPassword2} placeholder='Confirm Password' required></input><br />
 
-                    <input type='text' className='create-input create-name' placeholder='First Name' name='firstname' onChange={addNewUser} required></input>
-                    <input type='text' className='create-input create-name' placeholder='Last Name' name='lastname' onChange={addNewUser} required></input> <br />
+                    <input type='text' className='create-input create-name' placeholder='First Name' name='firstName' onChange={addNewUser} required></input>
+                    <input type='text' className='create-input create-name' placeholder='Last Name' name='lastName' onChange={addNewUser} required></input> <br />
 
                     <label className='create-label'>Enter Date of Birth</label> <br />
-                    <input type='text' className='create-input' placeholder='MM/DD/YYYY' name='dob' onChange={addNewUser} required></input> <br />
+                    <input type='text' className='create-input' placeholder='MM/DD/YYYY' name='dateOfBirth' onChange={addNewUser} required></input> <br />
 
+{/*}
                     <label className='create-label' value='Address'>Enter Address (Optional) </label><br />
                     <input type='text' className='create-input address-input' placeholder='Street' name='street' onChange={addNewUser}></input>
                     <input type='text' className='create-input address-input' placeholder='City' name='city' onChange={addNewUser}></input><br />
@@ -107,6 +109,7 @@ function CreateAccountPage(props) {
 
                     <br />
                     <input type='checkbox' className='create-checkbox' name='promo' onChange={addPromoState}></input>Register for Promotions<br />
+    {*/}
                     <input type='submit' value='Create Account' className='create-submit'></input>
                 </form>
 

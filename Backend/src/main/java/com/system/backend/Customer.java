@@ -6,44 +6,53 @@ import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Customer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE) //might need to be .IDENTITY
-    private Integer id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
-    private String dateOfBirth;
     public static enum Status {ACTIVE, INACTIVE, SUSPENDED};
-    private Status status;
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "address_id", nullable = false)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Column(name = "customer_id")
+    private Integer customer_id;
+    //@Column (name = "first_name")
+    private String first_Name;
+    //@Column (name = "last_name")
+    private String last_Name;
+    //@Column (name = "email")
+    private String email;
+    //@Column (name = "password")
+    private String password;
+    //@Column (name = "date_of_birth")
+    private String date_of_birth;
+    //@Column (name = "status")
+    private String status;
+
+    @OneToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "address_address_id", nullable = true)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Address address;
 
 
     public Integer getId() {
-        return id;
+        return customer_id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer customer_id) {
+        this.customer_id = customer_id;
     }
 
     public String getFirstName() {
-        return firstName;
+        return first_Name;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.first_Name = firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return last_Name;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.last_Name = lastName;
     }
 
     public String getEmail() {
@@ -63,18 +72,18 @@ public class Customer {
     }
 
     public String getDateOfBirth() {
-        return dateOfBirth;
+        return date_of_birth;
     }
 
     public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+        this.date_of_birth = dateOfBirth;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
