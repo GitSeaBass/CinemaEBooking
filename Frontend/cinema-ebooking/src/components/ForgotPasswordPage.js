@@ -1,5 +1,5 @@
 import './ForgotPasswordPage.css'
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function ForgotPasswordPage(props) {
@@ -71,7 +71,7 @@ function ForgotPasswordPage(props) {
             if (forgottenUser.password === confirmPass) {
                 await changePass()
                 await alert("Password Successfully Changed")
-                //await navigate('/')
+                await navigate('/')
             } else {
                 alert("Password Do Not Match")
             }
