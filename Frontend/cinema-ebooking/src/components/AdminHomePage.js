@@ -11,19 +11,35 @@ function AdminHomePage(props) {
     const [option, setOption] = useState(0)
 
     function addclick() {
-        setOption(1);
+        if (option === 1) {
+            setOption(0)
+        } else {
+            setOption(1)
+        }
     }
 
     function movieclick() {
-        setOption(2)
+        if (option === 2) {
+            setOption(0)
+        } else {
+            setOption(2)
+        }
     }
 
     function userclick() {
-        setOption(3)
+        if (option === 3) {
+            setOption(0)
+        } else {
+            setOption(3)
+        }
     }
 
     function promoclick() {
-        setOption(4)
+        if (option === 4) {
+            setOption(0)
+        } else {
+            setOption(4)
+        }
     }
 
     return (

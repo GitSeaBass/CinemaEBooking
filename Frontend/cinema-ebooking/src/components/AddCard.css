@@ -1,0 +1,28 @@
+.indent {
+    width: 60%;
+    height: 200px;
+
+    margin-left: 8rem;
+
+    background-color: #ffffff;
+}
+
+.add-div {
+    display: flex;
+    justify-content: space-between;
+
+    margin-left: 3%;
+}
+
+.add-div>label {
+    width: 150px;
+}
+
+.add-div>input {
+    width: 50%;
+    height: 30px;
+
+    margin-bottom: 2%;
+    margin-left: 5%;
+    border: solid gray 1px;
+}
