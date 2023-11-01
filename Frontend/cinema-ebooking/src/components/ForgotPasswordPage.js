@@ -12,10 +12,10 @@ function ForgotPasswordPage(props) {
 
     const [validEmail, setValidEmail] = useState(false)
 
-    const [newPass, setNewPass] = useState('')
+    /*const [newPass, setNewPass] = useState('')
     const addNewPass = (e) => {
         setNewPass(e.target.value)
-    }
+    }*/
     const [confirmPass, setConfirmPass] = useState('')
     const addConfirmPass = (e) => {
         setConfirmPass(e.target.value)
@@ -29,13 +29,48 @@ function ForgotPasswordPage(props) {
         }
     }, [props.user])
 
-    const onSubmit = (e) => {
+    const [forgottenUser, setForgottenUser] = useState('')
+    const addForgottenUser = (e) => {
+        setForgottenUser({
+            ...forgottenUser, [e.target.name]: e.target.value,
+        })
+    }
+
+    const fetchUser = async() => {
+        if (enteredEmail === '') {
+            const result = await fetch(`http://localhost:8080/system/getuser?email=${props.user}`)
+            const resultInJson = await result.json()
+            await setForgottenUser(resultInJson[0])
+        } else {
+            const result = await fetch(`http://localhost:8080/system/getuser?email=${enteredEmail}`)
+            const resultInJson = await result.json()
+            await setForgottenUser(resultInJson[0])
+        }
+    }
+
+    const changePass = async() => {
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(forgottenUser)
+        };
+
+        await fetch("http://localhost:8080/system/createaccount", requestOptions)
+    }
+
+    const onSubmit = async (e) => {
         e.preventDefault();
         if (validEmail === false) {
             setValidEmail(true)
+            await fetchUser()
         } else if (validEmail === true) {
-            if (newPass === confirmPass) {
-                alert("Should work")
+            if (forgottenUser.password === confirmPass) {
+                await changePass()
+                await alert("Password Successfully Changed")
+                await navigate('/')
             } else {
                 alert("Password Do Not Match")
             }
@@ -60,7 +95,7 @@ function ForgotPasswordPage(props) {
                         <>
                             <input className='forgot-input-locked' placeholder='Email' onChange={addEnteredEmail} value={enteredEmail} readOnly disabled required></input><br/>
                             <label>Enter New Password</label> <br/>
-                            <input className='forgot-input' placeholder='New Password' onChange={addNewPass} type='password' required></input>
+                            <input className='forgot-input' placeholder='New Password' name='password' onChange={addForgottenUser} type='password' required></input>
                             <input className='forgot-input' placeholder='Confirm New Password' onChange={addConfirmPass} type='password' required></input> <br/>
                         </>
                     }

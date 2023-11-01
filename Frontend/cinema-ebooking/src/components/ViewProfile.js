@@ -13,25 +13,47 @@ function ViewProfile(props) {
         console.log(currentUser)
     }
 
-    const [promoStatus, setPromoStatus] = useState(props.updatableUsers.find((item) => item.email === props.user).promo)
+    // not usable rn, just here to remember to implement in future
+    const [promoStatus, setPromoStatus] = useState()
     const addPromoStatus = () => {
         setCurrentUser({
-            ...currentUser, promo: !promoStatus
+            ...currentUser
         })
-        setPromoStatus(!promoStatus)
+        setPromoStatus()
+    }
+
+    const getUser = async() => {
+        const result = await fetch(`http://localhost:8080/system/getuser?email=${props.user}`)
+        const resultinJSON = await result.json();
+        const resultUser = await resultinJSON
+        setCurrentUser(resultUser[0])
     }
 
     useEffect(() => {
-        setCurrentUser(
-            props.updatableUsers.find((item) => item.email === props.user)
-        )
-    }, [props.user, props.updatableUsers])
 
-    const onSubmit = (e) => {
+        getUser()
+
+        //setCurrentUser(
+            //props.updatableUsers.find((item) => item.email === props.user)
+        //)
+    })
+
+    const onSubmit = async (e) => {
         e.preventDefault()
-        props.updateUpdatableUsers(currentUser)
-        console.log(currentUser)
-        navigate('/')
+        
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(currentUser)
+        };
+
+        const result = await fetch("http://localhost:8080/system/createaccount", requestOptions)
+        const resultinJSON = await result.json();
+        console.log(resultinJSON)
+        //navigate('/')
     }
 
     const returnHome = () => {
@@ -58,17 +80,18 @@ function ViewProfile(props) {
                         <label>Email</label>
                         <input value={currentUser.email} disabled></input><br />
                     </div>
+                    
                     <div className='edit-div'>
                         <label>First Name</label>
-                        <input value={currentUser.firstname} name='firstname' onChange={addCurrentUser}></input><br />
+                        <input value={currentUser.firstName} name='firstName' onChange={addCurrentUser}></input><br />
                     </div>
                     <div className='edit-div'>
                         <label>Last Name</label>
-                        <input value={currentUser.lastname} name='lastname' onChange={addCurrentUser}></input><br />
+                        <input value={currentUser.lastName} name='lastName' onChange={addCurrentUser}></input><br />
                     </div>
                     <div className='edit-div'>
                         <label>Date of Birth</label>
-                        <input value={currentUser.dob} name='dob' onChange={addCurrentUser}></input><br />
+                        <input value={currentUser.dateOfBirth} name='dateOfBirth' onChange={addCurrentUser}></input><br />
                     </div>
 
                     <div className='edit-div'>
@@ -76,46 +99,53 @@ function ViewProfile(props) {
                         <button className='reset-button' onClick={resetPass}>Reset Password</button>
                     </div>
 
-                    <div className='edit-div'>
-                        <label>Street</label>
-                        <input value={currentUser.street} name='street' onChange={addCurrentUser}></input><br />
-                    </div>
-                    <div className='edit-div'>
-                        <label>City</label>
-                        <input value={currentUser.city} name='city' onChange={addCurrentUser}></input><br />
-                    </div>
-                    <div className='edit-div'>
-                        <label>State</label>
-                        <input value={currentUser.state} name='state' onChange={addCurrentUser}></input><br />
-                    </div>
-                    <div className='edit-div'>
-                        <label>Zipcode</label>
-                        <input value={currentUser.zip} name='zip' onChange={addCurrentUser}></input><br />
-                    </div>
-                    <div className='edit-div'>
-                        <label>Card Number</label>
-                        <input value={currentUser.cardno} name='cardno' onChange={addCurrentUser}></input><br />
-                    </div>
-                    <div className='edit-div'>
-                        <label>Card Expiration Date</label>
-                        <input value={currentUser.carddate} name='carddate' onChange={addCurrentUser}></input><br />
-                    </div>
-                    <div>
-                        <button className='add-card-button' type='submit'>Add a Card</button>
-                    </div>
-                    {promoStatus === true &&
+                    {currentUser.address !== null &&
+                    <>
                         <div className='edit-div'>
-                            <label>Recieve Promos</label>
-                            <input className='promo-box' type='checkbox' checked value={currentUser.carddate} onChange={addPromoStatus}></input><br />
+                            <label>Street</label>
+                            <input value={currentUser.street} name='street' onChange={addCurrentUser}></input><br />
                         </div>
-                    }
-                    {promoStatus === false &&
                         <div className='edit-div'>
-                            <label>Recieve Promos</label>
-                            <input className='promo-box' type='checkbox' value={currentUser.carddate} onChange={addPromoStatus}></input><br />
+                            <label>City</label>
+                            <input value={currentUser.city} name='city' onChange={addCurrentUser}></input><br />
                         </div>
+                        <div className='edit-div'>
+                            <label>State</label>
+                            <input value={currentUser.state} name='state' onChange={addCurrentUser}></input><br />
+                        </div>
+                        <div className='edit-div'>
+                            <label>Zipcode</label>
+                            <input value={currentUser.zip} name='zip' onChange={addCurrentUser}></input><br />
+                        </div>
+                    </>
                     }
-
+                    {false &&
+                    <>
+                        <div className='edit-div'>
+                            <label>Card Number</label>
+                            <input value={currentUser.cardno} name='cardno' onChange={addCurrentUser}></input><br />
+                        </div>
+                        <div className='edit-div'>
+                            <label>Card Expiration Date</label>
+                            <input value={currentUser.carddate} name='carddate' onChange={addCurrentUser}></input><br />
+                        </div>
+                        <div>
+                            <button className='add-card-button' type='submit'>Add a Card</button>
+                        </div>
+                        {promoStatus === true &&
+                            <div className='edit-div'>
+                                <label>Recieve Promos</label>
+                                <input className='promo-box' type='checkbox' checked value={currentUser.carddate} onChange={addPromoStatus}></input><br />
+                            </div>
+                        }
+                        {promoStatus === false &&
+                            <div className='edit-div'>
+                                <label>Recieve Promos</label>
+                                <input className='promo-box' type='checkbox' value={currentUser.carddate} onChange={addPromoStatus}></input><br />
+                            </div>
+                        }
+                    </>
+                    }
                     <button className='save-changes-button' type='submit' onClick={onSubmit}>Save Changes</button>
                     <button className='save-changes-button' type='submit' onClick={returnHome}>Return Home</button>
                 </form>

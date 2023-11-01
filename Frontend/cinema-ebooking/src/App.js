@@ -194,7 +194,7 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={<HomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray} status={status} />} />
                     <Route exact path="/customerpage" element={<CustomerHomePage user={user} setUser={setUser} moviearray={moviearray} />} />
-                    <Route path="/login" element={<LoginPage user={user} setUser={setUser} updatableUsers={updatableUsers} setStatus={setStatus} />} />
+                    <Route path="/login" element={<LoginPage user={user} setUser={setUser} setStatus={setStatus} />} />
                     <Route path="/search/:id" element={<SearchPage moviearray={moviearray} user={user} setUser={setUser} setSelectedMovie={setSelectedMovie} />} />
                     <Route path="createaccount" element={<CreateAccountPage setUser={setUser} addUpdatableUsers={addUpdatableUsers} />} />
                     <Route path="/confirmwindow" element={<ConfirmationWindow />} />

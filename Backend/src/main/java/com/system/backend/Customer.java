@@ -10,20 +10,20 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id")
-    private Integer id;
-    @Column (name = "first_name")
-    private String firstName;
-    @Column (name = "last_name")
-    private String lastName;
-    @Column (name = "email")
+    //@Column(name = "customer_id")
+    private Integer customer_id;
+    //@Column (name = "first_name")
+    private String first_Name;
+    //@Column (name = "last_name")
+    private String last_Name;
+    //@Column (name = "email")
     private String email;
-    @Column (name = "password")
+    //@Column (name = "password")
     private String password;
-    @Column (name = "date_of_birth")
-    private String dateOfBirth;
-    @Column (name = "status")
-    private Status status;
+    //@Column (name = "date_of_birth")
+    private String date_of_birth;
+    //@Column (name = "status")
+    private String status;
 
     @OneToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "address_address_id", nullable = true)
@@ -32,27 +32,27 @@ public class Customer {
 
 
     public Integer getId() {
-        return id;
+        return customer_id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer customer_id) {
+        this.customer_id = customer_id;
     }
 
     public String getFirstName() {
-        return firstName;
+        return first_Name;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.first_Name = firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return last_Name;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.last_Name = lastName;
     }
 
     public String getEmail() {
@@ -72,18 +72,18 @@ public class Customer {
     }
 
     public String getDateOfBirth() {
-        return dateOfBirth;
+        return date_of_birth;
     }
 
     public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+        this.date_of_birth = dateOfBirth;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
