@@ -143,7 +143,7 @@ function ViewProfile(props) {
                                 <input value={currentUser.carddate} name='carddate' onChange={addCurrentUser}></input><br />
                             </div>
                             <div>
-                                <button className='add-card-button' type='submit'>Add a Card</button>
+                                <button className='add-card-button' type='submit' onClick={addClick}>Add a Card</button>
                             </div>
                             {promoStatus === true &&
                                 <div className='edit-div'>
@@ -166,7 +166,7 @@ function ViewProfile(props) {
 
             {
                 view === 1 &&
-                <AddCard props />
+                <div></div>
             }
         </>
     )
