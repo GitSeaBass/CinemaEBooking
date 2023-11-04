@@ -1,5 +1,5 @@
 import './ForgotPasswordPage.css'
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function ForgotPasswordPage(props) {
@@ -22,22 +22,22 @@ function ForgotPasswordPage(props) {
     }
 
     useEffect(() => {
-        console.log(props.user)
         if (props.user !== '') {
             setEnteredEmail(props.user)
             setValidEmail(true)
+            fetchUser()
         }
     }, [props.user])
 
     const [forgottenUser, setForgottenUser] = useState('')
-    const addForgottenUser = (e) => {
+    const addForgottenUser = async (e) => {
         setForgottenUser({
             ...forgottenUser, [e.target.name]: e.target.value,
         })
     }
 
     const fetchUser = async() => {
-        if (enteredEmail === '') {
+        if (props.user !== '') {
             const result = await fetch(`http://localhost:8080/system/getuser?email=${props.user}`)
             const resultInJson = await result.json()
             await setForgottenUser(resultInJson[0])
@@ -45,6 +45,7 @@ function ForgotPasswordPage(props) {
             const result = await fetch(`http://localhost:8080/system/getuser?email=${enteredEmail}`)
             const resultInJson = await result.json()
             await setForgottenUser(resultInJson[0])
+            await console.log(forgottenUser)
         }
     }
 
