@@ -22,13 +22,13 @@ function LoginPage(props) {
 
         try {
             const result = await fetch(`http://localhost:8080/system/getuser?email=${email}`)
-        
+
             const resultinJSON = await result.json();
             console.log(resultinJSON[0])
-        
+
 
             //const foundUser = props.updatableUsers.find((user) => user.email === email)
-            
+
             if (resultinJSON[0].password === password) {
                 if (resultinJSON[0].status === 'INACTIVE') {
                     navigate('/confirmwindow')
@@ -42,7 +42,7 @@ function LoginPage(props) {
             }
 
         } catch (error) {
-        alert("Email or Password is Incorrect")
+            alert("Email or Password is Incorrect")
         }
     }
 
@@ -58,8 +58,8 @@ function LoginPage(props) {
                 <div className="login-form-container">
                     <div className='login-title'>Login</div>
 
-                    <h4 className='create-account-question'>Don't Have an Account?
-                        <a className='create-account-link' href='/createaccount'>Create One Here</a>
+                    <h4 className='create-account-question'>
+                        Don't have an account? Create one <a className='create-account-link' href='/createaccount'>here</a>.
                     </h4>
 
 
@@ -70,7 +70,7 @@ function LoginPage(props) {
                     </form>
 
                     <h4 className='create-account-question'>
-                        <a className='create-account-link' href='/forgotpassword'>Forgot Your Password? </a>
+                        <a className='create-account-link' href='/forgotpassword'>Forgot your password?</a>
                         <p>Return <a className='create-account-link' href='/'>Home</a></p>
                     </h4>
                 </div>

@@ -45,24 +45,46 @@ function AdminHomePage(props) {
     return (
         <>
             <NavBar user={props.user} setUser={props.setUser} moviearray={props.moviearray} />
-            <div className='options'>
-                <button className='admin-button' onClick={addclick}>Add Movie</button>
-                <button className='admin-button' onClick={movieclick}>Manage Movies</button>
-                <button className='admin-button' onClick={userclick}>Manage Users</button>
-                <button className='admin-button' onClick={promoclick}>Manage Promotions</button>
-            </div>
+            {option === 0 &&
+                <div className='options'>
+                    <button className='admin-button' onClick={addclick}>Add Movie</button>
+                    <button className='admin-button' onClick={movieclick}>Manage Movies</button>
+                    <button className='admin-button' onClick={userclick}>Manage Users</button>
+                    <button className='admin-button' onClick={promoclick}>Manage Promotions</button>
+                </div>
+            }
 
             {option === 1 &&
-                <AddMovies moviearray={props.moviearray} />
+                <>
+                    <div className='options'>
+                        <button className='admin-button' onClick={addclick}>Add Movie</button>
+                    </div>
+                    <AddMovies moviearray={props.moviearray} />
+                </>
             }
             {option === 2 &&
-                <ManageMovies moviearray={props.moviearray} />
+                <>
+                    <div className='options'>
+                        <button className='admin-button' onClick={movieclick}>Manage Movies</button>
+                    </div>
+                    <ManageMovies moviearray={props.moviearray} />
+                </>
             }
             {option === 3 &&
-                <ManageUsers userarray={props.userarray} />
+                <>
+                    <div className='options'>
+                        <button className='admin-button' onClick={userclick}>Manage Users</button>
+                    </div>
+                    <ManageUsers userarray={props.userarray} />
+                </>
             }
             {option === 4 &&
-                <ManagePromotions promoarray={props.promoarray} />
+                <>
+                    <div className='options'>
+                        <button className='admin-button' onClick={promoclick}>Manage Promotions</button>
+                    </div>
+                    <ManagePromotions promoarray={props.promoarray} />
+                </>
             }
         </>
     )

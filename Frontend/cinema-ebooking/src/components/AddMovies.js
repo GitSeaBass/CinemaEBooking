@@ -137,7 +137,7 @@ function AddMovies(props) {
                         </label>
                     </div>
                 </form>
-                <button className='add' type='submit' id='signup' onClick={submitMovie}>Add</button>
+                <button className='add-button' type='submit' id='signup' onClick={submitMovie}>Add</button>
             </div>}
         </>
     )

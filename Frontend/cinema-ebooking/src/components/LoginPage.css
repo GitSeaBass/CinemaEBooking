@@ -19,6 +19,17 @@
     background-color: white;
 }
 
+a {
+    color: #000000;
+    text-decoration: none;
+
+    transition: color 300ms ease-in-out 200ms;
+}
+
+a:hover {
+    color: #11114d;
+}
+
 .login-input {
     margin-bottom: 20%;
     margin-left: 5%;
@@ -50,24 +61,21 @@
     box-shadow: 5px 5px 2px 1px gray;
 }
 
-.login-form > label {
+.login-form>label {
     font-weight: bold;
 }
 
 .create-account-question {
-    margin-bottom:10%;
+    margin-bottom: 10%;
     text-align: center;
 }
 
-.create-account-link {
-    color: rgb(118, 55, 213);
-}
-
-.image-container{
+.image-container {
     position: absolute;
     left: 250px;
     z-index: -1;
 }
+
 .image {
     background-color: black;
     background: radial-gradient(rgb(100, 249, 100), rgb(74, 211, 253) 100%);
