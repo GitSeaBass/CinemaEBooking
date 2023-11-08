@@ -42,7 +42,7 @@ function ManagePromotions(props) {
     }
 
     return (
-        <div className='movies-container'>
+        <div className='promos-container'>
             <div>
                 {promotion.map((item) => (
                     <div className='promo-info' key={item.id}>

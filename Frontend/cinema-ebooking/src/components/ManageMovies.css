@@ -1,24 +1,38 @@
 .movies-container {
-    background-color: gray;
-    font-size: 1.7em;
-    padding: 20px;
-    width: 80%;
-    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    width: 43%;
+
+    margin: 0 auto;
+    padding: 2rem 20%;
     border-radius: 10px;
+
+    background-color: #2d2d30;
+
+    font-size: 1.7rem;
+    color: #a4a4a4;
 }
 
-.movie-row {
-    width: 50%;
+.movie-segment {
     display: flex;
     justify-content: space-between;
-    padding: 5px;
+
+    padding: 10px;
 }
 
-.editbutton {
+.edit-button {
+    width: 10%;
+
+    border: none;
+    border-top: 1px solid #6969e6;
+    border-left: 1px solid #6969e6;
+    border-radius: 10px;
+
+    background-color: #19191b;
+
+    font-size: 1.2rem;
+    color: #a4a4a4;
+
     cursor: pointer;
-    border-radius: 5px;
-}
-
-.editbutton:hover {
-    background-color: gray;
 }

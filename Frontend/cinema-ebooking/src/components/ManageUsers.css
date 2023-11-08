@@ -1,32 +1,110 @@
-.user-row {
+.users-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    width: 80%;
+
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    border-radius: 10px;
+
+    background-color: #2d2d30;
+
+    font-size: 1.2rem;
+    color: #a4a4a4;
+}
+
+.user-segment {
     display: flex;
     justify-content: space-between;
-    width: 50%;
-    padding: 20px;
+
+    padding: 10px;
 }
 
-.buttons {
-    margin-bottom: 5px;
+.user-email {
+    margin-right: 1rem;
 }
 
-.suspendbutton {
-    cursor: pointer;
+.user-buttons {
+    display: inherit;
+}
+
+.user-buttons>button {
+    width: 40px;
+    height: 2.2rem;
+
+    margin: 0 0.1rem;
+    border: none;
+    border-right: 1px solid #19191b;
+    border-bottom: 1px solid #19191b;
     border-radius: 5px;
-    height: 35px;
-    margin-right: 10px;
-}
 
-.suspendbutton:hover {
-    background-color: gray;
-}
+    overflow: hidden;
+    text-wrap: nowrap;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
 
-.adminbutton {
     cursor: pointer;
-    border-radius: 5px;
-    height: 35px;
-    margin-right: 10px;
 }
 
-.adminbutton:hover {
-    background-color: gray;
+.make-admin-button {
+    background-color: #7900d3;
+
+    color: #e2f1ff;
+
+    transition: all ease-in-out 400ms;
+}
+
+.make-admin-button:hover {
+    width: 120px;
+
+    background-color: #5400b8;
+}
+
+.make-admin-button:hover::after {
+    content: 'Make Admin';
+}
+
+.activate-button {
+    background-color: #00a600;
+
+    color: #d1ffd1;
+
+    transition: all ease-in-out 400ms;
+}
+
+.activate-button:hover {
+    width: 100px;
+
+    background-color: #009900;
+}
+
+.activate-button:hover span {
+    display: none;
+}
+
+.activate-button:hover::after {
+    content: 'Activate'
+}
+
+.suspend-button {
+    background-color: #a20000;
+
+    color: #d4ffff;
+
+    transition: all ease-in-out 400ms;
+}
+
+.suspend-button:hover {
+    width: 100px;
+
+    background-color: #820000;
+}
+
+.suspend-button:hover span {
+    display: none;
+}
+
+.suspend-button:hover::after {
+    content: 'Suspend';
 }

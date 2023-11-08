@@ -148,6 +148,36 @@ function App() {
             cardno: "1111222233334444",
             carddate: "01/29",
             promo: true
+        },
+        {
+            firstname: "John",
+            lastname: "Snow",
+            dob: "12/31/1985",
+            status: "INACTIVE",
+            email: "johnsnow@email",
+            password: "winteriscoming",
+            street: "",
+            city: "",
+            state: "",
+            zip: "",
+            cardno: "",
+            carddate: "",
+            promo: false
+        },
+        {
+            firstname: "Angela",
+            lastname: "Merkel",
+            dob: "07/17/1954",
+            status: "ACTIVE",
+            email: "amissmerkieeeeeeeeeeee@email",
+            password: "germanybrd",
+            street: "",
+            city: "",
+            state: "",
+            zip: "",
+            cardno: "",
+            carddate: "",
+            promo: false
         }
     ];
 
