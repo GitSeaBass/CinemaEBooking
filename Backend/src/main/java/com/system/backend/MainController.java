@@ -74,11 +74,12 @@ public class MainController {
     @PostMapping(path = "/confirm")
     public @ResponseBody boolean confirmAccount(@RequestBody String confirmationCode) {
         Customer matchingCustomer = null; // TODO check database for user matching confirmation code
-        if (matchingCustomer != null) {
-            // TODO set customer to confirmed
+        if (matchingCustomer != null) { // if matching customer was found
+            matchingCustomer.setStatus(Customer.Status.ACTIVE); // sets the user to verified
+            customerRepository.save(matchingCustomer); // saves the user to the database
             // TODO show confirmation page
             return true;
-        } else {
+        } else { // if matching customer was not found
             // TODO show customer not found page
             return false;
         }
