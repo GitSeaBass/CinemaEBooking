@@ -60,6 +60,8 @@ public class MainController {
 
     @PostMapping(path = "/createaccount")
     public @ResponseBody Customer createAccount(@RequestBody Customer customer) {
+        Emailer emailer = new Emailer(); // TODO should only be one instance per database session
+        emailer.sendConfirmationEmail(customer, "123456"/* TODO generate and store confirmation code*/);
         return customerRepository.save(customer);
     }
 
@@ -73,10 +75,11 @@ public class MainController {
     public @ResponseBody boolean confirmAccount(@RequestBody String confirmationCode) {
         Customer matchingCustomer = null; // TODO check database for user matching confirmation code
         if (matchingCustomer != null) {
-            customerRepository.save(matchingCustomer);
+            // TODO set customer to confirmed
             // TODO show confirmation page
             return true;
         } else {
+            // TODO show customer not found page
             return false;
         }
     }

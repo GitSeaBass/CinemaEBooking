@@ -29,15 +29,16 @@ public class Emailer extends JavaMailSenderImpl {
     /**
      * Sends a confirmation email to a user
      *
-     * @param userEmail        the email address of the user
+     * @param customer         the customer to send the email to
      * @param confirmationCode the confirmation code of the user
      */
-    public void sendConfirmationEmail(String userEmail, String confirmationCode) {
+    public void sendConfirmationEmail(Customer customer, String confirmationCode) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(myAddress);
-        message.setTo(userEmail);
+        message.setTo(customer.getEmail());
         message.setSubject("Please Confirm your Email Address");
-        message.setText("Please click the link below to confirm your email address:\n" +
+        message.setText("Hello, " + customer.getFirstName() + "! Thank you for creating an account at Cinema " +
+                "Ebooking Cinemas. Please click the link below to confirm your email address:\n" +
                 "http://localhost:8080/confirm?code=" + confirmationCode);
         this.send(message);
     }
