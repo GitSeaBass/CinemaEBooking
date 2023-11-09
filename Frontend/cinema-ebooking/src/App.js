@@ -8,6 +8,7 @@ import CreateAccountPage from './components/CreateAccountPage';
 import ConfirmationWindow from './components/ConfirmationWindow';
 import ViewProfile from './components/ViewProfile';
 import AdminHomePage from './components/AdminHomePage';
+import Movie from './components/Movie';
 import SelectShowing from './components/SelectShowing';
 import SelectTime from './components/SelectTime';
 import SelectSeats from './components/SelectSeats';
@@ -208,10 +209,25 @@ function App() {
         }
     ];
 
+    const rooms = [
+        {
+            number: 1,
+            numSeats: 40,
+            numRows: 5
+        },
+        {
+            number: 2,
+            numSeats: 60,
+            numRows: 6
+        }
+    ];
+
     const [user, setUser] = useState('');
     const [status, setStatus] = useState('');
 
     const [selectedMovie, setSelectedMovie] = useState('');
+    const [poster, setPoster] = useState('');
+    const [trailer, setTrailer] = useState('');
     const [selectedDate, setSelectedDate] = useState('');
     const [selectedTime, setSelectedTime] = useState('');
     const [childTickets, setChildTickets] = useState(0);
@@ -223,7 +239,7 @@ function App() {
             <div>
                 <Routes>
                     <Route exact path="/" element={<HomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray} status={status} />} />
-                    <Route exact path="/customerpage" element={<CustomerHomePage user={user} setUser={setUser} moviearray={moviearray} />} />
+                    <Route exact path="/customerpage" element={<CustomerHomePage user={user} setUser={setUser} moviearray={moviearray} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} poster={poster} setPoster={setPoster} trailer={trailer} setTrailer={setTrailer} />} />
                     <Route path="/login" element={<LoginPage user={user} setUser={setUser} setStatus={setStatus} />} />
                     <Route path="/search/:id" element={<SearchPage moviearray={moviearray} user={user} setUser={setUser} setSelectedMovie={setSelectedMovie} />} />
                     <Route path="createaccount" element={<CreateAccountPage setUser={setUser} addUpdatableUsers={addUpdatableUsers} />} />
@@ -231,12 +247,13 @@ function App() {
                     <Route path="/profile" element={<ViewProfile user={user} updatableUsers={updatableUsers} updateUpdatableUsers={updateUpdatableUsers} />} />
                     <Route path="/forgotpassword" element={<ForgotPasswordPage user={user} />} />
                     <Route path="/admin" element={<AdminHomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray} />} />
-
+                    <Route path="/movie" element={<Movie user={user} setUser={setUser} moviearray={moviearray} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} poster={poster} setPoster={setPoster} trailer={trailer} setTrailer={setTrailer} />} />
                     <Route path="/showings" element={<SelectShowing setSelectedDate={setSelectedDate} user={user} setUser={setUser} />} />
                     <Route path="/times" element={<SelectTime setSelectedTime={setSelectedTime} user={user} setUser={setUser} />} />
                     <Route path="/seatselect" element={<SelectSeats setChildTickets={setChildTickets} setAdultTickets={setAdultTickets} setSeniorTickets={setSeniorTickets} user={user} setUser={setUser} />} />
                     <Route path="/checkout" element={<Checkout movie={selectedMovie} date={selectedDate} time={selectedTime} child={childTickets} adult={adultTickets} senior={seniorTickets} />} />
                     <Route path="/orderconfirm" element={<OrderConfirm />} />
+
                 </Routes>
             </div>
         </Router>
