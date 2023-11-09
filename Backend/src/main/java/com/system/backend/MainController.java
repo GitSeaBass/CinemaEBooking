@@ -58,11 +58,32 @@ public class MainController {
         return movieRepository.findByTitle(title);
     }
 
-    @PostMapping(path= "/createaccount")
+    @PostMapping(path = "/createaccount")
     public @ResponseBody Customer createAccount(@RequestBody Customer customer) {
+        Emailer emailer = new Emailer(); // TODO should only be one instance per database session
+        emailer.sendConfirmationEmail(customer, "123456"/* TODO generate and store confirmation code*/);
         return customerRepository.save(customer);
     }
-            
+
+    /**
+     * Confirms a user's email address by checking the confirmation code
+     *
+     * @param confirmationCode the confirmation code to check
+     * @return true if the confirmation code is valid, false otherwise
+     */
+    @PostMapping(path = "/confirm")
+    public @ResponseBody boolean confirmAccount(@RequestBody String confirmationCode) {
+        Customer matchingCustomer = null; // TODO check database for user matching confirmation code
+        if (matchingCustomer != null) {
+            // TODO set customer to confirmed
+            // TODO show confirmation page
+            return true;
+        } else {
+            // TODO show customer not found page
+            return false;
+        }
+    }
+
 
     /**
      * Updates a customer's profile in the database
