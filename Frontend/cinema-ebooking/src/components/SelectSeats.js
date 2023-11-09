@@ -5,7 +5,7 @@ import NavBar from './NavBar';
 
 function SelectSeats(props) {
     const navigate = useNavigate();
-    
+
     const seats = [
         {
             seat: '1',
@@ -40,19 +40,22 @@ function SelectSeats(props) {
             status: 'open'
         },
     ]
-    
-    const[child, setChild] = useState(0);
+
+    const [child, setChild] = useState(0);
     const addChild = e => {
         setChild(e.target.value)
     }
-    const[adult, setAdult] = useState(0);
+    const [adult, setAdult] = useState(0);
     const addAdult = e => {
         setAdult(e.target.value)
     }
-    const[senior, setSenior] = useState(0);
+    const [senior, setSenior] = useState(0);
     const addSenior = e => {
         setSenior(e.target.value)
     }
+
+    const numRows = props.rooms.numRows;
+    const perRow = props.rooms.numSeats / numRows;
 
     function confirm() {
         props.setChildTickets(child)
@@ -61,31 +64,44 @@ function SelectSeats(props) {
         navigate('/checkout')
     }
 
+    const roomNum = 1
+
     return (
         <>
-        <NavBar user={props.user} setUser={props.setUser}/>
-        <div className='seatcontainer'>
-            <h1 className="seattitle">Select Number of Tickets</h1>
-            <form className="seatform">
-                <label>Child ($5.00): </label>
-                <input type="number" min="0" max="3" onChange={addChild}></input>
-                <br></br>
-                <label>Adult ($10.00): </label>
-                <input type="number" min="0" max="3" onChange={addAdult}></input>
-                <br></br>
-                <label>Senior ($7.50): </label>
-                <input type="number" min="0" max="3" onChange={addSenior}></input>
-            </form>
+            <NavBar user={props.user} setUser={props.setUser} />
+            <div className='seatcontainer'>
+                <h1 className="seattitle">Select Number of Tickets</h1>
+                <form className="seatform">
+                    <label>Child ($5.00): </label>
+                    <input type="number" min="0" max="3" onChange={addChild}></input>
+                    <br></br>
+                    <label>Adult ($10.00): </label>
+                    <input type="number" min="0" max="3" onChange={addAdult}></input>
+                    <br></br>
+                    <label>Senior ($7.50): </label>
+                    <input type="number" min="0" max="3" onChange={addSenior}></input>
+                </form>
 
-            <h3 className="seattitle">Select Seats:</h3>
-            <div className='seatbuttoncontainer'>
-                {seats.map((item) => (
-                    item.status === 'open' ? <button className='seat'>{item.seat}</button>:<button className='seat' disabled>{item.seat}</button> 
-                ))}
+                <h3 className="seattitle">Select Seats:</h3>
+                <div className='seatbuttoncontainer'>
+                    {props.rooms.map(() => {
+                        for (let i = 0; i < numRows; i++) {
+                            <div className='SelectSeats-seat-row'>
+                                {(() => {
+                                    for (let j = 0; j < perRow; i++) {
+                                        <div className='SelectSeats-seat'></div>
+                                    }
+                                })}
+                            </div>
+                        }
+                    })}
+                    {seats.map((item) => (
+                        item.status === 'open' ? <button className='seat'>{item.seat}</button> : <button className='seat' disabled>{item.seat}</button>
+                    ))}
+                </div>
+                <br></br>
+                <button className="confirmbutton" onClick={confirm}>Confirm Selection</button>
             </div>
-            <br></br>
-            <button className="confirmbutton" onClick={confirm}>Confirm Selection</button>
-        </div>
         </>
     )
 }

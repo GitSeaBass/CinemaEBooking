@@ -15,7 +15,7 @@
     font-size: 1.3em;
 }
 
-.seatform > input {
+.seatform>input {
     border-radius: 2px;
     padding-bottom: 5px;
     font-weight: bold;
@@ -33,3 +33,13 @@
     width: 10%;
 }
 
+.SelectSeats-seat-row {
+    background-color: black;
+}
+
+.SelectSeats-seat {
+    width: 40px;
+    height: 60px;
+
+    background-color: aqua;
+}

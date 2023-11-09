@@ -39,7 +39,7 @@
 
 .login-button {
     width: 100px;
-    border-radius: 10px;
+    border-radius: 100%;
     transition: 1s;
     font-size: larger;
 }
@@ -60,7 +60,7 @@
     height: 100%;
     margin-left: 10%;
     width: 100px;
-    border-radius: 20%;
+    border-radius: 2rem;
     cursor: pointer;
 }
 
