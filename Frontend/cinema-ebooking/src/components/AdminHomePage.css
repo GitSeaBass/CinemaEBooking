@@ -1,8 +1,4 @@
-body {
-    background-color: #19191b;
-}
-
-.options {
+.AdminHomePage-options {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,7 +6,7 @@ body {
     margin: 10px 0px;
 }
 
-.admin-button {
+.AdminHomePage-admin-button {
     width: 80%;
     height: 120px;
 
@@ -26,6 +22,6 @@ body {
     transition: all 300ms ease-in-out 200ms;
 }
 
-.admin-button:hover {
+.AdminHomePage-admin-button:hover {
     background-color: #cccccc;
 }

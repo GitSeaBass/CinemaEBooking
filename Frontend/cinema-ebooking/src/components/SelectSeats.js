@@ -54,9 +54,6 @@ function SelectSeats(props) {
         setSenior(e.target.value)
     }
 
-    const numRows = props.rooms.numRows;
-    const perRow = props.rooms.numSeats / numRows;
-
     function confirm() {
         props.setChildTickets(child)
         props.setAdultTickets(adult)
@@ -84,12 +81,13 @@ function SelectSeats(props) {
 
                 <h3 className="seattitle">Select Seats:</h3>
                 <div className='seatbuttoncontainer'>
-                    {props.rooms.map(() => {
-                        for (let i = 0; i < numRows; i++) {
+                    {props.rooms.filter((room) => room.number === roomNum).map((room) => {
+
+                        for (let i = 0; i < room.numRows; i++) {
                             <div className='SelectSeats-seat-row'>
                                 {(() => {
-                                    for (let j = 0; j < perRow; i++) {
-                                        <div className='SelectSeats-seat'></div>
+                                    for (let j = 0; j < room.numSeats / room.numRows; i++) {
+                                        <div className='SelectSeats-seat'>{8 - j}</div>
                                     }
                                 })}
                             </div>

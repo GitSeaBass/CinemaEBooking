@@ -19,14 +19,13 @@
     background-color: white;
 }
 
-a {
+.create-account-link {
     color: #000000;
-    text-decoration: none;
 
     transition: color 300ms ease-in-out 200ms;
 }
 
-a:hover {
+.create-account-link:hover {
     color: #11114d;
 }
 
