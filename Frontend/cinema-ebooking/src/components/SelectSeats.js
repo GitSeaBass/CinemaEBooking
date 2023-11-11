@@ -66,9 +66,9 @@ function SelectSeats(props) {
     return (
         <>
             <NavBar user={props.user} setUser={props.setUser} />
-            <div className='seatcontainer'>
-                <h1 className="seattitle">Select Number of Tickets</h1>
-                <form className="seatform">
+            <div className='SelectSeats-seat-container'>
+                <h1 className="SelectSeats-seat-title">Select Number of Tickets</h1>
+                <form className="SelectSeats-seat-form">
                     <label>Child ($5.00): </label>
                     <input type="number" min="0" max="3" onChange={addChild}></input>
                     <br></br>
@@ -79,8 +79,8 @@ function SelectSeats(props) {
                     <input type="number" min="0" max="3" onChange={addSenior}></input>
                 </form>
 
-                <h3 className="seattitle">Select Seats:</h3>
-                <div className='seatbuttoncontainer'>
+                <h3 className="SelectSeats-seat-title">Select Seats:</h3>
+                <div className='SelectSeats-seat-button-container'>
                     {props.rooms.filter((room) => room.number === roomNum).map((room) => {
 
                         for (let i = 0; i < room.numRows; i++) {
@@ -98,7 +98,7 @@ function SelectSeats(props) {
                     ))}
                 </div>
                 <br></br>
-                <button className="confirmbutton" onClick={confirm}>Confirm Selection</button>
+                <button className="SelectSeats-confirm-button" onClick={confirm}>Confirm Selection</button>
             </div>
         </>
     )

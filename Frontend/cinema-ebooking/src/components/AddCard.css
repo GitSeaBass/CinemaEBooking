@@ -1,4 +1,4 @@
-.indent {
+.AddCard-indent {
     width: 60%;
     height: 200px;
 
@@ -7,18 +7,18 @@
     background-color: #ffffff;
 }
 
-.add-div {
+.AddCard-add-div {
     display: flex;
     justify-content: space-between;
 
     margin-left: 3%;
 }
 
-.add-div>label {
+.AddCard-add-div>label {
     width: 150px;
 }
 
-.add-div>input {
+.AddCard-add-div>input {
     width: 50%;
     height: 30px;
 

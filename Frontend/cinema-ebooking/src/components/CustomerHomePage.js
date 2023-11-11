@@ -32,40 +32,40 @@ function CustomerHomePage(props) {
         <>
             <NavBar user={props.user} setUser={props.setUser} moviearray={movies} />
 
-            <div className='currently-running-title'>
+            <div className='CustomerHomePage-currently-running-title'>
                 Now Playing
             </div>
 
-            <div className='movie-display'>
+            <div className='CustomerHomePage-movie-display'>
                 {movies.filter((item) => item.category === 'Now Showing').map((item) => (
-                    <div className='movie-card' key={item.id}>
-                        <div className='left-movie'>
-                            <img src={item.poster_url} alt={item.title} className='poster' onClick={checkMovie} />
+                    <div className='CustomerHomePage-movie-card' key={item.id}>
+                        <div className='CustomerHomePage-left-movie'>
+                            <img src={item.poster_url} alt={item.title} className='CustomerHomePage-poster' onClick={checkMovie} />
                             <div>{item.title}</div>
                             <div>MPAA: {item.mpaa_rating}</div>
                             <button onClick={grabTickets}>Get Tickets</button>
                         </div>
-                        <div className='right-movie'>
+                        <div className='CustomerHomePage-right-movie'>
                             <iframe src={item.trailer_url} title={item.title} className="trailer" />
                         </div>
                     </div>
                 ))}
             </div>
 
-            <div className='currently-running-title'>
+            <div className='CustomerHomePage-currently-running-title'>
                 Coming Soon
             </div>
 
-            <div className='movie-display'>
+            <div className='CustomerHomePage-movie-display'>
                 {movies.filter((item) => item.category === 'Coming Soon').map((item) => (
-                    <div className='movie-card' key={item.id}>
-                        <div className='left-movie'>
-                            <img src={item.poster_url} alt={item.title} className='poster' onClick={checkMovie} />
+                    <div className='CustomerHomePage-movie-card' key={item.id}>
+                        <div className='CustomerHomePage-left-movie'>
+                            <img src={item.poster_url} alt={item.title} className='CustomerHomePage-poster' onClick={checkMovie} />
                             <div>{item.title}</div>
                             <div>MPAA: {item.mpaa_rating}</div>
                             <button className='CustomerHomePage-get-tickets-button' onClick={grabTickets}>Get Tickets</button>
                         </div>
-                        <div className='right-movie'>
+                        <div className='CustomerHomePage-right-movie'>
                             <iframe src={item.trailer_url} title={item.title} className="trailer" />
                         </div>
                     </div>

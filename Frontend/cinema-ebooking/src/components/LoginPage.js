@@ -48,30 +48,30 @@ function LoginPage(props) {
 
     return (
         <>
-            <div className='login-container'>
+            <div className='LoginPage-login-container'>
 
-                <div className='image-container'>
+                <div className='LoginPage-image-container'>
                     {/* Potential Image}<img src='https://t3.ftcdn.net/jpg/00/47/40/02/360_F_47400213_AgAsGC2y45UJaYQoWmNc3pb3BtG1agta.jpg' alt='login' className='image'/>{*/}
-                    <div className='image'></div>
+                    <div className='LoginPage-image'></div>
                 </div>
 
-                <div className="login-form-container">
-                    <div className='login-title'>Login</div>
+                <div className="LoginPage-login-form-container">
+                    <div className='LoginPage-login-title'>Login</div>
 
-                    <h4 className='create-account-question'>
-                        Don't have an account? Create one <a className='create-account-link' href='/createaccount'>here</a>.
+                    <h4 className='LoginPage-create-account-question'>
+                        Don't have an account? Create one <a className='LoginPage-create-account-link' href='/createaccount'>here</a>.
                     </h4>
 
 
-                    <form className='login-form' onSubmit={onSubmit}>
-                        <input type='text' className='login-input' placeholder='Email' onChange={addEmail} required></input><br />
-                        <input type='password' className='login-input' placeholder='Password' onChange={addPassword} required></input><br />
-                        <input type='submit' value='Login' className='login-submit'></input>
+                    <form className='LoginPage-login-form' onSubmit={onSubmit}>
+                        <input type='text' className='LoginPage-login-input' placeholder='Email' onChange={addEmail} required></input><br />
+                        <input type='password' className='LoginPage-login-input' placeholder='Password' onChange={addPassword} required></input><br />
+                        <input type='submit' value='Login' className='LoginPage-login-submit'></input>
                     </form>
 
-                    <h4 className='create-account-question'>
-                        <a className='create-account-link' href='/forgotpassword'>Forgot your password?</a>
-                        <p>Return <a className='create-account-link' href='/'>Home</a></p>
+                    <h4 className='LoginPage-create-account-question'>
+                        <a className='LoginPage-create-account-link' href='/forgotpassword'>Forgot your password?</a>
+                        <p>Return <a className='LoginPage-create-account-link' href='/'>Home</a></p>
                     </h4>
                 </div>
             </div>

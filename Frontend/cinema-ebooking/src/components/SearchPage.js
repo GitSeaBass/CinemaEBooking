@@ -1,45 +1,45 @@
 import './SearchPage.css'
 import NavBar from './NavBar';
-import { useParams,useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 function SearchPage(props) {
     const navigate = useNavigate();
-    const {id} = useParams();
+    const { id } = useParams();
 
-    const[movie, setMovie] = useState([]);
-    const[poster, setPoster] = useState([]);
-    const[trailer, setTrailer] = useState([]);
+    const [movie, setMovie] = useState([]);
+    const [poster, setPoster] = useState([]);
+    const [trailer, setTrailer] = useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:8080/system/search?title=${id}`)
-        .then(res => res.json())
-        .then(data => {
-            setMovie(data[0].title)
-            setPoster(data[0].poster_url)
-            setTrailer(data[0].trailer_url)
-            props.setSelectedMovie(data[0].title)
-            console.log(movie)
-        }).catch(err => {
-            console.log(err)
-        })
+            .then(res => res.json())
+            .then(data => {
+                setMovie(data[0].title)
+                setPoster(data[0].poster_url)
+                setTrailer(data[0].trailer_url)
+                props.setSelectedMovie(data[0].title)
+                console.log(movie)
+            }).catch(err => {
+                console.log(err)
+            })
     }, [id, movie, props])
 
     function book() {
         navigate('/showings')
     }
 
-    return(
-    <>
-        <NavBar user={props.user} setUser={props.setUser}/>
+    return (
+        <>
+            <NavBar user={props.user} setUser={props.setUser} />
 
-        <div className="movie-container">
-            {movie}
-            <img className='searchposter' src={poster} alt={movie}/>
-            <iframe className='searchtrailer' src={trailer} title={movie}/>
-            <button className="bookbutton" onClick={book}>BOOK MOVIE</button>
-        </div>
-    </>
+            <div className="SearchPage-movie-container">
+                {movie}
+                <img className='SearchPage-search-poster' src={poster} alt={movie} />
+                <iframe className='SearchPage-search-trailer' src={trailer} title={movie} />
+                <button className="SearchPage-book-button" onClick={book}>BOOK MOVIE</button>
+            </div>
+        </>
     )
 }
 

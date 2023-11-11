@@ -1,4 +1,4 @@
-.promos-container {
+.ManagePromotions-promos-container {
     display: grid;
     grid-template-columns: 3fr 1fr 3fr;
 
@@ -14,14 +14,14 @@
     color: #a4a4a4;
 }
 
-.promo-info {
+.ManagePromotions-promo-info {
     display: flex;
     justify-content: space-between;
 
     text-align: left;
 }
 
-.vl {
+.ManagePromotions-vl {
     width: 1px;
 
     margin: 0 auto;
@@ -32,14 +32,14 @@
     background-color: #19191b;
 }
 
-.promo-form {
+.ManagePromotions-promo-form {
     display: flex;
     flex-direction: column;
 
     width: 100%;
 }
 
-.promo-form>input {
+.ManagePromotions-promo-form>input {
     width: 54%;
     min-height: 1rem;
 
@@ -54,7 +54,7 @@
     color: #a4a4a4;
 }
 
-.promo-form>input:focus {
+.ManagePromotions-promo-form>input:focus {
     outline: 1px solid #e2f1ff;
 
     font-size: 0.8rem;
@@ -65,7 +65,7 @@
     --webkit-animation-timing-function: linear;
 }
 
-.add-promo-button {
+.ManagePromotions-add-promo-button {
     width: 27%;
 
     margin-top: 1rem;
@@ -84,6 +84,6 @@
     transition: all 300ms ease-in-out 200ms;
 }
 
-.addpromobutton:hover {
+.ManagePromotions-addpromobutton:hover {
     background-color: #5757d4;
 }

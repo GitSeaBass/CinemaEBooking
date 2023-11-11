@@ -1,4 +1,4 @@
-.movies-container {
+.ManageMovies-movies-container {
     display: grid;
     grid-template-columns: 1fr;
 
@@ -14,14 +14,14 @@
     color: #a4a4a4;
 }
 
-.movie-segment {
+.ManageMovies-movie-segment {
     display: flex;
     justify-content: space-between;
 
     padding: 10px;
 }
 
-.edit-button {
+.ManageMovies-edit-button {
     width: 10%;
 
     border: none;

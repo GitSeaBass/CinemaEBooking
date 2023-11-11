@@ -1,15 +1,15 @@
-.create-container {
+.ConfirmationWindow-create-container {
     overflow: hidden;
     position: relative;
 }
 
-.create-title {
+.ConfirmationWindow-create-title {
     font-size: 240%;
     position: relative;
     text-align: center;
 }
 
-.create-form-container {
+.ConfirmationWindow-create-form-container {
     width: 30%;
     height: 98.5vh;
     border: solid black 2px;
@@ -18,7 +18,7 @@
     background-color: white;
 }
 
-.create-input {
+.ConfirmationWindow-create-input {
     margin-bottom: 6%;
     margin-left: 5%;
     border: none;
@@ -28,41 +28,41 @@
     font-size: large;
 }
 
-.create-input:focus {
+.ConfirmationWindow-create-input:focus {
     outline: none;
 }
 
-.create-label {
+.ConfirmationWindow-create-label {
     margin-left: 4%;
     font-weight: bold;
     font-size: 1.1em;
 }
 
-.address-input {
+.ConfirmationWindow-address-input {
     width: 40%;
     margin-bottom: 2%;
 }
 
-.create-name {
+.ConfirmationWindow-create-name {
     width: 40%;
     margin-bottom: 1%;
 }
 
-.card-input {
+.ConfirmationWindow-card-input {
     width: 30%;
     margin-bottom: 2%;
 }
 
-.card-number {
+.ConfirmationWindow-card-number {
     width: 50%;
 }
 
-.create-checkbox {
+.ConfirmationWindow-create-checkbox {
     margin-left: 5%;
     margin-bottom: 15%;
 }
 
-.create-submit {
+.ConfirmationWindow-create-submit {
     width: 40%;
     height: 50px;
     border-radius: 100px;
@@ -72,14 +72,14 @@
     background: linear-gradient(0.25turn, rgb(74, 211, 253) 0%, rgb(100, 249, 100) 30%, rgb(100, 249, 100) 70%, rgb(74, 211, 253) 100%);
 }
 
-.create-submit:hover {
+.ConfirmationWindow-create-submit:hover {
     transition: 0.5s;
     cursor: pointer;
     background-position: -112px;
     box-shadow: 5px 5px 2px 1px gray;
 }
 
-.create-submit:hover {
+.ConfirmationWindow-create-submit:hover {
     transition: 0.5s;
     background-color: rgb(175, 173, 173);
     cursor: pointer;

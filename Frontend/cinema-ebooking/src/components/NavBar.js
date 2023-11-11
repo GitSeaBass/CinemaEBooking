@@ -32,19 +32,19 @@ function NavBar(props) {
     }
 
     return (
-        <div className='navbar'>
-            <h1 className='titlelogo' onClick={goHome}>Cinema E-Booking A8</h1>
-            <form className='search-form' onSubmit={onClick}>
+        <div className='NavBar-nav-bar'>
+            <h1 className='NavBar-title-logo' onClick={goHome}>Cinema E-Booking A8</h1>
+            <form className='NavBar-search-form' onSubmit={onClick}>
                 <input type='string' onChange={addSearch}></input>
-                <input className='search-button' value="Search" type='submit'></input>
+                <input className='NavBar-search-button' value="Search" type='submit'></input>
             </form>
 
             {props.user.length === 0 ?
-                <div className='right-navbar'>
-                    <button className='login-button' onClick={loggingIn}>Login</button>
+                <div className='NavBar-right-nav-bar'>
+                    <button className='NavBar-login-button' onClick={loggingIn}>Login</button>
                 </div> :
-                <div className='right-navbar'>
-                    <h3 className='navbar-email'>{props.user}</h3>
+                <div className='NavBar-right-nav-bar'>
+                    <h3 className='NavBar-nav-bar-email'>{props.user}</h3>
                     <button onClick={viewProfile}>Profile</button>
                     <button onClick={loggingOut}>Logout</button>
                 </div>}

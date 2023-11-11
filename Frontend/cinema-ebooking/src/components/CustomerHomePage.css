@@ -1,4 +1,4 @@
-.currently-running-title {
+.CustomerHomePage-currently-running-title {
     margin-top: 20px;
     font-weight: bold;
     padding: 10px;
@@ -8,7 +8,7 @@
     font-size: 2em;
 }
 
-.movie-display {
+.CustomerHomePage-movie-display {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
@@ -17,27 +17,27 @@
     justify-items: center;
 }
 
-.poster {
+.CustomerHomePage-poster {
     width: 150px;
     height: 240px;
     transition: 0.5s;
 }
 
-.poster:hover {
+.CustomerHomePage-poster:hover {
     opacity: 0.5;
     cursor: pointer;
     transition: 0.5s;
 }
 
-.movie-card {
+.CustomerHomePage-movie-card {
     display: flex;
 }
 
-.movie-card>div {
+.CustomerHomePage-movie-card>div {
     font-weight: bold;
 }
 
-.trailer {
+.CustomerHomePage-trailer {
     width: 400px;
     height: 200px;
     margin-top: 15px;

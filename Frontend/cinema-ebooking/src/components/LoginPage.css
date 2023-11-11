@@ -1,16 +1,16 @@
-.login-container {
+.LoginPage-login-container {
     position: relative;
     overflow: hidden;
 }
 
-.login-title {
+.LoginPage-login-title {
     font-size: 240%;
     margin-bottom: 3%;
     margin-top: 3%;
     text-align: center;
 }
 
-.login-form-container {
+.LoginPage-login-form-container {
     width: 30%;
     height: 98.95vh;
     border-right: solid black 2px;
@@ -19,17 +19,17 @@
     background-color: white;
 }
 
-.create-account-link {
+.LoginPage-create-account-link {
     color: #000000;
 
     transition: color 300ms ease-in-out 200ms;
 }
 
-.create-account-link:hover {
+.LoginPage-create-account-link:hover {
     color: #11114d;
 }
 
-.login-input {
+.LoginPage-login-input {
     margin-bottom: 20%;
     margin-left: 5%;
     border: none;
@@ -39,11 +39,11 @@
     font-size: large;
 }
 
-.login-input:focus {
+.LoginPage-login-input:focus {
     outline: none;
 }
 
-.login-submit {
+.LoginPage-login-submit {
     width: 40%;
     height: 50px;
     border-radius: 100px;
@@ -53,29 +53,29 @@
     background: linear-gradient(0.25turn, rgb(74, 211, 253) 0%, rgb(100, 249, 100) 30%, rgb(100, 249, 100) 70%, rgb(74, 211, 253) 100%);
 }
 
-.login-submit:hover {
+.LoginPage-login-submit:hover {
     transition: 0.5s;
     cursor: pointer;
     background-position: -112px;
     box-shadow: 5px 5px 2px 1px gray;
 }
 
-.login-form>label {
+.LoginPage-login-form>label {
     font-weight: bold;
 }
 
-.create-account-question {
+.LoginPage-create-account-question {
     margin-bottom: 10%;
     text-align: center;
 }
 
-.image-container {
+.LoginPage-image-container {
     position: absolute;
     left: 250px;
     z-index: -1;
 }
 
-.image {
+.LoginPage-image {
     background-color: black;
     background: radial-gradient(rgb(100, 249, 100), rgb(74, 211, 253) 100%);
     height: 100vh;

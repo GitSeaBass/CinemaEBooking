@@ -42,25 +42,25 @@ function ManagePromotions(props) {
     }
 
     return (
-        <div className='promos-container'>
+        <div className='ManagePromotions-promos-container'>
             <div>
                 {promotion.map((item) => (
-                    <div className='promo-info' key={item.id}>
+                    <div className='ManagePromotions-promo-info' key={item.id}>
                         <div>{item.code}</div>
                         <div>{item.percent}%</div>
                     </div>
                 ))}
 
                 {props.promoarray.map((item) => (
-                    <div className='promo-info'>
+                    <div className='ManagePromotions-promo-info'>
                         <div>{item.code}</div>
                         <div>{item.percent}%</div>
                     </div>
                 ))}
             </div>
-            <div className='vl'></div>
+            <div className='ManagePromotions-vl'></div>
             <div>
-                <form className='promo-form'>
+                <form className='ManagePromotions-promo-form'>
                     <label>Code: </label>
                     <input type='text' required onChange={(event) => {
                         setCode(event.target.value);
@@ -69,7 +69,7 @@ function ManagePromotions(props) {
                     <input type='text' required onChange={(event) => {
                         setPercentage(event.target.value);
                     }} />
-                    <button className='add-promo-button' onClick={submitPromotion}>Add</button>
+                    <button className='ManagePromotions-add-promo-button' onClick={submitPromotion}>Add</button>
                 </form>
             </div>
         </div >

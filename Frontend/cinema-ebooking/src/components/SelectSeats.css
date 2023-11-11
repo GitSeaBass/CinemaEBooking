@@ -1,4 +1,4 @@
-.seatcontainer {
+.SelectSeats-seat-container {
     background-color: gray;
     width: 40%;
     margin: auto;
@@ -11,26 +11,22 @@
     gap: 30px;
 }
 
-.seatform {
+.SelectSeats-seat-form {
     font-size: 1.3em;
 }
 
-.seatform>input {
+.SelectSeats-seat-form>input {
     border-radius: 2px;
     padding-bottom: 5px;
     font-weight: bold;
 }
 
-.seattitle {
+.SelectSeats-seat-title {
     font-size: 2em;
 }
 
-.seatbuttoncontainer {
+.SelectSeats-seat-button-container {
     flex-direction: row;
-}
-
-.seat {
-    width: 10%;
 }
 
 .SelectSeats-seat-row {

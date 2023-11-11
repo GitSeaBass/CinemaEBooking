@@ -1,5 +1,5 @@
 import './ForgotPasswordPage.css'
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function ForgotPasswordPage(props) {
@@ -36,7 +36,7 @@ function ForgotPasswordPage(props) {
         })
     }
 
-    const fetchUser = async() => {
+    const fetchUser = async () => {
         if (props.user !== '') {
             const result = await fetch(`http://localhost:8080/system/getuser?email=${props.user}`)
             const resultInJson = await result.json()
@@ -49,7 +49,7 @@ function ForgotPasswordPage(props) {
         }
     }
 
-    const changePass = async() => {
+    const changePass = async () => {
         const requestOptions = {
             method: 'POST',
             headers: {
@@ -82,28 +82,28 @@ function ForgotPasswordPage(props) {
         navigate('/')
     }
     return (
-        <div className='forgot-page'>
-            <div className='forgot-window'>
+        <div className='ForgotPasswordPage-forgot-page'>
+            <div className='ForgotPasswordPage-forgot-window'>
                 <h1>Reset Password</h1>
-                <form className='forgot-form' onSubmit={onSubmit}>
+                <form className='ForgotPasswordPage-forgot-form' onSubmit={onSubmit}>
                     {!validEmail &&
                         <>
-                            <label>Enter Your Email</label> <br/>
-                            <input className='forgot-input' placeholder='Email' onChange={addEnteredEmail} required></input><br/>
+                            <label>Enter Your Email</label> <br />
+                            <input className='ForgotPasswordPage-forgot-input' placeholder='Email' onChange={addEnteredEmail} required></input><br />
                         </>
                     }
-                    {validEmail && 
+                    {validEmail &&
                         <>
-                            <input className='forgot-input-locked' placeholder='Email' onChange={addEnteredEmail} value={enteredEmail} readOnly disabled required></input><br/>
-                            <label>Enter New Password</label> <br/>
-                            <input className='forgot-input' placeholder='New Password' name='password' onChange={addForgottenUser} type='password' required></input>
-                            <input className='forgot-input' placeholder='Confirm New Password' onChange={addConfirmPass} type='password' required></input> <br/>
+                            <input className='ForgotPasswordPage-forgot-input-locked' placeholder='Email' onChange={addEnteredEmail} value={enteredEmail} readOnly disabled required></input><br />
+                            <label>Enter New Password</label> <br />
+                            <input className='ForgotPasswordPage-forgot-input' placeholder='New Password' name='password' onChange={addForgottenUser} type='password' required></input>
+                            <input className='ForgotPasswordPage-forgot-input' placeholder='Confirm New Password' onChange={addConfirmPass} type='password' required></input> <br />
                         </>
                     }
-                    <input className='forgot-submit' type='submit' value='Submit'></input>
+                    <input className='ForgotPasswordPage-forgot-submit' type='submit' value='Submit'></input>
                 </form>
                 <h4>
-                    Or <button className='cancel' onClick={returnHome}> Cancel</button> and Return Home
+                    Or <button className='ForgotPasswordPage-cancel' onClick={returnHome}> Cancel</button> and Return Home
                 </h4>
             </div>
         </div>

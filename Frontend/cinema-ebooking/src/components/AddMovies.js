@@ -49,95 +49,95 @@ function AddMovies(props) {
 
     return (
         <>
-            {<div className='form'>
+            {<div className='AddMovies-form'>
                 <h3>Enter Information</h3>
                 <form>
                     <div>
-                        <label className='add-input'>Title:
-                            <input className='add-input' type='text' required onChange={(event) => {
+                        <label className='AddMovies-add-input'>Title:
+                            <input className='AddMovies-add-input' type='text' required onChange={(event) => {
                                 setTitle(event.target.value);
                             }} />
                         </label>
                     </div>
                     <div>
-                        <label className='add-input'>Category:
-                            <input className='add-input' type='text' required onChange={(event) => {
+                        <label className='AddMovies-add-input'>Category:
+                            <input className='AddMovies-add-input' type='text' required onChange={(event) => {
                                 setCategory(event.target.value);
                             }} />
                         </label>
                     </div>
                     <div>
-                        <label className='add-input'>Cast:
-                            <input className='add-input' type='text' required onChange={(event) => {
+                        <label className='AddMovies-add-input'>Cast:
+                            <input className='AddMovies-add-input' type='text' required onChange={(event) => {
                                 setCast(event.target.value);
                             }} />
                         </label>
                     </div>
                     <div>
-                        <label className='add-input'>Director:
-                            <input className='add-input' type='text' required onChange={(event) => {
+                        <label className='AddMovies-add-input'>Director:
+                            <input className='AddMovies-add-input' type='text' required onChange={(event) => {
                                 setDirector(event.target.value);
                             }} />
                         </label>
                     </div>
                     <div>
-                        <label className='add-input'>Producer:
-                            <input className='add-input' type='text' required onChange={(event) => {
+                        <label className='AddMovies-add-input'>Producer:
+                            <input className='AddMovies-add-input' type='text' required onChange={(event) => {
                                 setProducer(event.target.value);
                             }} />
                         </label>
                     </div>
                     <div>
-                        <label className='add-input'>Synopsis:
-                            <input className='add-input' type='text' required onChange={(event) => {
+                        <label className='AddMovies-add-input'>Synopsis:
+                            <input className='AddMovies-add-input' type='text' required onChange={(event) => {
                                 setSynopsis(event.target.value);
                             }} />
                         </label>
                     </div>
                     <div>
-                        <label className='add-input'>Reviews:
-                            <input className='add-input' type='text' required onChange={(event) => {
+                        <label className='AddMovies-add-input'>Reviews:
+                            <input className='AddMovies-add-input' type='text' required onChange={(event) => {
                                 setReviews(event.target.value);
                             }} />
                         </label>
                     </div>
                     <div>
-                        <label className='add-input'>Poster:
-                            <input className='add-input' type='text' placeholder='https://' required onChange={(event) => {
+                        <label className='AddMovies-add-input'>Poster:
+                            <input className='AddMovies-add-input' type='text' placeholder='https://' required onChange={(event) => {
                                 setPoster(event.target.value);
                             }} />
                         </label>
                     </div>
                     <div>
-                        <label className='add-input'>Trailer:
-                            <input className='add-input' type='text' placeholder='https://' required onChange={(event) => {
+                        <label className='AddMovies-add-input'>Trailer:
+                            <input className='AddMovies-add-input' type='text' placeholder='https://' required onChange={(event) => {
                                 setTrailer(event.target.value);
                             }} />
                         </label>
                     </div>
                     <div>
-                        <label className='add-input'>MPAA rating:
-                            <input className='add-input' type='text' required onChange={(event) => {
+                        <label className='AddMovies-add-input'>MPAA rating:
+                            <input className='AddMovies-add-input' type='text' required onChange={(event) => {
                                 setMpaa(event.target.value);
                             }} />
                         </label>
                     </div>
                     <div>
-                        <label className='add-input'>Show date:
-                            <input className='add-input' type='text' required onChange={(event) => {
+                        <label className='AddMovies-add-input'>Show date:
+                            <input className='AddMovies-add-input' type='text' required onChange={(event) => {
                                 setShowdate(event.target.value);
                             }} />
                         </label>
                     </div>
                     <div>
-                        <label className='add-input'>Show time:
-                            <input className='add-input' type='text' required onChange={(event) => {
+                        <label className='AddMovies-add-input'>Show time:
+                            <input className='AddMovies-add-input' type='text' required onChange={(event) => {
                                 setShowtime(event.target.value);
                             }} />
                         </label>
                     </div>
                 </form>
-                <button className='add-button' type='submit' id='signup' onClick={submitMovie}>Add</button>
+                <button className='AddMovies-add-button' type='submit' id='signup' onClick={submitMovie}>Add</button>
             </div>}
         </>
     )

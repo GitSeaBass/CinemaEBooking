@@ -1,4 +1,4 @@
-.form {
+.AddMovies-form {
     display: flex;
     flex-direction: column;
 
@@ -16,19 +16,19 @@
     text-align: left;
 }
 
-.add-input {
+.AddMovies-add-input {
     display: block;
 }
 
-label.add-input {
+label.AddMovies-add-input {
     margin-top: 0.5rem;
 }
 
-input.add-input {
+input.AddMovies-add-input {
     width: 100%;
 }
 
-.add-button {
+.AddMovies-add-button {
     width: 34%;
 
     margin: 0 auto;
@@ -48,6 +48,6 @@ input.add-input {
     transition: all 300ms ease-in-out 200ms;
 }
 
-.add-button:hover {
+.AddMovies-add-button:hover {
     background-color: #5757d4;
 }

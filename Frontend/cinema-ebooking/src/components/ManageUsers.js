@@ -27,14 +27,14 @@ function ManageUsers(props) {
     suspendButton.classList.add('suspend-button');
 
     return (
-        <div className='users-container'>
+        <div className='ManageUsers-users-container'>
             {props.userarray.filter((item) => item.status !== 'ADMIN').sort().map((item) => (
-                <div className='user-segment'>
-                    <div className='user-email'>{item.email}</div>
-                    <div className='user-buttons'>
-                        <button className='make-admin-button'></button>
-                        <button className='activate-button'></button>
-                        <button className='suspend-button'></button>
+                <div className='ManageUsers-user-segment'>
+                    <div className='ManageUsers-user-email'>{item.email}</div>
+                    <div className='ManageUsers-user-buttons'>
+                        <button className='ManageUsers-make-admin-button'></button>
+                        <button className='ManageUsers-activate-button'></button>
+                        <button className='ManageUsers-suspend-button'></button>
                     </div>
                 </div>
             ))}

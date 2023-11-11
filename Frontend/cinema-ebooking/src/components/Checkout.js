@@ -36,44 +36,44 @@ function Checkout(props) {
 
     useEffect(() => {
         setTotal(5 * parseInt(child) + 10 * parseInt(adult) + 7.5 * parseInt(senior))
-    }, [child,adult,senior])
+    }, [child, adult, senior])
 
     return (
-        <div className='checkoutcontainer'>
-            <div className='info'>
+        <div className='Checkout-checkout-container'>
+            <div className='Checkout-info'>
                 <h1>Checkout</h1>
                 <h3>Movie: {props.movie}</h3>
                 <h3>Date: {props.date}</h3>
                 <h3>Time: {props.time}</h3>
 
-                <div className='ticketinfo'>
+                <div className='Checkout-ticket-info'>
                     <h3>Child Tickets ($5.00): {child}</h3>
-                    {child > 0? <button className='removeticket' onClick={removeChild}>Remove Ticket</button>: <></>}
+                    {child > 0 ? <button className='Checkout-remove-ticket' onClick={removeChild}>Remove Ticket</button> : <></>}
                 </div>
 
-                <div className='ticketinfo'>
+                <div className='Checkout-ticket-info'>
                     <h3>Adult Tickets ($10.00): {adult}</h3>
-                    {adult > 0? <button className='removeticket' onClick={removeAdult}>Remove Ticket</button>: <></>}
+                    {adult > 0 ? <button className='Checkout-remove-ticket' onClick={removeAdult}>Remove Ticket</button> : <></>}
                 </div>
 
-                <div className='ticketinfo'>
+                <div className='Checkout-ticket-info'>
                     <h3>Senior Tickets ($7.50): {senior}</h3>
-                    {senior > 0? <button className='removeticket' onClick={removeSenior}>Remove Ticket</button>: <></>}        
+                    {senior > 0 ? <button className='Checkout-remove-ticket' onClick={removeSenior}>Remove Ticket</button> : <></>}
                 </div>
                 <h3>Total: ${total}</h3>
             </div>
-            <form className='paymentinfo'>
-                <label>Credit Card Number</label><br/>
-                <input type='text' required></input><br/>
-                <label>Credit Card CRV</label><br/>
-                <input type='text' required></input><br/>
-                <label>Address</label><br/>
-                <input type='text' required></input><br/>
-                <label>Promo Code</label><br/>
-                <input type='text'></input><br/>
-                <input type='submit' className='checkoutbutton' onClick={clickCheckout} value={'Checkout'}></input>
+            <form className='pCheckout-ayment-info'>
+                <label>Credit Card Number</label><br />
+                <input type='text' required></input><br />
+                <label>Credit Card CRV</label><br />
+                <input type='text' required></input><br />
+                <label>Address</label><br />
+                <input type='text' required></input><br />
+                <label>Promo Code</label><br />
+                <input type='text'></input><br />
+                <input type='submit' className='Checkout-checkout-button' onClick={clickCheckout} value={'Checkout'}></input>
             </form>
-            <button className='cancelbutton' onClick={cancel}>Cancel</button>
+            <button className='Checkout-cancel-button' onClick={cancel}>Cancel</button>
         </div>
     )
 }

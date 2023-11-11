@@ -1,4 +1,4 @@
-.checkoutcontainer {
+.Checkout-checkout-container {
     background-color: gray;
     width: 40%;
     margin: auto;
@@ -11,7 +11,7 @@
     gap: 10px;
 }
 
-.ticketinfo {
+.Checkout-ticket-info {
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -19,21 +19,21 @@
     gap: 40px;
 }
 
-.removeticket {
+.Checkout-remove-ticket {
     border-radius: 10px;
     height: 40px;
     margin-top: 10px;
 }
 
-.paymentinfo {
+.Checkout-payment-info {
     font-weight: bold;
 }
 
-.paymentinfo > input {
+.Checkout-payment-info>input {
     width: 30%;
 }
 
-.checkoutbutton {
+.Checkout-checkout-button {
     border-radius: 10px;
     height: 50px;
     width: 30%;
@@ -43,13 +43,13 @@
     font-weight: bold;
 }
 
-.checkoutbutton:hover {
+.Checkout-checkout-button:hover {
     cursor: pointer;
     background-color: gray;
     transition: 0.3s;
 }
 
-.cancelbutton {
+.Checkout-cancel-button {
     border-radius: 10px;
     height: 50px;
     margin: 3% auto auto auto;
@@ -59,7 +59,7 @@
     font-weight: bold;
 }
 
-.cancelbutton:hover {
+.Checkout-cancel-button:hover {
     cursor: pointer;
     background-color: gray;
     transition: 0.3s;

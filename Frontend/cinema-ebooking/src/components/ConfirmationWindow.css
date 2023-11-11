@@ -1,11 +1,11 @@
-.confirm-window {
+.ConfirmationWindow-confirm-window {
     background: radial-gradient(rgb(100, 249, 100), rgb(74, 211, 253) 100%);
     height: 100vh;
     width: 100vw;
     overflow: hidden;
 }
 
-.message-window {
+.ConfirmationWindow-message-window {
     background-color: white;
     width: 45%;
     margin: auto;
@@ -16,12 +16,12 @@
     text-align: center;
 }
 
-.confirm-window > h2 {
+.ConfirmationWindow-confirm-window>h2 {
     font-size: 1.5em;
     color: white;
 }
 
-.returnbutton {
+.ConfirmationWindow-return-button {
     width: 30%;
     height: 50px;
     border-radius: 10px;
@@ -32,7 +32,7 @@
     background-color: rgb(56, 244, 181);
 }
 
-.returnbutton:hover {
+.ConfirmationWindow-return-button:hover {
     transition: 0.5s;
     box-shadow: 5px 5px 2px 1px gray;
     background-color: rgb(47, 218, 161);

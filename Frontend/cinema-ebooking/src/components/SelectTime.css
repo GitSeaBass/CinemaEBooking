@@ -1,4 +1,4 @@
-.timecontainer {
+.SelectTime-time-container {
     background-color: gray;
     width: 40%;
     margin: auto;
@@ -11,11 +11,11 @@
     gap: 30px;
 }
 
-.timetitle {
+.SelectTime-time-title {
     font-size: 2em;
 }
 
-.timebutton {
+.SelectTime-time-button {
     width: 30%;
     margin: auto;
     height: 40px;
@@ -25,7 +25,7 @@
     transition: 0.3s;
 }
 
-.timebutton:hover {
+.SelectTime-time-button:hover {
     background-color: gray;
     cursor: pointer;
 }

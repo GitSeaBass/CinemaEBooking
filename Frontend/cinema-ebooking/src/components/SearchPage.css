@@ -1,4 +1,4 @@
-.movie-container {
+.SearchPage-movie-container {
     display: flex;
     width: 70%;
     justify-content: space-between;
@@ -11,25 +11,25 @@
     border-radius: 20px;
 }
 
-.searchposter {
+.SearchPage-search-poster {
     width: 150px;
     height: 240px;
 }
 
-.searchtrailer {
+.SearchPage-search-trailer {
     width: 400px;
     height: 200px;
     margin-top: 15px;
 }
 
-.bookbutton {
+.SearchPage-book-button {
     border-radius: 10px;
     height: 100px;
     margin: auto 10% auto 10%;
     transition: 0.5s;
 }
 
-.bookbutton:hover {
+.SearchPage-book-button:hover {
     transition: 0.5s;
     background-color: rgb(159, 156, 156);
     cursor: pointer;

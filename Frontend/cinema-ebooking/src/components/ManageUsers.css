@@ -1,4 +1,4 @@
-.users-container {
+.ManageUsers-users-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
 
@@ -14,22 +14,22 @@
     color: #a4a4a4;
 }
 
-.user-segment {
+.ManageUsers-user-segment {
     display: flex;
     justify-content: space-between;
 
     padding: 10px;
 }
 
-.user-email {
+.ManageUsers-user-email {
     margin-right: 1rem;
 }
 
-.user-buttons {
+.ManageUsers-user-buttons {
     display: inherit;
 }
 
-.user-buttons>button {
+.ManageUsers-user-buttons>button {
     width: 40px;
     height: 2.2rem;
 
@@ -47,7 +47,7 @@
     cursor: pointer;
 }
 
-.make-admin-button {
+.ManageUsers-make-admin-button {
     background-color: #7900d3;
 
     color: #e2f1ff;
@@ -55,17 +55,17 @@
     transition: all ease-in-out 400ms;
 }
 
-.make-admin-button:hover {
+.ManageUsers-make-admin-button:hover {
     width: 120px;
 
     background-color: #5400b8;
 }
 
-.make-admin-button:hover::after {
+.ManageUsers-make-admin-button:hover::after {
     content: 'Make Admin';
 }
 
-.activate-button {
+.ManageUsers-activate-button {
     background-color: #00a600;
 
     color: #d1ffd1;
@@ -73,21 +73,21 @@
     transition: all ease-in-out 400ms;
 }
 
-.activate-button:hover {
+.ManageUsers-activate-button:hover {
     width: 100px;
 
     background-color: #009900;
 }
 
-.activate-button:hover span {
+.ManageUsers-activate-button:hover span {
     display: none;
 }
 
-.activate-button:hover::after {
+.ManageUsers-activate-button:hover::after {
     content: 'Activate'
 }
 
-.suspend-button {
+.ManageUsers-suspend-button {
     background-color: #a20000;
 
     color: #d4ffff;
@@ -95,16 +95,16 @@
     transition: all ease-in-out 400ms;
 }
 
-.suspend-button:hover {
+.ManageUsers-suspend-button:hover {
     width: 100px;
 
     background-color: #820000;
 }
 
-.suspend-button:hover span {
+.ManageUsers-suspend-button:hover span {
     display: none;
 }
 
-.suspend-button:hover::after {
+.ManageUsers-suspend-button:hover::after {
     content: 'Suspend';
 }
