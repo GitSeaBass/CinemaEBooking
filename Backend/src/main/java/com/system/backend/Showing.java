@@ -5,23 +5,21 @@ public class Showing {
 
     private final String time; // time of the showing
 
-    private final Movies associatedMovie; // movie associated with the showing
+    private final int movieID; // movie associated with the showing
 
-    private final String associatedTheater; // theater associated with the showing
+    private final int showroomID; // theater associated with the showing
 
     /**
      * Creates a new Showing object
      *
      * @param date              the date of the showing
      * @param time              the time of the showing
-     * @param associatedMovie   the movie associated with the showing
-     * @param associatedTheater the theater associated with the showing
      */
-    public Showing(String date, String time, Movies associatedMovie, String associatedTheater) {
+    public Showing(String date, String time, int movieID, int showroomID) {
         this.date = date;
         this.time = time;
-        this.associatedMovie = associatedMovie;
-        this.associatedTheater = associatedTheater;
+        this.movieID = movieID;
+        this.showroomID = showroomID;
     }
 
     /**
@@ -48,7 +46,8 @@ public class Showing {
      * @return the movie associated with the showing
      */
     public Movies getAssociatedMovie() {
-        return associatedMovie;
+        Movies movie = null;//TODO get movie with that ID from database
+        return movie;
     }
 
     /**
@@ -56,7 +55,8 @@ public class Showing {
      *
      * @return the theater associated with the showing
      */
-    public String getAssociatedTheater() {
-        return associatedTheater;
+    public Showroom getAssociatedShowroom() {
+        Showroom showroom = null;//TODO get Showroom with that ID from database
+        return showroom;
     }
 }
