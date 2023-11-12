@@ -115,20 +115,4 @@ public class Movies {
     public void setMpaa_rating(String mpaa_rating) {
         this.mpaa_rating = mpaa_rating;
     }
-
-    public String getShow_date() {
-        return show_date;
-    }
-
-    public void setShow_date(String show_date) {
-        this.show_date = show_date;
-    }
-
-    public String getShow_time() {
-        return show_time;
-    }
-
-    public void setShow_time(String show_time) {
-        this.show_time = show_time;
-    }
 } // Movie
