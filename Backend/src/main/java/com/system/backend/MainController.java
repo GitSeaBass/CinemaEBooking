@@ -98,6 +98,19 @@ public class MainController {
         return customerRepository.save(updatedCustomerProfile);
     }
 
+    /**
+     * Creates a new promotion and sends it to all customers who signed up for promotions
+     *
+     * @param promotion the promotion to create
+     * @return the promotion that was created
+     */
+    @PostMapping(path = "/createPromotion")
+    public @ResponseBody Promotion createPromotion(@RequestBody Promotion promotion) {
+        Emailer emailer = new Emailer(); // TODO should only be one instance per database session
+        emailer.sendPromotionalEmail(promotion);
+        return promotion;
+    }
+
     @PostMapping(path = "/testEmail")
     public void testEmail() {
         Emailer emailer = new Emailer();
