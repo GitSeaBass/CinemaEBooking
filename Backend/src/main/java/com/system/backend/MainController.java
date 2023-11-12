@@ -108,6 +108,7 @@ public class MainController {
     public @ResponseBody Promotion createPromotion(@RequestBody Promotion promotion) {
         Emailer emailer = new Emailer(); // TODO should only be one instance per database session
         emailer.sendPromotionalEmail(promotion);
+        //TODO store promotion in database
         return promotion;
     }
 

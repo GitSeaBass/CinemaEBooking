@@ -54,9 +54,18 @@ public class Emailer extends JavaMailSenderImpl {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom(myAddress);
             message.setTo(customer.getEmail());
-            message.setSubject(promotion.getSubject());
-            message.setText(promotion.getBody());
+            message.setSubject(getPromotionEmailSubject(promotion));
+            message.setText(getPromotionEmailBody(promotion));
             this.send(message);
         }
+    }
+
+    public static String getPromotionEmailSubject(Promotion promotion) {
+        return "Get " + promotion.getDiscountPercent() + "% off " + promotion.getMovie().getTitle() + " tickets!";
+    }
+
+    public static String getPromotionEmailBody(Promotion promotion) {
+        return "As thanks for being a loyal customer, you can use code " + promotion.getCode() + " to get " +
+                promotion.getDiscountPercent() + "% off " + promotion.getMovie().getTitle() + " tickets!";
     }
 }
