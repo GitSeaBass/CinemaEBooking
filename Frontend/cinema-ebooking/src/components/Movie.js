@@ -1,8 +1,10 @@
 import './Movie.css'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-function Movie(props) {
+function Movie() {
+    const location = useLocation();
+
     const navigate = useNavigate()
 
     function grabTickets() {
@@ -13,7 +15,10 @@ function Movie(props) {
     return (
         <>
             <div className='Movie-container'>
-                <button className='Movie-get-tickets-button' onClick={grabTickets}>Get Tickets</button>
+                <div className='Movie-left'>
+                    <img src={location.state.poster} className='Movie-movie-poster' />
+                    <button className='Movie-get-tickets-button' onClick={grabTickets}>Get Tickets</button>
+                </div>
             </div>
         </>
     )

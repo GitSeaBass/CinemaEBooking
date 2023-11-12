@@ -20,8 +20,8 @@ function CustomerHomePage(props) {
 
     const navigate = useNavigate()
 
-    function checkMovie() {
-        navigate('/movie')
+    function checkMovie(poster_url, trailer_url) {
+        navigate('/movie', { state: { poster: poster_url, trailer: trailer_url } })
     }
     function grabTickets() {
 
@@ -40,7 +40,9 @@ function CustomerHomePage(props) {
                 {movies.filter((item) => item.category === 'Now Showing').map((item) => (
                     <div className='CustomerHomePage-movie-card' key={item.id}>
                         <div className='CustomerHomePage-left-movie'>
-                            <img src={item.poster_url} alt={item.title} className='CustomerHomePage-poster' onClick={checkMovie} />
+                            <img src={item.poster_url} alt={item.title} className='CustomerHomePage-poster' onClick={() => {
+                                checkMovie(item.poster_url, item.trailer_url)
+                            }} />
                             <div>{item.title}</div>
                             <div>MPAA: {item.mpaa_rating}</div>
                             <button onClick={grabTickets}>Get Tickets</button>
@@ -60,7 +62,9 @@ function CustomerHomePage(props) {
                 {movies.filter((item) => item.category === 'Coming Soon').map((item) => (
                     <div className='CustomerHomePage-movie-card' key={item.id}>
                         <div className='CustomerHomePage-left-movie'>
-                            <img src={item.poster_url} alt={item.title} className='CustomerHomePage-poster' onClick={checkMovie} />
+                            <img src={item.poster_url} alt={item.title} className='CustomerHomePage-poster' onClick={() => {
+                                checkMovie(item.poster_url, item.trailer_url)
+                            }} />
                             <div>{item.title}</div>
                             <div>MPAA: {item.mpaa_rating}</div>
                             <button className='CustomerHomePage-get-tickets-button' onClick={grabTickets}>Get Tickets</button>

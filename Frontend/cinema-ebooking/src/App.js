@@ -226,8 +226,6 @@ function App() {
     const [status, setStatus] = useState('');
 
     const [selectedMovie, setSelectedMovie] = useState('');
-    const [poster, setPoster] = useState('');
-    const [trailer, setTrailer] = useState('');
     const [selectedDate, setSelectedDate] = useState('');
     const [selectedTime, setSelectedTime] = useState('');
     const [childTickets, setChildTickets] = useState(0);
@@ -239,7 +237,7 @@ function App() {
             <div>
                 <Routes>
                     <Route exact path="/" element={<HomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray} status={status} />} />
-                    <Route exact path="/customerpage" element={<CustomerHomePage user={user} setUser={setUser} moviearray={moviearray} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} poster={poster} setPoster={setPoster} trailer={trailer} setTrailer={setTrailer} />} />
+                    <Route exact path="/customerpage" element={<CustomerHomePage user={user} setUser={setUser} moviearray={moviearray} />} />
                     <Route path="/login" element={<LoginPage user={user} setUser={setUser} setStatus={setStatus} />} />
                     <Route path="/search/:id" element={<SearchPage moviearray={moviearray} user={user} setUser={setUser} setSelectedMovie={setSelectedMovie} />} />
                     <Route path="createaccount" element={<CreateAccountPage setUser={setUser} addUpdatableUsers={addUpdatableUsers} />} />
@@ -247,7 +245,7 @@ function App() {
                     <Route path="/profile" element={<ViewProfile user={user} updatableUsers={updatableUsers} updateUpdatableUsers={updateUpdatableUsers} />} />
                     <Route path="/forgotpassword" element={<ForgotPasswordPage user={user} />} />
                     <Route path="/admin" element={<AdminHomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray} />} />
-                    <Route path="/movie" element={<Movie user={user} setUser={setUser} moviearray={moviearray} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} poster={poster} setPoster={setPoster} trailer={trailer} setTrailer={setTrailer} />} />
+                    <Route path="/movie" element={<Movie user={user} setUser={setUser} />} />
                     <Route path="/showings" element={<SelectShowing setSelectedDate={setSelectedDate} user={user} setUser={setUser} />} />
                     <Route path="/times" element={<SelectTime setSelectedTime={setSelectedTime} user={user} setUser={setUser} />} />
                     <Route path="/seatselect" element={<SelectSeats setChildTickets={setChildTickets} setAdultTickets={setAdultTickets} setSeniorTickets={setSeniorTickets} user={user} setUser={setUser} rooms={rooms} />} />

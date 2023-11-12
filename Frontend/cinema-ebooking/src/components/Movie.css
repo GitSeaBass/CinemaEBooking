@@ -8,6 +8,17 @@
     background-color: #5400b8;
 }
 
+.Movie-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Movie-movie-poster {
+    width: 100px;
+    height: 100px;
+}
+
 .Movie-get-tickets-button {
     width: 160px;
     height: 3rem;
