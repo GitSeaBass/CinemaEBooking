@@ -1,10 +1,12 @@
 import './SelectSeats.css'
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import NavBar from './NavBar';
 
 function SelectSeats(props) {
-    const navigate = useNavigate();
+    const location = useLocation()
+
+    const navigate = useNavigate()
 
     const seats = [
         {

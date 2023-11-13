@@ -20,12 +20,12 @@ function CustomerHomePage(props) {
 
     const navigate = useNavigate()
 
-    function checkMovie(poster_url, trailer_url) {
-        navigate('/movie', { state: { poster: poster_url, trailer: trailer_url } })
+    function checkMovie(movie) {
+        navigate('/movie', { state: { movie: movie } })
     }
-    function grabTickets() {
+    function grabTickets(movie) {
 
-        navigate('/showings')
+        navigate('/showings', { state: { movie: movie } })
     }
 
     return (
@@ -41,11 +41,13 @@ function CustomerHomePage(props) {
                     <div className='CustomerHomePage-movie-card' key={item.id}>
                         <div className='CustomerHomePage-left-movie'>
                             <img src={item.poster_url} alt={item.title} className='CustomerHomePage-poster' onClick={() => {
-                                checkMovie(item.poster_url, item.trailer_url)
+                                checkMovie(item)
                             }} />
                             <div>{item.title}</div>
                             <div>MPAA: {item.mpaa_rating}</div>
-                            <button onClick={grabTickets}>Get Tickets</button>
+                            <button onClick={() => {
+                                grabTickets(item)
+                            }}>Get Tickets</button>
                         </div>
                         <div className='CustomerHomePage-right-movie'>
                             <iframe src={item.trailer_url} title={item.title} className="trailer" />
@@ -63,11 +65,13 @@ function CustomerHomePage(props) {
                     <div className='CustomerHomePage-movie-card' key={item.id}>
                         <div className='CustomerHomePage-left-movie'>
                             <img src={item.poster_url} alt={item.title} className='CustomerHomePage-poster' onClick={() => {
-                                checkMovie(item.poster_url, item.trailer_url)
+                                checkMovie(item)
                             }} />
                             <div>{item.title}</div>
                             <div>MPAA: {item.mpaa_rating}</div>
-                            <button className='CustomerHomePage-get-tickets-button' onClick={grabTickets}>Get Tickets</button>
+                            <button className='CustomerHomePage-get-tickets-button' onClick={() => {
+                                grabTickets(item)
+                            }}>Get Tickets</button>
                         </div>
                         <div className='CustomerHomePage-right-movie'>
                             <iframe src={item.trailer_url} title={item.title} className="trailer" />
