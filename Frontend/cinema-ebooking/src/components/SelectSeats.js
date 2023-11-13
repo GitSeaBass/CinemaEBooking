@@ -60,7 +60,7 @@ function SelectSeats(props) {
         props.setChildTickets(child)
         props.setAdultTickets(adult)
         props.setSeniorTickets(senior)
-        navigate('/checkout')
+        navigate('/checkout', { state: location.state })
     }
 
     const roomNum = 1

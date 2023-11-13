@@ -1,9 +1,11 @@
 import './Checkout.css'
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function Checkout(props) {
-    const navigate = useNavigate();
+    const location = useLocation()
+
+    const navigate = useNavigate()
 
     function clickCheckout() {
         navigate('/orderconfirm')
@@ -42,7 +44,7 @@ function Checkout(props) {
         <div className='Checkout-checkout-container'>
             <div className='Checkout-info'>
                 <h1>Checkout</h1>
-                <h3>Movie: {props.movie}</h3>
+                <h3>Movie: {location.state.movie.title}</h3>
                 <h3>Date: {props.date}</h3>
                 <h3>Time: {props.time}</h3>
 
