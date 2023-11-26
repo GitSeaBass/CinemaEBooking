@@ -21,13 +21,15 @@ function SelectShowing(props) {
         <>
             <NavBar user={props.user} setUser={props.setUser} />
             <div className='SelectShowing-showing-container'>
-                <h3 className='SelectShowing-showing-title'>Select A Date</h3>
-                {dates.map((item) => (
-                    <button className='SelectShowing-date-button' onClick={() => {
-                        pickDate(item)
-                    }}>{item}</button>
-                ))}
-                <br />
+                <h1 className='SelectShowing-movie-title'>{location.state.movie.title}</h1>
+                <h1 className='SelectShowing-select-showing'>Select Showing</h1>
+                <div className='SelectShowing-date-container'>
+                    {dates.map((item) => (
+                        <button className='SelectShowing-date-button' onClick={() => {
+                            pickDate(item)
+                        }}>{item}</button>
+                    ))}
+                </div>
                 <button className='SelectShowing-confirm-button' onClick={confirmDate}>Confirm</button>
             </div>
         </>

@@ -1,46 +1,70 @@
 .SelectShowing-showing-container {
-    background-color: gray;
-    width: 40%;
-    margin: auto;
-    border-radius: 20px;
+    width: 53%;
+
+    margin: 2rem auto 0;
+    padding: 1rem;
+
     text-align: center;
-    padding: 10px;
-    margin-top: 10%;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    color: #ffffff;
 }
 
-.SelectShowing-showing-title {
-    font-size: 2em;
+.SelectShowing-movie-title {
+    margin-bottom: 4rem;
+
+    font-weight: normal;
+}
+
+.SelectShowing-date-container {
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem 0;
+    border-top: 1px solid #6969e6;
+    border-bottom: 1px solid #6969e6;
 }
 
 .SelectShowing-date-button {
     width: 30%;
-    margin: auto;
-    height: 40px;
+    height: 2rem;
+
+    margin: 1rem auto;
+    border: 1px solid #ffffff;
+    border-radius: 7px;
+
+    background-color: #19191b;
+
+    font-size: 1rem;
     font-weight: bold;
-    font-size: 1.5em;
-    border-radius: 10px;
-    transition: 0.3s;
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition: all 300ms ease-in-out 100ms;
 }
 
 .SelectShowing-date-button:hover {
-    background-color: gray;
-    cursor: pointer;
+    background-color: #acacac;
 }
 
 .SelectShowing-confirm-button {
     width: 30%;
-    margin: auto;
-    height: 40px;
+    height: 2rem;
+
+    margin: 1rem auto;
+    border: 1px solid #ffffff;
+    border-radius: 7px;
+
+    background-color: #19191b;
+
+    font-size: 1.2rem;
     font-weight: bold;
-    font-size: 1.5em;
-    border-radius: 10px;
-    transition: 0.3s;
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition: all 300ms ease-in-out 100ms;
 }
 
 .SelectShowing-confirm-button:hover {
-    background-color: gray;
-    cursor: pointer;
+    background-color: #acacac;
 }

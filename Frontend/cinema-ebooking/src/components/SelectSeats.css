@@ -1,41 +1,89 @@
-.SelectSeats-seat-container {
-    background-color: gray;
-    width: 40%;
-    margin: auto;
-    border-radius: 20px;
+.SelectSeats-seats-container {
+    width: 53%;
+
+    margin: 2rem auto 0;
+    padding: 1rem;
+
     text-align: center;
-    padding: 10px;
-    margin-top: 10%;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    color: #ffffff;
 }
 
-.SelectSeats-seat-form {
-    font-size: 1.3em;
+.SelectSeats-movie-title {
+    margin-bottom: 4rem;
+
+    font-weight: normal;
 }
 
-.SelectSeats-seat-form>input {
-    border-radius: 2px;
-    padding-bottom: 5px;
+.SelectSeats-border-container {
+    border-top: 1px solid #6969e6;
+    border-bottom: 1px solid #6969e6;
+}
+
+.SelectSeats-tickets-container {
+    width: 60%;
+
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.SelectSeats-ticket-type-container {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+
+    margin: 1rem auto;
+}
+
+.SelectSeats-add-minus-button {
+    width: 50px;
+    height: 50px;
+
+    margin: 0 auto;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+
+    background-color: #19191b;
+
+    text-align: center;
+    font-size: 2.3rem;
+    font-weight: normal;
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition: all 300ms ease-in-out 100ms;
+}
+
+.SelectSeats-add-minus-button:hover {
+    background-color: #acacac;
+}
+
+.SelectSeats-ticket-type {
+    display: inline;
+}
+
+.SelectSeats-ticket-type>h3 {
+    display: inherit;
+}
+
+.SelectSeats-confirm-button {
+    width: 30%;
+    height: 2rem;
+
+    margin: 1rem auto;
+    border: 1px solid #ffffff;
+    border-radius: 7px;
+
+    background-color: #19191b;
+
+    font-size: 1.2rem;
     font-weight: bold;
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition: all 300ms ease-in-out 100ms;
 }
 
-.SelectSeats-seat-title {
-    font-size: 2em;
-}
-
-.SelectSeats-seat-button-container {
-    flex-direction: row;
-}
-
-.SelectSeats-seat-row {
-    background-color: black;
-}
-
-.SelectSeats-seat {
-    width: 40px;
-    height: 60px;
-
-    background-color: aqua;
+.SelectSeats-confirm-button:hover {
+    background-color: #acacac;
 }

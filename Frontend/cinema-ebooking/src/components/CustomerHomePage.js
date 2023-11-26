@@ -45,12 +45,12 @@ function CustomerHomePage(props) {
                             }} />
                             <div>{item.title}</div>
                             <div>MPAA: {item.mpaa_rating}</div>
-                            <button onClick={() => {
+                            <button className='CustomerHomePage-get-tickets-button' onClick={() => {
                                 grabTickets(item)
                             }}>Get Tickets</button>
                         </div>
                         <div className='CustomerHomePage-right-movie'>
-                            <iframe src={item.trailer_url} title={item.title} className="trailer" />
+                            <iframe src={item.trailer_url} title={item.title} className="CustomerHomePage-trailer" />
                         </div>
                     </div>
                 ))}
@@ -74,7 +74,7 @@ function CustomerHomePage(props) {
                             }}>Get Tickets</button>
                         </div>
                         <div className='CustomerHomePage-right-movie'>
-                            <iframe src={item.trailer_url} title={item.title} className="trailer" />
+                            <iframe src={item.trailer_url} title={item.title} className="CustomerHomePage-trailer" />
                         </div>
                     </div>
                 ))}

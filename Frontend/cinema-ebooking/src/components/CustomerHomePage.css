@@ -37,6 +37,20 @@
     font-weight: bold;
 }
 
+.CustomerHomePage-get-tickets-button {
+    border: 1px solid #ffffff;
+    border-radius: 3px;
+
+    background-color: #6969e6;
+
+    text-align: center;
+    color: #ffffff;
+}
+
+.CustomerHomePage-get-tickets-button:hover {
+    background-color: #6969e6;
+}
+
 .CustomerHomePage-trailer {
     width: 400px;
     height: 200px;

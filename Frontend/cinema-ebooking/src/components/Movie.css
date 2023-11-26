@@ -1,4 +1,6 @@
 .Movie-container {
+    display: flex;
+
     width: 90%;
     height: 80vh;
 
@@ -15,8 +17,8 @@
 }
 
 .Movie-movie-poster {
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 500px;
 }
 
 .Movie-get-tickets-button {
@@ -40,4 +42,9 @@
 
 .Movie-get-tickets-button:hover {
     background-color: #d2d2d2;
+}
+
+.Movie-trailer {
+    aspect-ratio: 2/1;
+    height: 500px;
 }

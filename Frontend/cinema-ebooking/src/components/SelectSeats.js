@@ -44,16 +44,51 @@ function SelectSeats(props) {
     ]
 
     const [child, setChild] = useState(0);
-    const addChild = e => {
-        setChild(e.target.value)
+    function subtractChild() {
+        setTimeout(() => {
+            if (child <= 0) {
+                setChild(0)
+            } else {
+                setChild(child - 1)
+            }
+        }, 100)
     }
+    function addChild() {
+        setTimeout(() => {
+            setChild(child + 1)
+        }, 100)
+    }
+
     const [adult, setAdult] = useState(0);
-    const addAdult = e => {
-        setAdult(e.target.value)
+    function subtractAdult() {
+        setTimeout(() => {
+            if (adult <= 0) {
+                setAdult(0)
+            } else {
+                setAdult(adult - 1)
+            }
+        }, 100)
     }
+    function addAdult() {
+        setTimeout(() => {
+            setAdult(adult + 1)
+        }, 100)
+    }
+
     const [senior, setSenior] = useState(0);
-    const addSenior = e => {
-        setSenior(e.target.value)
+    function subtractSenior() {
+        setTimeout(() => {
+            if (senior <= 0) {
+                setSenior(0)
+            } else {
+                setSenior(senior - 1)
+            }
+        }, 100)
+    }
+    function addSenior() {
+        setTimeout(() => {
+            setSenior(senior + 1)
+        }, 100)
     }
 
     function confirm() {
@@ -68,18 +103,46 @@ function SelectSeats(props) {
     return (
         <>
             <NavBar user={props.user} setUser={props.setUser} />
-            <div className='SelectSeats-seat-container'>
-                <h1 className="SelectSeats-seat-title">Select Number of Tickets</h1>
-                <form className="SelectSeats-seat-form">
-                    <label>Child ($5.00): </label>
-                    <input type="number" min="0" max="3" onChange={addChild}></input>
-                    <br></br>
-                    <label>Adult ($10.00): </label>
-                    <input type="number" min="0" max="3" onChange={addAdult}></input>
-                    <br></br>
-                    <label>Senior ($7.50): </label>
-                    <input type="number" min="0" max="3" onChange={addSenior}></input>
-                </form>
+            <div className='SelectSeats-seats-container'>
+                <h1 className='SelectSeats-movie-title'>{location.state.movie.title}</h1>
+                <h1 className="SelectSeats-select-tickets">Select Number of Tickets</h1>
+                <div className='SelectSeats-border-container'>
+                    <div className='SelectSeats-tickets-container'>
+                        <div className='SelectSeats-ticket-type-container'>
+                            <button type='button' className='SelectSeats-add-minus-button' onClick={() => {
+                                subtractChild()
+                            }}>-</button>
+                            <div className='SelectSeats-ticket-type'>
+                                <h3>Child ($5.00): {child}</h3>
+                            </div>
+                            <button type='button' className='SelectSeats-add-minus-button' onClick={() => {
+                                addChild()
+                            }}>+</button>
+                        </div>
+                        <div className='SelectSeats-ticket-type-container'>
+                            <button type='button' className='SelectSeats-add-minus-button' onClick={() => {
+                                subtractAdult()
+                            }}>-</button>
+                            <div className='SelectSeats-ticket-type'>
+                                <h3>Adult ($10.00): {adult}</h3>
+                            </div>
+                            <button type='button' className='SelectSeats-add-minus-button' onClick={() => {
+                                addAdult()
+                            }}>+</button>
+                        </div>
+                        <div className='SelectSeats-ticket-type-container'>
+                            <button type='button' className='SelectSeats-add-minus-button' onClick={() => {
+                                subtractSenior()
+                            }}>-</button>
+                            <div className='SelectSeats-ticket-type'>
+                                <h3>Senior ($7.50): {senior}</h3>
+                            </div>
+                            <button type='button' className='SelectSeats-add-minus-button' onClick={() => {
+                                addSenior()
+                            }}>+</button>
+                        </div>
+                    </div>
+                </div>
 
                 <h3 className="SelectSeats-seat-title">Select Seats:</h3>
                 <div className='SelectSeats-seat-button-container'>
