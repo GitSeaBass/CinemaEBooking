@@ -44,7 +44,7 @@ function CustomerHomePage(props) {
                                 checkMovie(item)
                             }} />
                             <div>{item.title}</div>
-                            <div>MPAA: {item.mpaa_rating}</div>
+                            <p>{item.mpaa_rating}</p>
                             <button className='CustomerHomePage-get-tickets-button' onClick={() => {
                                 grabTickets(item)
                             }}>Get Tickets</button>
@@ -68,7 +68,7 @@ function CustomerHomePage(props) {
                                 checkMovie(item)
                             }} />
                             <div>{item.title}</div>
-                            <div>MPAA: {item.mpaa_rating}</div>
+                            <p>{item.mpaa_rating}</p>
                             <button className='CustomerHomePage-get-tickets-button' onClick={() => {
                                 grabTickets(item)
                             }}>Get Tickets</button>

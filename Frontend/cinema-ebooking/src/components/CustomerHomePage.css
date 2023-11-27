@@ -44,11 +44,14 @@
     background-color: #6969e6;
 
     text-align: center;
+    text-wrap: nowrap;
     color: #ffffff;
+
+    cursor: pointer;
 }
 
 .CustomerHomePage-get-tickets-button:hover {
-    background-color: #6969e6;
+    background-color: #5858c9;
 }
 
 .CustomerHomePage-trailer {

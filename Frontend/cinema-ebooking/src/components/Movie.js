@@ -14,12 +14,15 @@ function Movie() {
     return (
         <>
             <div className='Movie-container'>
-                <div className='Movie-left'>
-                    <img src={location.state.movie.poster_url} className='Movie-movie-poster' />
-                    <button className='Movie-get-tickets-button' onClick={grabTickets}>Get Tickets</button>
-                </div>
-                <div className='Movie-right'>
-                    <iframe src={location.state.movie.trailer_url} title={location.state.movie.title} className="Movie-trailer" />
+                <iframe src={location.state.movie.trailer_url} title={location.state.movie.title} className="Movie-trailer" />
+                <div className='Movie-information-container'>
+                    <div className='Movie-left'>
+                        <img src={location.state.movie.poster_url} className='Movie-movie-poster' />
+                        <button className='Movie-get-tickets-button' onClick={grabTickets}>Get Tickets</button>
+                    </div>
+                    <div className='Movie-right'>
+                        <p>{location.state.movie.synopsis}</p>
+                    </div>
                 </div>
             </div>
         </>

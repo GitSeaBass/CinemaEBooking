@@ -1,13 +1,24 @@
 .Movie-container {
     display: flex;
+    flex-direction: column;
 
     width: 90%;
-    height: 80vh;
 
     margin: 0 auto;
     margin-top: 1rem;
 
     background-color: #5400b8;
+}
+
+.Movie-trailer {
+    display: block;
+
+    aspect-ratio: 2/1;
+    height: 500px;
+}
+
+.Movie-information-container {
+    display: flex;
 }
 
 .Movie-left {
@@ -44,7 +55,7 @@
     background-color: #d2d2d2;
 }
 
-.Movie-trailer {
-    aspect-ratio: 2/1;
-    height: 500px;
+.Movie-right {
+    display: flex;
+    flex-direction: column;
 }
