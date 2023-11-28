@@ -1,15 +1,15 @@
-.ConfirmationWindow-create-container {
+.CreateAccountPage-create-container {
     overflow: hidden;
     position: relative;
 }
 
-.ConfirmationWindow-create-title {
+.CreateAccountPage-create-title {
     font-size: 240%;
     position: relative;
     text-align: center;
 }
 
-.ConfirmationWindow-create-form-container {
+.CreateAccountPage-create-form-container {
     width: 30%;
     height: 98.5vh;
     border: solid black 2px;
@@ -18,7 +18,21 @@
     background-color: white;
 }
 
-.ConfirmationWindow-create-input {
+.CreateAccountPage-log-in {
+    text-align: center;
+}
+
+.CreateAccountPage-log-in-link {
+    color: #000000;
+
+    transition: color 300ms ease-in-out 200ms;
+}
+
+.CreateAccountPage-log-in-link:hover {
+    color: #11114d;
+}
+
+.CreateAccountPage-create-input {
     margin-bottom: 6%;
     margin-left: 5%;
     border: none;
@@ -28,41 +42,41 @@
     font-size: large;
 }
 
-.ConfirmationWindow-create-input:focus {
+.CreateAccountPage-create-input:focus {
     outline: none;
 }
 
-.ConfirmationWindow-create-label {
+.CreateAccountPage-create-label {
     margin-left: 4%;
     font-weight: bold;
     font-size: 1.1em;
 }
 
-.ConfirmationWindow-address-input {
+.CreateAccountPage-address-input {
     width: 40%;
     margin-bottom: 2%;
 }
 
-.ConfirmationWindow-create-name {
+.CreateAccountPage-create-name {
     width: 40%;
     margin-bottom: 1%;
 }
 
-.ConfirmationWindow-card-input {
+.CreateAccountPage-card-input {
     width: 30%;
     margin-bottom: 2%;
 }
 
-.ConfirmationWindow-card-number {
+.CreateAccountPage-card-number {
     width: 50%;
 }
 
-.ConfirmationWindow-create-checkbox {
+.CreateAccountPage-create-checkbox {
     margin-left: 5%;
     margin-bottom: 15%;
 }
 
-.ConfirmationWindow-create-submit {
+.CreateAccountPage-create-submit {
     width: 40%;
     height: 50px;
     border-radius: 100px;
@@ -72,15 +86,29 @@
     background: linear-gradient(0.25turn, rgb(74, 211, 253) 0%, rgb(100, 249, 100) 30%, rgb(100, 249, 100) 70%, rgb(74, 211, 253) 100%);
 }
 
-.ConfirmationWindow-create-submit:hover {
+.CreateAccountPage-create-submit:hover {
     transition: 0.5s;
     cursor: pointer;
     background-position: -112px;
     box-shadow: 5px 5px 2px 1px gray;
 }
 
-.ConfirmationWindow-create-submit:hover {
+.CreateAccountPage-create-submit:hover {
     transition: 0.5s;
     background-color: rgb(175, 173, 173);
     cursor: pointer;
+}
+
+.CreateAccountPage-return-home {
+    text-align: center;
+}
+
+.CreateAccountPage-return-home-link {
+    color: #000000;
+
+    transition: color 300ms ease-in-out 200ms;
+}
+
+.CreateAccountPage-return-home-link:hover {
+    color: #11114d;
 }

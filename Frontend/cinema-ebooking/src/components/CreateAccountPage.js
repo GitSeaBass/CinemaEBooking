@@ -71,52 +71,48 @@ function CreateAccountPage(props) {
     }
 
     return (
-        <div className='ConfirmationWindow-create-container'>
+        <div className='CreateAccountPage-create-container'>
 
-            <div className='ConfirmationWindow-image-container'>
-                <div className='ConfirmationWindow-image'> </div>
+            <div className='CreateAccountPage-image-container'>
+                <div className='CreateAccountPage-image'> </div>
             </div>
 
-            <div className="ConfirmationWindow-create-form-container">
+            <div className="CreateAccountPage-create-form-container">
 
-                <div className='ConfirmationWindow-create-title'>Create Account</div>
+                <div className='CreateAccountPage-create-title'>Create Account</div>
 
-                <h4 className='ConfirmationWindow-create-account-question'>Already Have an Account?
-                    <a className='ConfirmationWindow-create-account-link' href='/login'>Login Here</a>
-                </h4>
+                <h4 className='CreateAccountPage-log-in'>Already have an account? <a className='CreateAccountPage-log-in-link' href='/login'>Log in here.</a></h4>
 
-                <form className='ConfirmationWindow-create-form' onSubmit={onSubmit}>
-                    <input type='text' className='ConfirmationWindow-create-input' name='email' onChange={addNewUser} placeholder='Email' required></input><br />
-                    <input type='password' className='ConfirmationWindow-create-input' name='password' onChange={addNewUser} placeholder='Password' required></input><br />
-                    <input type='password' className='ConfirmationWindow-create-input' onChange={addPassword2} placeholder='Confirm Password' required></input><br />
+                <form className='CreateAccountPage-create-form' onSubmit={onSubmit}>
+                    <input type='text' className='CreateAccountPage-create-input' name='email' onChange={addNewUser} placeholder='Email' required></input><br />
+                    <input type='password' className='CreateAccountPage-create-input' name='password' onChange={addNewUser} placeholder='Password' required></input><br />
+                    <input type='password' className='CreateAccountPage-create-input' onChange={addPassword2} placeholder='Confirm Password' required></input><br />
 
-                    <input type='text' className='ConfirmationWindow-create-input ConfirmationWindow-create-name' placeholder='First Name' name='firstName' onChange={addNewUser} required></input>
-                    <input type='text' className='ConfirmationWindow-create-input ConfirmationWindow-create-name' placeholder='Last Name' name='lastName' onChange={addNewUser} required></input> <br />
+                    <input type='text' className='CreateAccountPage-create-input CreateAccountPage-create-name' placeholder='First Name' name='firstName' onChange={addNewUser} required></input>
+                    <input type='text' className='CreateAccountPage-create-input CreateAccountPage-create-name' placeholder='Last Name' name='lastName' onChange={addNewUser} required></input> <br />
 
-                    <label className='ConfirmationWindow-create-label'>Enter Date of Birth</label> <br />
-                    <input type='text' className='ConfirmationWindow-create-input' placeholder='MM/DD/YYYY' name='dateOfBirth' onChange={addNewUser} required></input> <br />
+                    <label className='CreateAccountPage-create-label'>Enter Date of Birth</label> <br />
+                    <input type='text' className='CreateAccountPage-create-input' placeholder='MM/DD/YYYY' name='dateOfBirth' onChange={addNewUser} required></input> <br />
 
                     {/*}
                     <label className='create-label' value='Address'>Enter Address (Optional) </label><br />
-                    <input type='text' className='ConfirmationWindow-create-input ConfirmationWindow-address-input' placeholder='Street' name='street' onChange={addNewUser}></input>
-                    <input type='text' className='ConfirmationWindow-create-input ConfirmationWindow-address-input' placeholder='City' name='city' onChange={addNewUser}></input><br />
-                    <input type='text' className='ConfirmationWindow-create-input ConfirmationWindow-address-input' placeholder='State' name='state' onChange={addNewUser}></input>
-                    <input type='text' className='ConfirmationWindow-create-input ConfirmationWindow-address-input' placeholder='Zipcode' name='zip' onChange={addNewUser}></input><br />
+                    <input type='text' className='CreateAccountPage-create-input CreateAccountPage-address-input' placeholder='Street' name='street' onChange={addNewUser}></input>
+                    <input type='text' className='CreateAccountPage-create-input CreateAccountPage-address-input' placeholder='City' name='city' onChange={addNewUser}></input><br />
+                    <input type='text' className='CreateAccountPage-create-input CreateAccountPage-address-input' placeholder='State' name='state' onChange={addNewUser}></input>
+                    <input type='text' className='CreateAccountPage-create-input CreateAccountPage-address-input' placeholder='Zipcode' name='zip' onChange={addNewUser}></input><br />
 
-                    <label className='ConfirmationWindow-create-label' value='Address'>Enter Payment Card (Optional) </label><br />
-                    <input type='text' className='ConfirmationWindow-create-input ConfirmationWindow-card-input ConfirmationWindow-card-number' placeholder='Card Number' name='cardno' onChange={addNewUser}></input>
-                    <input type='text' className='ConfirmationWindow-create-input ConfirmationWindow-card-input' placeholder='Expiration Date' name='carddate' onChange={addNewUser}></input><br />
+                    <label className='CreateAccountPage-create-label' value='Address'>Enter Payment Card (Optional) </label><br />
+                    <input type='text' className='CreateAccountPage-create-input CreateAccountPage-card-input CreateAccountPage-card-number' placeholder='Card Number' name='cardno' onChange={addNewUser}></input>
+                    <input type='text' className='CreateAccountPage-create-input CreateAccountPage-card-input' placeholder='Expiration Date' name='carddate' onChange={addNewUser}></input><br />
 
                     <br />
-                    <input type='checkbox' className='ConfirmationWindow-create-checkbox' name='promo' onChange={addPromoState}></input>Register for Promotions<br />
+                    <input type='checkbox' className='CreateAccountPage-create-checkbox' name='promo' onChange={addPromoState}></input>Register for Promotions<br />
     {*/}
-                    <input type='submit' value='Create Account' className='ConfirmationWindow-create-submit'></input>
+                    <input type='submit' value='Create Account' className='CreateAccountPage-create-submit'></input>
                 </form>
 
 
-                <h4 className='ConfirmationWindow-create-account-question'>Return
-                    <a className='ConfirmationWindow-create-account-link' href='/'>Home</a>
-                </h4>
+                <h4 className='CreateAccountPage-return-home'>Return <a className='CreateAccountPage-return-home-link' href='/'>Home</a></h4>
 
 
             </div>

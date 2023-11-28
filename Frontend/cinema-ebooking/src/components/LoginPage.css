@@ -83,3 +83,32 @@
     object-fit: cover;
     text-align: center;
 }
+
+.LoginPage-forgot-password {
+    text-align: center;
+}
+
+.LoginPage-forgot-password-link {
+    color: #000000;
+
+    transition: color 300ms ease-in-out 200ms;
+}
+
+.LoginPage-forgot-password-link:hover {
+    color: #11114d;
+}
+
+.LoginPage-return-home {
+    text-align: center;
+    font-weight: bold;
+}
+
+.LoginPage-return-home-link {
+    color: #000000;
+
+    transition: color 300ms ease-in-out 200ms;
+}
+
+.LoginPage-return-home-link:hover {
+    color: #11114d;
+}

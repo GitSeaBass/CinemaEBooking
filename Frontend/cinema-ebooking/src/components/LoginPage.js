@@ -66,13 +66,13 @@ function LoginPage(props) {
                     <form className='LoginPage-login-form' onSubmit={onSubmit}>
                         <input type='text' className='LoginPage-login-input' placeholder='Email' onChange={addEmail} required></input><br />
                         <input type='password' className='LoginPage-login-input' placeholder='Password' onChange={addPassword} required></input><br />
-                        <input type='submit' value='Login' className='LoginPage-login-submit'></input>
+                        <input type='submit' value='Log in' className='LoginPage-login-submit'></input>
                     </form>
 
-                    <h4 className='LoginPage-create-account-question'>
-                        <a className='LoginPage-create-account-link' href='/forgotpassword'>Forgot your password?</a>
-                        <p>Return <a className='LoginPage-create-account-link' href='/'>Home</a></p>
+                    <h4 className='LoginPage-forgot-password'>
+                        <a className='LoginPage-forgot-password-link' href='/forgotpassword'>Forgot your password?</a>
                     </h4>
+                    <p className='LoginPage-return-home'>Return <a className='LoginPage-return-home-link' href='/'>Home</a></p>
                 </div>
             </div>
         </>
