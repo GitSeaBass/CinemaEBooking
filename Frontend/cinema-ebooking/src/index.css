@@ -1,4 +1,6 @@
 body {
+  overscroll-behavior-y: none;
+
   margin: 0;
 
   background-color: #19191b;
