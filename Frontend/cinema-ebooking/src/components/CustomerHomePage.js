@@ -1,7 +1,7 @@
 import './CustomerHomePage.css'
 import NavBar from './NavBar';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createElement } from 'react';
 
 function CustomerHomePage(props) {
 
@@ -17,6 +17,36 @@ function CustomerHomePage(props) {
                 console.log(err)
             })
     }, [])
+
+    function showTrailer(movie_trailer, movie_title) {
+        const container = document.createElement('div')
+        container.setAttribute('id', 'CustomerHomePage-trailer-container')
+        container.addEventListener('onClick', () => {
+            hideTrailer()
+        })
+
+        const trailer = document.createElement('iframe')
+        trailer.setAttribute('src', movie_trailer)
+        trailer.setAttribute('title', movie_title)
+        trailer.setAttribute('id', 'CustomerHomePage-trailer')
+        trailer.addEventListener('onMouseOut', () => {
+            hideTrailer()
+        })
+
+        container.appendChild(trailer)
+        document.body.appendChild(container)
+    }
+
+    function hideTrailer() {
+        try {
+            const container = document.querySelector('CustomerHomePage-trailer-container')
+            const trailer = document.querySelector('CustomerHomePage-trailer')
+            container.removeChild(trailer)
+            container.remove()
+        } catch (error) {
+            console.log('Could not find element(s)')
+        }
+    }
 
     const navigate = useNavigate()
 
@@ -40,7 +70,9 @@ function CustomerHomePage(props) {
                 {movies.filter((item) => item.category === 'Now Showing').map((item) => (
                     <div className='CustomerHomePage-movie-card' key={item.id}>
                         <div className='CustomerHomePage-left-movie'>
-                            <img src={item.poster_url} alt={item.title} className='CustomerHomePage-poster' onClick={() => {
+                            <img src={item.poster_url} alt={item.title} className='CustomerHomePage-poster' onMouseEnter={() => {
+                                showTrailer(item.trailer_url, item.title)
+                            }} onClick={() => {
                                 checkMovie(item)
                             }} />
                             <div>{item.title}</div>
@@ -50,7 +82,7 @@ function CustomerHomePage(props) {
                             }}>Get Tickets</button>
                         </div>
                         <div className='CustomerHomePage-right-movie'>
-                            <iframe src={item.trailer_url} title={item.title} className="CustomerHomePage-trailer" />
+                            <iframe src={item.trailer_url} title={item.title} className='CustomerHomePage-trailer' />
                         </div>
                     </div>
                 ))}
@@ -64,7 +96,9 @@ function CustomerHomePage(props) {
                 {movies.filter((item) => item.category === 'Coming Soon').map((item) => (
                     <div className='CustomerHomePage-movie-card' key={item.id}>
                         <div className='CustomerHomePage-left-movie'>
-                            <img src={item.poster_url} alt={item.title} className='CustomerHomePage-poster' onClick={() => {
+                            <img src={item.poster_url} alt={item.title} className='CustomerHomePage-poster' onMouseEnter={() => {
+                                showTrailer(item.trailer_url, item.title)
+                            }} onClick={() => {
                                 checkMovie(item)
                             }} />
                             <div>{item.title}</div>
@@ -74,7 +108,7 @@ function CustomerHomePage(props) {
                             }}>Get Tickets</button>
                         </div>
                         <div className='CustomerHomePage-right-movie'>
-                            <iframe src={item.trailer_url} title={item.title} className="CustomerHomePage-trailer" />
+                            <iframe src={item.trailer_url} title={item.title} className='CustomerHomePage-trailer' />
                         </div>
                     </div>
                 ))}

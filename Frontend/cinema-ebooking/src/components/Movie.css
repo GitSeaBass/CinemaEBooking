@@ -13,8 +13,7 @@
 .Movie-trailer {
     display: block;
 
-    aspect-ratio: 2/1;
-    height: 500px;
+    aspect-ratio: 16/9;
 }
 
 .Movie-information-container {
