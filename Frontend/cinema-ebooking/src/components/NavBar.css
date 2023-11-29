@@ -1,67 +1,113 @@
 .NavBar-nav-bar {
     display: flex;
-    height: 50px;
-    background-color: rgb(105, 105, 230);
     justify-content: space-between;
-    padding: 5px 10px;
+    align-items: center;
+
+    height: 54px;
+
+    padding: 0.5rem 1rem;
+
+    background-color: rgb(105, 105, 230);
 }
 
 .NavBar-title-logo {
-    margin-top: 0.5%;
+    margin: 0;
+
     font-weight: bold;
     font-size: 1.5em;
-}
 
-.NavBar-title-logo:hover {
     cursor: pointer;
 }
 
 .NavBar-search-form {
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.NavBar-search-bar {
+    height: 2rem;
+
+    padding-left: 0.25rem;
+    border: 1px solid #008060;
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px #444444;
+
+    font-size: 1.2rem;
+
+    transition: all 300ms ease-in-out 200ms;
+}
+
+.NavBar-search-bar:focus {
+    outline: none;
+    box-shadow: 2px 2px 8px #242424;
+}
+
+.NavBar-button {
+    height: 2rem;
+
+    border: none;
+    border-radius: 1.2rem;
+    box-shadow: 1px 1px 2px #444444;
+
+    font-size: 1.2rem;
+
+    cursor: pointer;
+
+    transition: all 300ms ease-in-out 100ms;
+}
+
+.NavBar-button:hover {
+    box-shadow: 1px 1px 1px #444444;
+}
+
+.NavBar-button:active {
+    transition-duration: 100ms;
+    transition-delay: 0;
+
+    box-shadow: none;
 }
 
 .NavBar-search-button {
-    border: none;
-    border-top: 1px solid #797979;
-    border-right: 1px solid #818181;
+    width: 78px;
 
-    background-color: #cccccc;
-
-    cursor: pointer;
-    border-radius: 10px;
     margin-left: 5px;
+    border-right: 1px solid #26999b;
+    border-bottom: 1px solid #29999b;
+
+    background-color: #29a2a4;
+
+    color: #ffffe8;
 }
 
 .NavBar-search-button:hover {
-    background-color: rgb(149, 146, 146);
-    transition: 0.2s;
-}
+    border-right: 1px solid #248e90;
+    border-bottom: 1px solid #248e90;
 
-.NavBar-login-button {
-    width: 100px;
-    border-radius: 100%;
-    transition: 1s;
-    font-size: larger;
-}
-
-.NavBar-login-button:hover {
-    background-color: gray;
-    transition: 1s;
-    cursor: pointer;
+    background-color: #248e90;
 }
 
 .NavBar-right-nav-bar {
-    width: 20%;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
 }
 
-.NavBar-right-nav-bar>button {
-    height: 100%;
-    margin-left: 10%;
+.NavBar-log-in-button {
     width: 100px;
-    border-radius: 2rem;
-    cursor: pointer;
+
+    border-right: 1px solid #4d914d;
+    border-bottom: 1px solid #4d914d;
+
+    background-color: #549f54;
+
+    color: #ffffff;
+}
+
+.NavBar-log-in-button:hover {
+    border-right: 1px solid #498b49;
+    border-bottom: 1px solid #498b49;
+
+    background-color: #498b49;
 }
 
 .NavBar-nav-bar-email {

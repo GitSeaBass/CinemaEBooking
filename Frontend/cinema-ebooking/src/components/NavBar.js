@@ -23,7 +23,7 @@ function NavBar(props) {
         window.location.reload();
     }
 
-    const onClick = () => {
+    const searchFor = () => {
         navigate(`/search/${search}`)
     }
 
@@ -33,20 +33,20 @@ function NavBar(props) {
 
     return (
         <div className='NavBar-nav-bar'>
-            <h1 className='NavBar-title-logo' onClick={goHome}>Cinema E-Booking A8</h1>
-            <form className='NavBar-search-form' onSubmit={onClick}>
-                <input type='string' onChange={addSearch}></input>
-                <input className='NavBar-search-button' value="Search" type='submit'></input>
+            <h3 className='NavBar-title-logo' onClick={goHome}>Cinema E-Booking A8</h3>
+            <form className='NavBar-search-form' onSubmit={searchFor}>
+                <input type='string' className='NavBar-search-bar' onChange={addSearch}></input>
+                <button className='NavBar-button NavBar-search-button' type='submit'>Search</button>
             </form>
 
             {props.user.length === 0 ?
                 <div className='NavBar-right-nav-bar'>
-                    <button className='NavBar-login-button' onClick={loggingIn}>Login</button>
+                    <button className='NavBar-button NavBar-log-in-button' onClick={loggingIn}>Log In</button>
                 </div> :
                 <div className='NavBar-right-nav-bar'>
                     <h3 className='NavBar-nav-bar-email'>{props.user}</h3>
-                    <button onClick={viewProfile}>Profile</button>
-                    <button onClick={loggingOut}>Logout</button>
+                    <button className='NavBar-button NavBar-profile-button' onClick={viewProfile}>View Profile</button>
+                    <button className='NavBar-button NavBar-log-out-button' onClick={loggingOut}>Log Out</button>
                 </div>}
         </div>
     )
