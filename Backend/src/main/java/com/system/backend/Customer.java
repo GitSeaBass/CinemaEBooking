@@ -23,7 +23,7 @@ public class Customer {
     //@Column (name = "date_of_birth")
     private String date_of_birth;
     //@Column (name = "status")
-    private Status status;
+    private String status;
 
     @OneToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "address_address_id", nullable = true)
@@ -79,11 +79,11 @@ public class Customer {
         this.date_of_birth = dateOfBirth;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
