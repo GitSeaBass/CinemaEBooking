@@ -49,31 +49,30 @@ function LoginPage(props) {
     return (
         <>
             <div className='LoginPage-login-container'>
-
-                <div className='LoginPage-image-container'>
-                    {/* Potential Image}<img src='https://t3.ftcdn.net/jpg/00/47/40/02/360_F_47400213_AgAsGC2y45UJaYQoWmNc3pb3BtG1agta.jpg' alt='login' className='image'/>{*/}
-                    <div className='LoginPage-image'></div>
-                </div>
-
-                <div className="LoginPage-login-form-container">
-                    <div className='LoginPage-login-title'>Login</div>
-
-                    <h4 className='LoginPage-create-account-question'>
-                        Don't have an account? Create one <a className='LoginPage-create-account-link' href='/createaccount'>here</a>.
-                    </h4>
-
-
+                <div className='LoginPage-gradient-1'></div>
+                <div className='LoginPage-login-form-container'>
+                    <div className='LoginPage-login-title'>
+                        <h2>Log in</h2>
+                    </div>
+                    <p className='LoginPage-create-account-question'>
+                        Don't have an account? Create one <a className='LoginPage-link LoginPage-create-account-link' href='/createaccount'>here</a>.
+                    </p>
                     <form className='LoginPage-login-form' onSubmit={onSubmit}>
-                        <input type='text' className='LoginPage-login-input' placeholder='Email' onChange={addEmail} required></input><br />
-                        <input type='password' className='LoginPage-login-input' placeholder='Password' onChange={addPassword} required></input><br />
-                        <input type='submit' value='Log in' className='LoginPage-login-submit'></input>
+                        <input type='text' placeholder='Email' onChange={addEmail} required></input>
+                        <input type='password' placeholder='Password' onChange={addPassword} required></input>
+                        <button type='submit' className='LoginPage-login-button'>Log in</button>
                     </form>
-
-                    <h4 className='LoginPage-forgot-password'>
-                        <a className='LoginPage-forgot-password-link' href='/forgotpassword'>Forgot your password?</a>
-                    </h4>
-                    <p className='LoginPage-return-home'>Return <a className='LoginPage-return-home-link' href='/'>Home</a></p>
+                    <p className='LoginPage-forgot-password'>
+                        <a className='LoginPage-link LoginPage-forgot-password-link' href='/forgotpassword'>Forgot your password?</a>
+                    </p>
+                    <p className='LoginPage-return-home'>
+                        Return <a className='LoginPage-link LoginPage-return-home-link' href='/'>home</a>
+                    </p>
                 </div>
+                {/*<div className='LoginPage-image-container'>
+                    {Potential Image}<img src='https://t3.ftcdn.net/jpg/00/47/40/02/360_F_47400213_AgAsGC2y45UJaYQoWmNc3pb3BtG1agta.jpg' alt='login' className='image'/>{}
+                    <div className='LoginPage-image'></div>
+                </div> */}
             </div>
         </>
     );

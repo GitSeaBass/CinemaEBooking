@@ -1,72 +1,147 @@
 .LoginPage-login-container {
-    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    background-color: #000000;
+
     overflow: hidden;
 }
 
-.LoginPage-login-title {
-    font-size: 240%;
-    margin-bottom: 3%;
-    margin-top: 3%;
-    text-align: center;
+.LoginPage-gradient-1 {
+    width: 600px;
+    height: 550px;
+
+    position: relative;
+    top: 23%;
+    left: 52%;
+
+    background: radial-gradient(circle at 50% 50%, #232378ff, #23237800);
+    opacity: 0.3;
+    filter: blur(60px);
 }
 
 .LoginPage-login-form-container {
     width: 30%;
-    height: 98.95vh;
-    border-right: solid black 2px;
+    height: 100vh;
+
+    position: absolute;
+    top: 0%;
+    left: 0%;
+
+    border-right: 3px solid #0d0d0d;
     border-radius: 5px;
-    padding-top: 10px;
-    background-color: white;
+
+    overflow: hidden;
+    color: #424279;
+
+    background-color: #0d0d0d7b;
+}
+
+.LoginPage-login-title {
+    margin: 0.25rem 0;
+
+    text-align: center;
+}
+
+.LoginPage-login-title>h2 {
+    font-size: 2rem;
+}
+
+.LoginPage-create-account-question {
+    margin-bottom: 3rem;
+
+    text-align: center;
+}
+
+.LoginPage-link {
+    font-weight: bold;
+    color: #424279;
+}
+
+.LoginPage-link:hover {
+    color: #2c2c56;
 }
 
 .LoginPage-create-account-link {
-    color: #000000;
-
     transition: color 300ms ease-in-out 200ms;
 }
 
 .LoginPage-create-account-link:hover {
-    color: #11114d;
+    text-decoration: underline;
 }
 
-.LoginPage-login-input {
-    margin-bottom: 20%;
-    margin-left: 5%;
-    border: none;
-    border-bottom: solid black 1px;
+.LoginPage-login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LoginPage-login-form>input {
     width: 80%;
-    height: 30px;
-    font-size: large;
+    height: 2rem;
+
+    margin: 0.75rem 0;
+    border: none;
+    border-radius: 3px;
+    padding-left: 1rem;
+
+    background-color: #161619;
+
+    font-size: 1rem;
+    color: #767676;
 }
 
-.LoginPage-login-input:focus {
+.LoginPage-login-form>input::placeholder {
+    color: #767676;
+}
+
+.LoginPage-login-form>input:focus {
     outline: none;
 }
 
-.LoginPage-login-submit {
-    width: 40%;
-    height: 50px;
-    border-radius: 100px;
-    transition: 0.5s;
-    font-size: 1.5em;
-    margin-left: 30%;
-    background: linear-gradient(0.25turn, rgb(74, 211, 253) 0%, rgb(100, 249, 100) 30%, rgb(100, 249, 100) 70%, rgb(74, 211, 253) 100%);
-}
+.LoginPage-login-button {
+    width: 36%;
+    height: 32px;
 
-.LoginPage-login-submit:hover {
-    transition: 0.5s;
-    cursor: pointer;
-    background-position: -112px;
-    box-shadow: 5px 5px 2px 1px gray;
-}
+    margin: 1rem 0 4rem;
+    border: none;
+    border-radius: 1.2rem;
 
-.LoginPage-login-form>label {
+    background-color: #5a5a99;
+
+    font-size: 1.2em;
     font-weight: bold;
+    color: #000000;
+
+    cursor: pointer;
+
+    transition: all 300ms ease-in-out 200ms;
 }
 
-.LoginPage-create-account-question {
-    margin-bottom: 10%;
+.LoginPage-login-button:hover {
+    background-color: #424279;
+}
+
+.LoginPage-forgot-password {
+    margin: 0.5rem 0;
+
     text-align: center;
+}
+
+.LoginPage-forgot-password-link {
+    transition: color 400ms ease-in-out 200ms;
+}
+
+.LoginPage-return-home {
+    text-align: center;
+}
+
+.LoginPage-return-home-link {
+    transition: color 300ms ease-in-out 200ms;
+}
+
+.LoginPage-return-home-link:hover {
+    text-decoration: underline;
 }
 
 .LoginPage-image-container {
@@ -76,39 +151,9 @@
 }
 
 .LoginPage-image {
-    background-color: black;
     background: radial-gradient(rgb(100, 249, 100), rgb(74, 211, 253) 100%);
     height: 100vh;
-    width: 90vw;
+    width: 70vw;
     object-fit: cover;
     text-align: center;
-}
-
-.LoginPage-forgot-password {
-    text-align: center;
-}
-
-.LoginPage-forgot-password-link {
-    color: #000000;
-
-    transition: color 300ms ease-in-out 200ms;
-}
-
-.LoginPage-forgot-password-link:hover {
-    color: #11114d;
-}
-
-.LoginPage-return-home {
-    text-align: center;
-    font-weight: bold;
-}
-
-.LoginPage-return-home-link {
-    color: #000000;
-
-    transition: color 300ms ease-in-out 200ms;
-}
-
-.LoginPage-return-home-link:hover {
-    color: #11114d;
 }

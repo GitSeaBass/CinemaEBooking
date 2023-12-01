@@ -71,52 +71,44 @@ function CreateAccountPage(props) {
     }
 
     return (
-        <div className='CreateAccountPage-create-container'>
-
-            <div className='CreateAccountPage-image-container'>
-                <div className='CreateAccountPage-image'> </div>
-            </div>
-
-            <div className="CreateAccountPage-create-form-container">
-
-                <div className='CreateAccountPage-create-title'>Create Account</div>
-
-                <h4 className='CreateAccountPage-log-in'>Already have an account? <a className='CreateAccountPage-log-in-link' href='/login'>Log in here.</a></h4>
-
-                <form className='CreateAccountPage-create-form' onSubmit={onSubmit}>
-                    <input type='text' className='CreateAccountPage-create-input' name='email' onChange={addNewUser} placeholder='Email' required></input><br />
-                    <input type='password' className='CreateAccountPage-create-input' name='password' onChange={addNewUser} placeholder='Password' required></input><br />
-                    <input type='password' className='CreateAccountPage-create-input' onChange={addPassword2} placeholder='Confirm Password' required></input><br />
-
-                    <input type='text' className='CreateAccountPage-create-input CreateAccountPage-create-name' placeholder='First Name' name='firstName' onChange={addNewUser} required></input>
-                    <input type='text' className='CreateAccountPage-create-input CreateAccountPage-create-name' placeholder='Last Name' name='lastName' onChange={addNewUser} required></input> <br />
-
-                    <label className='CreateAccountPage-create-label'>Enter Date of Birth</label> <br />
-                    <input type='text' className='CreateAccountPage-create-input' placeholder='MM/DD/YYYY' name='dateOfBirth' onChange={addNewUser} required></input> <br />
-
+        <div className='CreateAccountPage-create-account-container'>
+            <div className='CreateAccountPage-gradient'></div>
+            <div className="CreateAccountPage-create-account-form-container">
+                <div className='CreateAccountPage-create-account-title'>
+                    <h2>Create Account</h2>
+                </div>
+                <p className='CreateAccountPage-login-question'>
+                    Already have an account? <a className='CreateAccountPage-link CreateAccountPage-login-link' href='/login'>Log in here.</a>
+                </p>
+                <form className='CreateAccountPage-create-account-form' onSubmit={onSubmit}>
+                    <input type='text' name='email' onChange={addNewUser} placeholder='Email' required></input>
+                    <input type='password' name='password' onChange={addNewUser} placeholder='Password' required></input>
+                    <input type='password' onChange={addPassword2} placeholder='Confirm Password' required></input>
+                    <input type='text' placeholder='First Name' name='firstName' onChange={addNewUser} required></input>
+                    <input type='text' placeholder='Last Name' name='lastName' onChange={addNewUser} required></input>
+                    <label>Enter Date of Birth</label>
+                    <input type='text' placeholder='MM/DD/YYYY' name='dateOfBirth' onChange={addNewUser} required></input>
                     {/*}
                     <label className='create-label' value='Address'>Enter Address (Optional) </label><br />
                     <input type='text' className='CreateAccountPage-create-input CreateAccountPage-address-input' placeholder='Street' name='street' onChange={addNewUser}></input>
                     <input type='text' className='CreateAccountPage-create-input CreateAccountPage-address-input' placeholder='City' name='city' onChange={addNewUser}></input><br />
                     <input type='text' className='CreateAccountPage-create-input CreateAccountPage-address-input' placeholder='State' name='state' onChange={addNewUser}></input>
                     <input type='text' className='CreateAccountPage-create-input CreateAccountPage-address-input' placeholder='Zipcode' name='zip' onChange={addNewUser}></input><br />
-
                     <label className='CreateAccountPage-create-label' value='Address'>Enter Payment Card (Optional) </label><br />
                     <input type='text' className='CreateAccountPage-create-input CreateAccountPage-card-input CreateAccountPage-card-number' placeholder='Card Number' name='cardno' onChange={addNewUser}></input>
                     <input type='text' className='CreateAccountPage-create-input CreateAccountPage-card-input' placeholder='Expiration Date' name='carddate' onChange={addNewUser}></input><br />
-
                     <br />
                     <input type='checkbox' className='CreateAccountPage-create-checkbox' name='promo' onChange={addPromoState}></input>Register for Promotions<br />
     {*/}
-                    <input type='submit' value='Create Account' className='CreateAccountPage-create-submit'></input>
+                    <button type='submit' className='CreateAccountPage-create-account-button'>Create Account</button>
                 </form>
-
-
-                <h4 className='CreateAccountPage-return-home'>Return <a className='CreateAccountPage-return-home-link' href='/'>Home</a></h4>
-
-
+                <h4 className='CreateAccountPage-return-home'>
+                    Return <a className='CreateAccountPage-link CreateAccountPage-return-home-link' href='/'>home</a>
+                </h4>
             </div>
-
+            <div className='CreateAccountPage-image-container'>
+                <div className='CreateAccountPage-image'> </div>
+            </div>
         </div>
     )
 }

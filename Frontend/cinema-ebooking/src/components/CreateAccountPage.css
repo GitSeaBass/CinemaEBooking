@@ -1,114 +1,127 @@
-.CreateAccountPage-create-container {
+.CreateAccountPage-create-account-container {
+    width: 100%;
+    height: 100vh;
+
+    background-color: #000000;
+
     overflow: hidden;
-    position: relative;
 }
 
-.CreateAccountPage-create-title {
-    font-size: 240%;
+.CreateAccountPage-gradient {
+    width: 700px;
+    height: 500px;
+
     position: relative;
-    text-align: center;
+    top: 6%;
+    left: 41%;
+
+    background: radial-gradient(circle at 50% 50%, #46216aff, #46216a00);
+    opacity: 0.3;
+    filter: blur(60px);
 }
 
-.CreateAccountPage-create-form-container {
+.CreateAccountPage-create-account-form-container {
     width: 30%;
-    height: 98.5vh;
-    border: solid black 2px;
+    height: 100vh;
+
+    position: absolute;
+    top: 0%;
+    left: 0%;
+
+    border-right: 3px solid #0d0d0d;
     border-radius: 5px;
-    padding-top: 10px;
-    background-color: white;
+
+    overflow: hidden;
+    color: #424279;
+
+    background-color: #0d0d0d7b;
 }
 
-.CreateAccountPage-log-in {
+.CreateAccountPage-create-account-title {
+    margin: 0.25rem 0;
+
     text-align: center;
 }
 
-.CreateAccountPage-log-in-link {
-    color: #000000;
+.CreateAccountPage-create-account-title>h2 {
+    font-size: 2rem;
+}
+
+.CreateAccountPage-login-question {
+    margin-bottom: 3rem;
+
+    text-align: center;
+}
+
+.CreateAccountPage-link {
+    font-weight: bold;
+    color: #424279;
 
     transition: color 300ms ease-in-out 200ms;
 }
 
-.CreateAccountPage-log-in-link:hover {
-    color: #11114d;
+.CreateAccountPage-link:hover {
+    text-decoration: underline;
+
+    color: #2c2c56;
 }
 
-.CreateAccountPage-create-input {
-    margin-bottom: 6%;
-    margin-left: 5%;
-    border: none;
-    border-bottom: solid black 1px;
+.CreateAccountPage-create-account-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.CreateAccountPage-create-account-form>input {
     width: 80%;
-    height: 30px;
-    font-size: large;
+    height: 2rem;
+
+    margin: 0.75rem 0;
+    border: none;
+    border-radius: 3px;
+    padding-left: 1rem;
+
+    background-color: #161619;
+
+    font-size: 1rem;
+    color: #767676;
 }
 
-.CreateAccountPage-create-input:focus {
+.CreateAccountPage-create-account-form>input::placeholder {
+    color: #767676;
+}
+
+.CreateAccountPage-create-account-form>input:focus {
     outline: none;
 }
 
-.CreateAccountPage-create-label {
-    margin-left: 4%;
+.CreateAccountPage-create-account-form>label {
+    margin-top: 2rem;
+}
+
+.CreateAccountPage-create-account-button {
+    width: 36%;
+    height: 32px;
+
+    margin: 1rem 0 4rem;
+    border: none;
+    border-radius: 1.2rem;
+
+    background-color: #5a5a99;
+
+    font-size: 1.2em;
     font-weight: bold;
-    font-size: 1.1em;
-}
+    color: #000000;
 
-.CreateAccountPage-address-input {
-    width: 40%;
-    margin-bottom: 2%;
-}
-
-.CreateAccountPage-create-name {
-    width: 40%;
-    margin-bottom: 1%;
-}
-
-.CreateAccountPage-card-input {
-    width: 30%;
-    margin-bottom: 2%;
-}
-
-.CreateAccountPage-card-number {
-    width: 50%;
-}
-
-.CreateAccountPage-create-checkbox {
-    margin-left: 5%;
-    margin-bottom: 15%;
-}
-
-.CreateAccountPage-create-submit {
-    width: 40%;
-    height: 50px;
-    border-radius: 100px;
-    transition: 0.5s;
-    font-size: 1.3em;
-    margin-left: 30%;
-    background: linear-gradient(0.25turn, rgb(74, 211, 253) 0%, rgb(100, 249, 100) 30%, rgb(100, 249, 100) 70%, rgb(74, 211, 253) 100%);
-}
-
-.CreateAccountPage-create-submit:hover {
-    transition: 0.5s;
     cursor: pointer;
-    background-position: -112px;
-    box-shadow: 5px 5px 2px 1px gray;
+
+    transition: all 300ms ease-in-out 200ms;
 }
 
-.CreateAccountPage-create-submit:hover {
-    transition: 0.5s;
-    background-color: rgb(175, 173, 173);
-    cursor: pointer;
+.CreateAccountPage-create-account-button:hover {
+    background-color: #424279;
 }
 
 .CreateAccountPage-return-home {
     text-align: center;
-}
-
-.CreateAccountPage-return-home-link {
-    color: #000000;
-
-    transition: color 300ms ease-in-out 200ms;
-}
-
-.CreateAccountPage-return-home-link:hover {
-    color: #11114d;
 }
