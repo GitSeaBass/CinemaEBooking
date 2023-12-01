@@ -20,7 +20,10 @@ function ManageMovies(props) {
             {movies.map((item) => (
                 <div className='ManageMovies-movie-segment'>
                     <div>{item.title}</div>
-                    <button className='ManageMovies-edit-button'>Edit</button>
+                    <div>
+                        <button className='ManageMovies-button'>Edit</button>
+                        <button className='ManageMovies-button'>Archive</button>
+                    </div>
                 </div>
             ))}
         </div>

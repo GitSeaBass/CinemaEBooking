@@ -10,7 +10,7 @@ import { useState } from 'react';
 function AdminHomePage(props) {
     const [option, setOption] = useState(0)
 
-    function addclick() {
+    function addMovieClick() {
         if (option === 1) {
             setOption(0)
         } else {
@@ -18,7 +18,7 @@ function AdminHomePage(props) {
         }
     }
 
-    function movieclick() {
+    function addShowingClick() {
         if (option === 2) {
             setOption(0)
         } else {
@@ -26,7 +26,7 @@ function AdminHomePage(props) {
         }
     }
 
-    function userclick() {
+    function editMoviesClick() {
         if (option === 3) {
             setOption(0)
         } else {
@@ -34,11 +34,19 @@ function AdminHomePage(props) {
         }
     }
 
-    function promoclick() {
+    function manageUsersClick() {
         if (option === 4) {
             setOption(0)
         } else {
             setOption(4)
+        }
+    }
+
+    function managePromosClick() {
+        if (option === 5) {
+            setOption(0)
+        } else {
+            setOption(5)
         }
     }
 
@@ -47,43 +55,51 @@ function AdminHomePage(props) {
             <NavBar user={props.user} setUser={props.setUser} moviearray={props.moviearray} />
             {option === 0 &&
                 <div className='AdminHomePage-options'>
-                    <button className='AdminHomePage-admin-button' onClick={addclick}>Add Movie</button>
-                    <button className='AdminHomePage-admin-button' onClick={movieclick}>Manage Movies</button>
-                    <button className='AdminHomePage-admin-button' onClick={userclick}>Manage Users</button>
-                    <button className='AdminHomePage-admin-button' onClick={promoclick}>Manage Promotions</button>
+                    <button className='AdminHomePage-admin-button AdminHomePage-admin-button-1' onClick={addMovieClick}>Add Movie</button>
+                    <button className='AdminHomePage-admin-button AdminHomePage-admin-button-1' onClick={addShowingClick}>Add Showing</button>
+                    <button className='AdminHomePage-admin-button AdminHomePage-admin-button-1' onClick={editMoviesClick}>Edit Movies</button>
+                    <button className='AdminHomePage-admin-button AdminHomePage-admin-button-1' onClick={manageUsersClick}>Manage Users</button>
+                    <button className='AdminHomePage-admin-button AdminHomePage-admin-button-1' onClick={managePromosClick}>Manage Promotions</button>
                 </div>
             }
 
             {option === 1 &&
                 <>
                     <div className='AdminHomePage-options'>
-                        <button className='AdminHomePage-admin-button' onClick={addclick}>Add Movie</button>
+                        <button className='AdminHomePage-admin-button AdminHomePage-admin-button-1' onClick={addMovieClick}>Add Movie</button>
                     </div>
-                    <AddMovies moviearray={props.moviearray} />
+                    <AddMovies />
                 </>
             }
             {option === 2 &&
                 <>
                     <div className='AdminHomePage-options'>
-                        <button className='AdminHomePage-admin-button' onClick={movieclick}>Manage Movies</button>
+                        <button className='AdminHomePage-admin-button AdminHomePage-admin-button-2' onClick={addShowingClick}>Add Showing</button>
                     </div>
-                    <ManageMovies moviearray={props.moviearray} />
                 </>
             }
             {option === 3 &&
                 <>
                     <div className='AdminHomePage-options'>
-                        <button className='AdminHomePage-admin-button' onClick={userclick}>Manage Users</button>
+                        <button className='AdminHomePage-admin-button AdminHomePage-admin-button-2' onClick={editMoviesClick}>Edit Movies</button>
                     </div>
-                    <ManageUsers userarray={props.userarray} />
+                    <ManageMovies />
                 </>
             }
             {option === 4 &&
                 <>
                     <div className='AdminHomePage-options'>
-                        <button className='AdminHomePage-admin-button' onClick={promoclick}>Manage Promotions</button>
+                        <button className='AdminHomePage-admin-button AdminHomePage-admin-button-2' onClick={manageUsersClick}>Manage Users</button>
                     </div>
-                    <ManagePromotions promoarray={props.promoarray} />
+                    <ManageUsers />
+                </>
+            }
+            {option === 5 &&
+                <>
+                    <div className='AdminHomePage-options'>
+                        <button className='AdminHomePage-admin-button AdminHomePage-admin-button-2' onClick={managePromosClick}>Manage Promotions</button>
+                    </div>
+                    <ManagePromotions />
                 </>
             }
         </>
