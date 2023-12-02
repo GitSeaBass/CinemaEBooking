@@ -17,6 +17,8 @@ public class MainController {
     private MovieRepository movieRepository;
     @Autowired
     private CustomerRepository customerRepository;
+    @Autowired
+    private PromotionRepository promotionRepository;
 
     @PostMapping(path = "/add")
     public @ResponseBody Movies addNewMovie(@RequestBody Movies movie) {
@@ -51,6 +53,16 @@ public class MainController {
     @GetMapping(path = "/getallusers")
     public @ResponseBody Iterable<Customer> getAllUsers() {
         return customerRepository.findAll();
+    }
+
+    @GetMapping(path = "/getAllPromotions")
+    public @ResponseBody Iterable<Promotion> getAllPromotions() {
+        return promotionRepository.findAll();
+    }
+
+    @GetMapping(path = "/checkPromoCode")
+    public @ResponseBody Iterable<Promotion> checkPromoCode(@RequestParam String code) {
+        return promotionRepository.findByCode(code);
     }
 
     @GetMapping(path = "/search")
@@ -107,9 +119,23 @@ public class MainController {
     @PostMapping(path = "/createPromotion")
     public @ResponseBody Promotion createPromotion(@RequestBody Promotion promotion) {
         Emailer emailer = new Emailer(); // TODO should only be one instance per database session
-        emailer.sendPromotionalEmail(promotion);
-        //TODO store promotion in database
+        // TODO below line should only get customers who signed up for promotions
+        emailer.sendPromotionalEmail(promotion, customerRepository.findAll());
+        promotionRepository.save(promotion); // store promotion in database
         return promotion;
+    }
+
+
+    /**
+     * Updates a promotion in the database
+     * Precondition: there should already be a promotion with the given ID in the database
+     *
+     * @param updatedPromotion the updated promotion
+     * @return the updated promotion
+     */
+    @PostMapping(path = "/updatePromotion")
+    public @ResponseBody Promotion updateProfile(@RequestBody Promotion updatedPromotion) {
+        return promotionRepository.save(updatedPromotion);
     }
 
     @PostMapping(path = "/testEmail")

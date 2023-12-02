@@ -51,8 +51,7 @@ public class Emailer extends JavaMailSenderImpl {
      *
      * @param promotion the promotion to send
      */
-    public void sendPromotionalEmail(Promotion promotion) {
-        Customer[] customers = {}; // TODO get list of all customers who signed up for promotions
+    public void sendPromotionalEmail(Promotion promotion, Iterable<Customer> customers) {
         for (Customer customer : customers) {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom(myAddress);
