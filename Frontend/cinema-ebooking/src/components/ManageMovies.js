@@ -1,4 +1,5 @@
 import './ManageMovies.css'
+import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 
 function ManageMovies(props) {
@@ -15,13 +16,28 @@ function ManageMovies(props) {
             })
     }, [])
 
+    const navigate = useNavigate()
+
+    function addShowing(movie) {
+        navigate('/addshowing', { state: { movie: movie } })
+    }
+
+    function editMovie(movie) {
+        navigate('/editmovie', { state: { movie: movie } })
+    }
+
     return (
         <div className='ManageMovies-movies-container'>
             {movies.map((item) => (
                 <div className='ManageMovies-movie-segment'>
                     <div>{item.title}</div>
                     <div>
-                        <button className='ManageMovies-button'>Edit</button>
+                        <button className='ManageMovies-button' onClick={() => {
+                            addShowing(item)
+                        }}>Add Showing</button>
+                        <button className='ManageMovies-button' onClick={() => {
+                            editMovie(item)
+                        }}>Edit</button>
                         <button className='ManageMovies-button'>Archive</button>
                     </div>
                 </div>

@@ -8,6 +8,8 @@ import CreateAccountPage from './components/CreateAccountPage';
 import ConfirmationWindow from './components/ConfirmationWindow';
 import ViewProfile from './components/ViewProfile';
 import AdminHomePage from './components/AdminHomePage';
+import AddShowing from './components/AddShowing'
+import EditMovie from './components/EditMovie';
 import Movie from './components/Movie';
 import SelectShowing from './components/SelectShowing';
 import SelectTime from './components/SelectTime';
@@ -245,6 +247,8 @@ function App() {
                     <Route path="/profile" element={<ViewProfile user={user} updatableUsers={updatableUsers} updateUpdatableUsers={updateUpdatableUsers} />} />
                     <Route path="/forgotpassword" element={<ForgotPasswordPage user={user} />} />
                     <Route path="/admin" element={<AdminHomePage user={user} setUser={setUser} moviearray={moviearray} userarray={userarray} promoarray={promoarray} />} />
+                    <Route path="/addshowing" element={<AddShowing user={user} setUser={setUser} />} />
+                    <Route path="/editmovie" element={<EditMovie user={user} setUser={setUser} />} />
                     <Route path="/movie" element={<Movie user={user} setUser={setUser} />} />
                     <Route path="/showings" element={<SelectShowing setSelectedDate={setSelectedDate} user={user} setUser={setUser} />} />
                     <Route path="/times" element={<SelectTime setSelectedTime={setSelectedTime} user={user} setUser={setUser} />} />

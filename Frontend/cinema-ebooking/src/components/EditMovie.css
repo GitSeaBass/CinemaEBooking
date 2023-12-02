@@ -1,4 +1,4 @@
-.AddMovies-form {
+.EditMovie-form-container {
     display: flex;
     flex-direction: column;
 
@@ -16,19 +16,19 @@
     text-align: left;
 }
 
-.AddMovies-add-input {
+.EditMovie-form>label {
     display: block;
-}
 
-label.AddMovies-add-input {
     margin-top: 0.5rem;
 }
 
-input.AddMovies-add-input {
+.EditMovie-form>label>input {
+    display: block;
+
     width: 100%;
 }
 
-.AddMovies-add-button {
+.EditMovie-submit-changes-button {
     width: 34%;
 
     margin: 0 auto;
@@ -48,6 +48,6 @@ input.AddMovies-add-input {
     transition: all 300ms ease-in-out 200ms;
 }
 
-.AddMovies-add-button:hover {
+.EditMovie-submit-changes-button:hover {
     background-color: #5757d4;
 }
