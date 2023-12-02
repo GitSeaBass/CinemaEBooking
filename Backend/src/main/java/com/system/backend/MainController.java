@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.time.LocalTime;
+import java.util.stream.StreamSupport;
 
 
 @Controller
@@ -85,7 +86,9 @@ public class MainController {
      */
     @PostMapping(path = "/confirm")
     public @ResponseBody boolean confirmAccount(@RequestBody String confirmationCode) {
-        Customer matchingCustomer = null; // TODO check database for user matching confirmation code
+        //TODO this is really poor code but it'S the simplest way I could think to do it without
+        // making things super messy - maybe change later
+        Customer matchingCustomer = StreamSupport.stream(customerRepository.findAll().spliterator(), false).filter(customer -> customer.checkVerificationCode(confirmationCode)).findFirst().orElse(null);
         if (matchingCustomer != null) { // if matching customer was found
             matchingCustomer.setStatus("ACTIVE"); // sets the user to verified
             customerRepository.save(matchingCustomer); // saves the user to the database

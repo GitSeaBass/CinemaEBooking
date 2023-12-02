@@ -6,7 +6,6 @@ import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Customer {
-    public static enum Status {ACTIVE, INACTIVE, SUSPENDED};
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +23,8 @@ public class Customer {
     private String date_of_birth;
     //@Column (name = "status")
     private String status;
+
+    private String verificationCode;
 
     @OneToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "address_address_id", nullable = true)
@@ -93,5 +94,13 @@ public class Customer {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
+    }
+
+    public boolean checkVerificationCode(String providedCode) {
+        return providedCode.equals(verificationCode);
     }
 }
