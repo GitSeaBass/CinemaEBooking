@@ -2,6 +2,7 @@ import './SelectSeats.css'
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import NavBar from './NavBar';
+import SelectSeatGraphic from './SelectSeatGraphic';
 
 function SelectSeats(props) {
     const location = useLocation()
@@ -158,9 +159,12 @@ function SelectSeats(props) {
                             </div>
                         }
                     })}
-                    {seats.map((item) => (
+                    {/*}{seats.map((item) => (
                         item.status === 'open' ? <button className='seat'>{item.seat}</button> : <button className='seat' disabled>{item.seat}</button>
-                    ))}
+                    ))}{*/}
+
+                    <SelectSeatGraphic seatsToChoose={adult + child + senior}/>
+
                 </div>
                 <br></br>
                 <button className="SelectSeats-confirm-button" onClick={confirm}>Confirm Selection</button>

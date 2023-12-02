@@ -1,5 +1,5 @@
 import './ManagePromotions.css'
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 function ManagePromotions(props) {
 
@@ -42,37 +42,34 @@ function ManagePromotions(props) {
     }
 
     return (
-        <div className='ManagePromotions-promos-container'>
-            <div>
-                {promotion.map((item) => (
-                    <div className='ManagePromotions-promo-info' key={item.id}>
-                        <div>{item.code}</div>
-                        <div>{item.percent}%</div>
-                    </div>
-                ))}
+        <>
+            <div className='ManagePromotions-promos-container'>
+                <div>
+                    {promotion.map((item) => (
+                        <div className='ManagePromotions-promo-info' key={item.id}>
+                            <div>{item.code}</div>
+                            <div>{item.percent}%</div>
+                        </div>
+                    ))}
 
-                {props.promoarray.map((item) => (
-                    <div className='ManagePromotions-promo-info'>
-                        <div>{item.code}</div>
-                        <div>{item.percent}%</div>
-                    </div>
-                ))}
+
+                </div>
+                <div className='ManagePromotions-vl'></div>
+                <div>
+                    <form className='ManagePromotions-promo-form'>
+                        <label>Code: </label>
+                        <input type='text' required onChange={(event) => {
+                            setCode(event.target.value);
+                        }} />
+                        <label>Percentage: </label>
+                        <input type='text' required onChange={(event) => {
+                            setPercentage(event.target.value);
+                        }} />
+                        <button className='ManagePromotions-add-promo-button' onClick={submitPromotion}>Add</button>
+                    </form>
+                </div>
             </div>
-            <div className='ManagePromotions-vl'></div>
-            <div>
-                <form className='ManagePromotions-promo-form'>
-                    <label>Code: </label>
-                    <input type='text' required onChange={(event) => {
-                        setCode(event.target.value);
-                    }} />
-                    <label>Percentage: </label>
-                    <input type='text' required onChange={(event) => {
-                        setPercentage(event.target.value);
-                    }} />
-                    <button className='ManagePromotions-add-promo-button' onClick={submitPromotion}>Add</button>
-                </form>
-            </div>
-        </div >
+        </>
     )
 }
 

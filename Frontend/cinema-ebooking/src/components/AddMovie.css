@@ -1,0 +1,53 @@
+.AddMovie-form-container {
+    display: flex;
+    flex-direction: column;
+
+    width: 40%;
+
+    margin: 0 auto;
+    margin-top: 2rem;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 8px 4px 16px #000000;
+
+    background-color: #ffffff;
+
+    text-align: left;
+}
+
+.AddMovie-form>label {
+    display: block;
+
+    margin-top: 0.5rem;
+}
+
+.AddMovie-form>label>input {
+    display: block;
+
+    width: 100%;
+}
+
+.AddMovie-add-button {
+    width: 34%;
+
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 0.75em;
+    border: 2px solid #e2f1ff;
+    border-radius: 2em;
+
+    background-color: #6969e6;
+
+    text-align: center;
+    color: #e2f1ff;
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: all 300ms ease-in-out 200ms;
+}
+
+.AddMovie-add-button:hover {
+    background-color: #5757d4;
+}
