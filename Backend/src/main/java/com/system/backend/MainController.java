@@ -75,7 +75,7 @@ public class MainController {
     public @ResponseBody boolean confirmAccount(@RequestBody String confirmationCode) {
         Customer matchingCustomer = null; // TODO check database for user matching confirmation code
         if (matchingCustomer != null) { // if matching customer was found
-            matchingCustomer.setStatus(Customer.Status.ACTIVE); // sets the user to verified
+            matchingCustomer.setStatus("ACTIVE"); // sets the user to verified
             customerRepository.save(matchingCustomer); // saves the user to the database
             // TODO show confirmation page
             return true;
@@ -114,11 +114,18 @@ public class MainController {
 
     @PostMapping(path = "/testEmail")
     public void testEmail() {
+        System.out.println("going to send email");
         Emailer emailer = new Emailer();
+        System.out.println("created emailer");
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("cinemaebookinga8@gmail.com");
+        System.out.println("created message");
+        message.setFrom("");
         message.setSubject("subject");
         message.setText("text");
+        message.setTo("");
+
+        System.out.println("sending email");
         emailer.send(message);
+        System.out.println("sent email");
     }
 }

@@ -9,21 +9,24 @@ import java.util.Properties;
  * Represents an emailer object
  */
 public class Emailer extends JavaMailSenderImpl {
-    String myAddress = "cinemaebookinga8@gmail.com"; // the email address used to send emails
+    String myAddress = ""; // the email address used to send emails
 
     /**
      * Creates a new Emailer object
      */
     public Emailer() {
         super();
-        this.setHost("smtp.gmail.com");
+        this.setHost("smtp-mail.outlook.com");
         this.setPort(587);
         this.setUsername(myAddress);
+        this.setPassword("");
         Properties props = this.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.debug", "true");
+        props.put("mail.smtp.ssl.trust", "smtp-mail.outlook.com");
+        props.put("mail.smtp.ssl.protocols", "TLSv1.2");
     }
 
     /**
