@@ -1,8 +1,8 @@
 import './ForgotPasswordPage.css'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function ForgotPasswordPage(props) {
+function ForgotPasswordPage() {
     const navigate = useNavigate();
 
     const [enteredEmail, setEnteredEmail] = useState('')
@@ -10,43 +10,16 @@ function ForgotPasswordPage(props) {
         setEnteredEmail(e.target.value)
     }
 
-    const [validEmail, setValidEmail] = useState(false)
-
-    /*const [newPass, setNewPass] = useState('')
-    const addNewPass = (e) => {
-        setNewPass(e.target.value)
-    }*/
-    const [confirmPass, setConfirmPass] = useState('')
-    const addConfirmPass = (e) => {
-        setConfirmPass(e.target.value)
-    }
-
-    useEffect(() => {
-        if (props.user !== '') {
-            setEnteredEmail(props.user)
-            setValidEmail(true)
-            fetchUser()
-        }
-    }, [props.user])
-
-    const [forgottenUser, setForgottenUser] = useState('')
-    const addForgottenUser = async (e) => {
-        setForgottenUser({
-            ...forgottenUser, [e.target.name]: e.target.value,
-        })
+    const [user, setUser] = useState()
+    const addUser = async () => {
+        const temp = await fetchUser()
+        setUser(temp)
     }
 
     const fetchUser = async () => {
-        if (props.user !== '') {
-            const result = await fetch(`http://localhost:8080/system/getuser?email=${props.user}`)
-            const resultInJson = await result.json()
-            await setForgottenUser(resultInJson[0])
-        } else {
-            const result = await fetch(`http://localhost:8080/system/getuser?email=${enteredEmail}`)
-            const resultInJson = await result.json()
-            await setForgottenUser(resultInJson[0])
-            await console.log(forgottenUser)
-        }
+        const result = await fetch(`http://localhost:8080/system/getuser?email=${enteredEmail}`)
+        const resultInJson = await result.json()
+        return resultInJson
     }
 
     const changePass = async () => {
@@ -56,25 +29,35 @@ function ForgotPasswordPage(props) {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(forgottenUser)
+            body: JSON.stringify(user)
         };
 
-        await fetch("http://localhost:8080/system/createaccount", requestOptions)
+        await fetch("http://localhost:8080/system/updateProfile", requestOptions)
+    }
+    
+    const [confirmPass, setConfirmPass] = useState('')
+    const addConfirmPass = (e) => {
+        setConfirmPass(e.target.value)
+    }
+
+
+    const changeUserPass = (e) => {
+        setUser({
+            ...user, password: e.target.value
+        })
     }
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        if (validEmail === false) {
-            setValidEmail(true)
-            await fetchUser()
-        } else if (validEmail === true) {
-            if (forgottenUser.password === confirmPass) {
-                await changePass()
-                await alert("Password Successfully Changed")
-                await navigate('/')
-            } else {
-                alert("Password Do Not Match")
-            }
+        console.log(user.password)
+        console.log(confirmPass)
+        if (user.password === confirmPass) {
+            await changePass()
+            await alert("Password Successfully Changed")
+            console.log(user)
+            //await navigate('/')
+        } else {
+            alert("Password Do Not Match")
         }
     }
 
@@ -85,23 +68,23 @@ function ForgotPasswordPage(props) {
         <div className='ForgotPasswordPage-forgot-page'>
             <div className='ForgotPasswordPage-forgot-window'>
                 <h1>Reset Password</h1>
-                <form className='ForgotPasswordPage-forgot-form' onSubmit={onSubmit}>
-                    {!validEmail &&
-                        <>
-                            <label>Enter Your Email</label> <br />
-                            <input className='ForgotPasswordPage-forgot-input' placeholder='Email' onChange={addEnteredEmail} required></input><br />
-                        </>
-                    }
-                    {validEmail &&
-                        <>
-                            <input className='ForgotPasswordPage-forgot-input-locked' placeholder='Email' onChange={addEnteredEmail} value={enteredEmail} readOnly disabled required></input><br />
-                            <label>Enter New Password</label> <br />
-                            <input className='ForgotPasswordPage-forgot-input' placeholder='New Password' name='password' onChange={addForgottenUser} type='password' required></input>
-                            <input className='ForgotPasswordPage-forgot-input' placeholder='Confirm New Password' onChange={addConfirmPass} type='password' required></input> <br />
-                        </>
-                    }
-                    <input className='ForgotPasswordPage-forgot-submit' type='submit' value='Submit'></input>
+                <form className='ForgotPasswordPage-forgot-form'>
+                    <label>Enter Your Email</label> <br />
+                    <input className='ForgotPasswordPage-forgot-input' placeholder='Email' onChange={addEnteredEmail} required></input><br />
                 </form>
+                <button onClick={addUser}>Submit Email</button>
+                <form> 
+                    <>
+                        {/*}<input className='ForgotPasswordPage-forgot-input-locked' placeholder='Email' onChange={addEnteredEmail} value={enteredEmail} readOnly disabled required></input><br />{*/}
+                        <label>Enter New Password</label> <br />
+                        <input className='ForgotPasswordPage-forgot-input' placeholder='New Password' name='password' onChange={changeUserPass} type='password' required></input>
+                        <input className='ForgotPasswordPage-forgot-input' placeholder='Confirm New Password' onChange={addConfirmPass} type='password' required></input> <br />
+                    </>
+                </form>
+                <button onClick={onSubmit}>Submit Password Change</button>
+                
+                
+                
                 <h4>
                     Or <button className='ForgotPasswordPage-cancel' onClick={returnHome}> Cancel</button> and Return Home
                 </h4>
