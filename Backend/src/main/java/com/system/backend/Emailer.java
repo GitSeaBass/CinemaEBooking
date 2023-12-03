@@ -3,30 +3,42 @@ package com.system.backend;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Properties;
 
 /**
  * Represents an emailer object
  */
 public class Emailer extends JavaMailSenderImpl {
-    String myAddress = ""; // the email address used to send emails
+    String myAddress; // the email address used to send emails
+    String myPassword;
 
     /**
      * Creates a new Emailer object
      */
     public Emailer() {
         super();
-        this.setHost("smtp-mail.outlook.com");
+        Properties props = new Properties();
+        try {
+            props.load(new FileInputStream("./src/main/resources/private.properties"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        this.myAddress = props.getProperty("email");
+        this.myPassword = props.getProperty("password");
+        this.setHost("smtp.mailgun.org");
         this.setPort(587);
         this.setUsername(myAddress);
-        this.setPassword("");
-        Properties props = this.getJavaMailProperties();
-        props.put("mail.transport.protocol", "smtp");
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.debug", "true");
-        props.put("mail.smtp.ssl.trust", "smtp-mail.outlook.com");
-        props.put("mail.smtp.ssl.protocols", "TLSv1.2");
+        this.setPassword(myPassword);
+        Properties mailProps = this.getJavaMailProperties();
+        mailProps.put("mail.transport.protocol", "smtp");
+        mailProps.put("mail.smtp.auth", "true");
+        mailProps.put("mail.smtp.starttls.enable", "true");
+        mailProps.put("mail.debug", "true");
+
     }
 
     /**

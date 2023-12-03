@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import static com.system.backend.Util.randomString;
 
+import static com.system.backend.Util.randomString;
 
 
 import java.security.MessageDigest;
@@ -85,24 +85,23 @@ public class MainController {
         customer.setConfirmationCode(randomString(10));
 
         String password = customer.getPassword();
-        try{
+        try {
             final MessageDigest digest = MessageDigest.getInstance("SHA-256");
             final byte[] hash = digest.digest(password.getBytes("UTF-8"));
             final StringBuilder hexString = new StringBuilder();
             for (int i = 0; i < hash.length; i++) {
                 final String hex = Integer.toHexString(0xff & hash[i]);
-                if(hex.length() == 1)
+                if (hex.length() == 1)
                     hexString.append('0');
                 hexString.append(hex);
             }
             customer.setPassword(hexString.toString());
-        } catch(Exception ex){
+        } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
 
         //customer.setPassword(customer.getPassword())
-        // TODO emailer not working
-        // emailer.sendConfirmationEmail(customer, customer.getVerificationCode());
+        emailer.sendConfirmationEmail(customer, customer.getConfirmationCode());
         return customerRepository.save(customer);
     }
 
@@ -179,10 +178,10 @@ public class MainController {
         System.out.println("created emailer");
         SimpleMailMessage message = new SimpleMailMessage();
         System.out.println("created message");
-        message.setFrom("");
+        message.setFrom("postmaster@sandbox430fa7f531114f3fa448026a88621ca8.mailgun.org");
         message.setSubject("subject");
         message.setText("text");
-        message.setTo("");
+        message.setTo("ronnoclleb@gmail.com");
 
         System.out.println("sending email");
         emailer.send(message);
