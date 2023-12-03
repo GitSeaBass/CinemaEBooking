@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.stream.StreamSupport;
 
 
@@ -74,7 +75,9 @@ public class MainController {
     @PostMapping(path = "/createaccount")
     public @ResponseBody Customer createAccount(@RequestBody Customer customer) {
         Emailer emailer = new Emailer(); // TODO should only be one instance per database session
-        emailer.sendConfirmationEmail(customer, "123456"/* TODO generate and store confirmation code*/);
+        customer.setVerificationCode("123456"/* TODO generate and store confirmation code*/);
+        // TODO emailer not wokring
+        // emailer.sendConfirmationEmail(customer, customer.getVerificationCode());
         return customerRepository.save(customer);
     }
 
@@ -84,20 +87,23 @@ public class MainController {
      * @param confirmationCode the confirmation code to check
      * @return true if the confirmation code is valid, false otherwise
      */
-    @PostMapping(path = "/confirm")
-    public @ResponseBody boolean confirmAccount(@RequestBody String confirmationCode) {
+    @PostMapping(path = "/confirm/{confirmationCode}")
+    public @ResponseBody boolean confirmAccount(@PathVariable String confirmationCode) {
+        //List<Customer> matchingCustomers = customerRepository.findByVerificationCode(confirmationCode);
         //TODO this is really poor code but it'S the simplest way I could think to do it without
         // making things super messy - maybe change later
-        Customer matchingCustomer = StreamSupport.stream(customerRepository.findAll().spliterator(), false).filter(customer -> customer.checkVerificationCode(confirmationCode)).findFirst().orElse(null);
-        if (matchingCustomer != null) { // if matching customer was found
-            matchingCustomer.setStatus("ACTIVE"); // sets the user to verified
-            customerRepository.save(matchingCustomer); // saves the user to the database
-            // TODO show confirmation page
-            return true;
-        } else { // if matching customer was not found
-            // TODO show customer not found page
-            return false;
+
+        // iterates through customerRepository until it finds a customer with the given confirmation code
+        for (Customer customer : customerRepository.findAll()) {
+            if (customer.checkVerificationCode(confirmationCode)) {
+                customer.setStatus("ACTIVE"); // sets the user to verified
+                customerRepository.save(customer); // saves the user to the database
+                // TODO show confirmation page
+                return true;
+            }
         }
+        // TODO show customer not found page
+        return false;
     }
 
 
@@ -156,5 +162,25 @@ public class MainController {
         System.out.println("sending email");
         emailer.send(message);
         System.out.println("sent email");
+    }
+
+    @PostMapping(path = "/testAccount")
+    public void testAccount() {
+        Customer customer = new Customer();
+        customer.setFirstName("John");
+        customer.setLastName("Doe");
+        customer.setEmail("");
+        customer.setPassword("");
+        customer.setDateOfBirth("2000-01-01");
+        customer.setStatus("PENDING");
+        /*
+        Address address = new Address();
+        address.setStreet("123 Fake Street");
+        address.setCity("Fake City");
+        address.setState("Fake State");
+        address.setZipcode(12345);
+        customer.setAddress(address);*/
+        createAccount(customer);
+
     }
 }

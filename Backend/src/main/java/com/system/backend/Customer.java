@@ -100,6 +100,10 @@ public class Customer {
         this.verificationCode = verificationCode;
     }
 
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
     public boolean checkVerificationCode(String providedCode) {
         return providedCode.equals(verificationCode);
     }
