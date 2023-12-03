@@ -55,7 +55,7 @@ function ForgotPasswordPage() {
             await changePass()
             await alert("Password Successfully Changed")
             console.log(user)
-            //await navigate('/')
+            await navigate('/')
         } else {
             alert("Password Do Not Match")
         }
