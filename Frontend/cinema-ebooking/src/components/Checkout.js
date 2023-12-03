@@ -7,7 +7,34 @@ function Checkout(props) {
 
     const navigate = useNavigate()
 
-    function clickCheckout() {
+    async function clickCheckout() {
+        const data = {
+            'total': total,
+            'num_adult_tickets': adult,
+            'num_child_tickets': child,
+            'num_senior_tickets': senior,
+            'promo': promo,
+            'movie_title': location.state.movie.title,
+            'show_date': props.date,
+            'show_time': props.time,
+            'customer_email': props.user,
+            'seat_selection': props.seats
+        }
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        };
+
+        const result = await fetch("http://localhost:8080/system/booking", requestOptions)
+
+        const resultinJSON = await result.json();
+        console.log(resultinJSON)
+
         navigate('/orderconfirm')
     }
 
@@ -21,9 +48,15 @@ function Checkout(props) {
 
     const [total, setTotal] = useState(5 * parseInt(child) + 10 * parseInt(adult) + 7.5 * parseInt(senior))
 
+    const [promo, setPromo] = useState('')
+    const addPromo = (e) => {
+        setPromo(e.target.value)
+    }
+
     function removeChild() {
         let num = parseInt(child) - 1
         setChild(num)
+        console.log(location.state)
     }
 
     function removeAdult() {
@@ -74,7 +107,7 @@ function Checkout(props) {
                         <label>Address</label><br />
                         <input type='text' required></input><br />
                         <label>Promo Code</label><br />
-                        <input type='text'></input><br />
+                        <input type='text' onChange={addPromo}></input><br />
                         <input type='submit' className='Checkout-checkout-button' onClick={clickCheckout} value={'Checkout'}></input>
                     </form>
                     <button className='Checkout-cancel-button' onClick={cancel}>Cancel</button>

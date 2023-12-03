@@ -96,10 +96,13 @@ function SelectSeats(props) {
         props.setChildTickets(child)
         props.setAdultTickets(adult)
         props.setSeniorTickets(senior)
+        props.setSeats(selectedSeats)
         navigate('/checkout', { state: location.state })
     }
 
     const roomNum = 1
+
+    const [selectedSeats, setSelectedSeats] = useState([])
 
     return (
         <>
@@ -163,7 +166,7 @@ function SelectSeats(props) {
                         item.status === 'open' ? <button className='seat'>{item.seat}</button> : <button className='seat' disabled>{item.seat}</button>
                     ))}{*/}
 
-                    <SelectSeatGraphic seatsToChoose={adult + child + senior}/>
+                    <SelectSeatGraphic seatsToChoose={adult + child + senior} setSelectedSeats={setSelectedSeats}/>
 
                 </div>
                 <br></br>
