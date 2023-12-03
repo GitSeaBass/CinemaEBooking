@@ -187,8 +187,8 @@ public class MainController {
     @PostMapping(path = "/createPromotion")
     public @ResponseBody Promotion createPromotion(@RequestBody Promotion promotion) {
         Emailer emailer = new Emailer(); // TODO should only be one instance per database session
-        // TODO below line should only get customers who signed up for promotions
-        emailer.sendPromotionalEmail(promotion, customerRepository.findAll());
+        System.out.println(customerRepository.findByWantsPromotions(true));
+        emailer.sendPromotionalEmail(promotion, customerRepository.findByWantsPromotions(true));
         promotionRepository.save(promotion); // store promotion in database
         return promotion;
     }
@@ -226,7 +226,7 @@ public class MainController {
         Customer customer = new Customer();
         customer.setFirstName("John");
         customer.setLastName("Doe");
-        customer.setEmail("");
+        customer.setEmail("ronnoclleb@gmail.com");
         customer.setPassword("");
         customer.setDateOfBirth("2000-01-01");
         customer.setStatus("PENDING");
@@ -238,6 +238,27 @@ public class MainController {
         address.setZipcode(12345);
         customer.setAddress(address);*/
         createAccount(customer);
+
+    }
+
+    @PostMapping(path = "/testPromotion")
+    public void testPromotion() {
+        Movies movie = new Movies();
+        movie.setId(1);
+        movie.setTitle("Test Movie");
+        movie.setCategory("Test Category");
+        movie.setCast("Test Cast");
+        movie.setDirector("Test Director");
+        movie.setProducer("Test Producer");
+        movie.setSynopsis("Test Synopsis");
+        movie.setReviews("Test Reviews");
+        movie.setPoster_url("Test Poster URL");
+        movie.setTrailer_url("Test Trailer URL");
+        movie.setMpaa_rating("R");
+        movieRepository.save(movie);
+
+        Promotion promotion = new Promotion(movie,  "TEST", 50f);
+        createPromotion(promotion);
 
     }
 

@@ -3,9 +3,7 @@ package com.system.backend;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -77,13 +75,13 @@ public class Emailer extends JavaMailSenderImpl {
     public static String getPromotionEmailSubject(Promotion promotion) {
         // TODO promotion.getMovie().getTitle()
         String movieTitle = "";
-        return "Get " + promotion.getDiscountPercent() + "% off " + movieTitle + " tickets!";
+        return "Get " + promotion.getPercent() + "% off " + movieTitle + " tickets!";
     }
 
     public static String getPromotionEmailBody(Promotion promotion) {
         // TODO promotion.getMovie().getTitle()
         String movieTitle = "";
         return "As thanks for being a loyal customer, you can use code " + promotion.getCode() + " to get " +
-                promotion.getDiscountPercent() + "% off " + movieTitle + " tickets!";
+                promotion.getPercent() + "% off " + movieTitle + " tickets!";
     }
 }
