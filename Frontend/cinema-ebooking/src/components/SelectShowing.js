@@ -9,16 +9,14 @@ function SelectShowing(props) {
 
     const dates = ['01/01/2024', '01/02/2024', '01/03/2024']
 
+    const moviedates = [location.state.movie.show_date]
+
     function pickDate(e) {
         props.setSelectedDate(e)
     }
 
     function confirmDate() {
         navigate('/times', { state: location.state })
-    }
-
-    function check() {
-        console.log(location.state)
     }
 
     return (
@@ -28,14 +26,13 @@ function SelectShowing(props) {
                 <h1 className='SelectShowing-movie-title'>{location.state.movie.title}</h1>
                 <h1 className='SelectShowing-select-showing'>Select Showing</h1>
                 <div className='SelectShowing-date-container'>
-                    {dates.map((item) => (
+                    {moviedates.map((item) => (
                         <button className='SelectShowing-date-button' onClick={() => {
                             pickDate(item)
                         }}>{item}</button>
                     ))}
                 </div>
                 <button className='SelectShowing-confirm-button' onClick={confirmDate}>Confirm</button>
-                <button onClick={check}>Here</button>
             </div>
         </>
     )

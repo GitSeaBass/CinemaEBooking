@@ -8,6 +8,7 @@ function SelectTime(props) {
     const navigate = useNavigate()
 
     const times = ['7:30AM', '9:00AM', '2:00PM']
+    const movietimes = [location.state.movie.show_time]
 
     function pickTime(item) {
         props.setSelectedTime(item)
@@ -22,7 +23,7 @@ function SelectTime(props) {
             <NavBar user={props.user} setUser={props.setUser} />
             <div className='SelectTime-time-container'>
                 <h3 className='SelectTime-time-title'>Select A Time</h3>
-                {times.map((item) => (
+                {movietimes.map((item) => (
                     <button className='SelectTime-time-button' onClick={() => {
                         pickTime(item)
                     }}>{item}</button>
