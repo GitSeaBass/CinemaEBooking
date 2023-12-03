@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import static com.system.backend.Util.randomString;
 
+
+
+import java.security.MessageDigest;
 import java.util.Date;
 import java.time.LocalTime;
 import java.util.stream.StreamSupport;
@@ -80,7 +83,25 @@ public class MainController {
     public @ResponseBody Customer createAccount(@RequestBody Customer customer) {
         Emailer emailer = new Emailer(); // TODO should only be one instance per database session
         customer.setConfirmationCode(randomString(10));
-        // TODO emailer not wokring
+
+        String password = customer.getPassword();
+        try{
+            final MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            final byte[] hash = digest.digest(password.getBytes("UTF-8"));
+            final StringBuilder hexString = new StringBuilder();
+            for (int i = 0; i < hash.length; i++) {
+                final String hex = Integer.toHexString(0xff & hash[i]);
+                if(hex.length() == 1)
+                    hexString.append('0');
+                hexString.append(hex);
+            }
+            customer.setPassword(hexString.toString());
+        } catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+
+        //customer.setPassword(customer.getPassword())
+        // TODO emailer not working
         // emailer.sendConfirmationEmail(customer, customer.getVerificationCode());
         return customerRepository.save(customer);
     }
