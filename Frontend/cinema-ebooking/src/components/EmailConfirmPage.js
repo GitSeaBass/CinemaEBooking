@@ -22,7 +22,7 @@ function EmailConfirmPage() {
         console.log(resultinJSON)
 
         
-        navigate('/login')
+        //navigate('/login')
     }
     
     return (
