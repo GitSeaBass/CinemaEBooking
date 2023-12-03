@@ -1,8 +1,12 @@
 package com.system.backend;
 
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -44,7 +48,7 @@ public class Emailer extends JavaMailSenderImpl {
         instance = new Emailer();
     }
 
-    public static Emailer getInstance(){
+    public static Emailer getInstance() {
         return instance;
     }
 
@@ -55,13 +59,19 @@ public class Emailer extends JavaMailSenderImpl {
      * @param confirmationCode the confirmation code of the user
      */
     public void sendConfirmationEmail(Customer customer, String confirmationCode) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(myAddress);
-        message.setTo(customer.getEmail());
-        message.setSubject("Please Confirm your Email Address");
-        message.setText("Hello, " + customer.getFirstName() + "! Thank you for creating an account at Cinema " +
-                "Ebooking Cinemas. Please click the link below to confirm your email address:\n" +
-                "http://localhost:3000/emailconfirm/" + confirmationCode);
+        MimeMessage message = createMimeMessage();
+        try {
+
+            MimeMessageHelper helper = new MimeMessageHelper(message, "utf-8");
+            helper.setFrom(myAddress);
+            helper.setTo(customer.getEmail());
+            message.setSubject("Please Confirm your Email Address");
+            helper.setText("Hello, " + customer.getFirstName() + "!\n\nThank you for creating an account at Cinema " +
+                    "Ebooking Cinemas. Please click the link below to confirm your email address:<br><br>" +
+                    "<a href=\"http://localhost:3000/emailconfirm/" + confirmationCode + "\">Click Here! </a>", true);
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
         send(message);
     }
 
