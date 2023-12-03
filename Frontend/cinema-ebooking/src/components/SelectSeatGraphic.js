@@ -77,7 +77,11 @@ function SelectSeatGraphic(props) {
 
     function onClick(index) {
         addSelectedSeats(index)
-        props.setSelectedSeats(selectedSeats)
+
+        const seperatedSeats = selectedSeats.join(",")
+
+        props.setSelectedSeats(seperatedSeats)
+        
         const newSeats = seats.map((seat) => {
             if (seat.no === index) {
                 const totalSeats = parseInt(seatsToChoose) - parseInt(seatsSelected)

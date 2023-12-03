@@ -10,15 +10,15 @@ function Checkout(props) {
     async function clickCheckout() {
         const data = {
             'total': total,
-            'num_adult_tickets': adult,
-            'num_child_tickets': child,
-            'num_senior_tickets': senior,
+            'numAdultTickets': adult,
+            'numChildTickets': child,
+            'numSeniorTickets': senior,
             'promo': promo,
-            'movie_title': location.state.movie.title,
-            'show_date': props.date,
-            'show_time': props.time,
-            'customer_email': props.user,
-            'seat_selection': props.seats
+            'movieTitle': location.state.movie.title,
+            'showDate': props.date,
+            'showTime': props.time,
+            'customerEmail': props.user,
+            'seatSelections': props.seats
         }
 
         const requestOptions = {
