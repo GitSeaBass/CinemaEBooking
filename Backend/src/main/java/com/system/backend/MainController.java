@@ -60,7 +60,7 @@ public class MainController {
     }
 
     @GetMapping (path = "/login")
-    public boolean login(@RequestParam String email, @RequestParam String password) {
+    public @ResponseBody Customer login(@RequestParam String email, @RequestParam String password) {
         boolean passwordIsCorrect = false;
         Customer customer = customerRepository.findByEmail(email);
         String hashedPassword = "";
@@ -79,11 +79,11 @@ public class MainController {
             throw new RuntimeException(ex);
         }
 
-        if (customer.getPassword().equals(hashedPassword)) {
-            passwordIsCorrect = true;
+        if (!customer.getPassword().equals(hashedPassword)) {
+            customer = null;
         }
 
-        return passwordIsCorrect;
+        return customer;
 
     }
 
