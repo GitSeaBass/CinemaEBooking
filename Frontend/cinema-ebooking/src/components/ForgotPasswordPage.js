@@ -10,11 +10,11 @@ function ForgotPasswordPage() {
         setEnteredEmail(e.target.value)
     }
 
-
     const [user, setUser] = useState()
     const addUser = async () => {
         const temp = await fetchUser()
         setUser(temp)
+        setValidEmail(true)
     }
 
     const fetchUser = async () => {
@@ -41,7 +41,6 @@ function ForgotPasswordPage() {
         setConfirmPass(e.target.value)
     }
 
-
     const changeUserPass = (e) => {
         setUser({
             ...user, password: e.target.value
@@ -62,6 +61,8 @@ function ForgotPasswordPage() {
         }
     }
 
+    const [validEmail, setValidEmail] = useState(false)
+
     const returnHome = () => {
         navigate('/')
     }
@@ -69,21 +70,31 @@ function ForgotPasswordPage() {
         <div className='ForgotPasswordPage-forgot-page'>
             <div className='ForgotPasswordPage-forgot-window'>
                 <h1>Reset Password</h1>
+
+                {!validEmail &&
+                <>
                 <form className='ForgotPasswordPage-forgot-form'>
                     <label>Enter Your Email</label> <br />
                     <input className='ForgotPasswordPage-forgot-input' placeholder='Email' onChange={addEnteredEmail} required></input><br />
                 </form>
                 <button onClick={addUser}>Submit Email</button>
+                </>
+                }
+
+
+                {validEmail &&
+                <>
                 <form> 
                     <>
-                        {/*}<input className='ForgotPasswordPage-forgot-input-locked' placeholder='Email' onChange={addEnteredEmail} value={enteredEmail} readOnly disabled required></input><br />{*/}
-                        <label>Enter New Password</label> <br />
+                        {/*}<input className='ForgotPasswordPage-forgot-input-locked' placeholder='Email' onChange={addEnteredEmail} value={enteredEmail} readOnly disabled required></input><br />
+                        <label>Enter New Password</label> <br /> {*/}
                         <input className='ForgotPasswordPage-forgot-input' placeholder='New Password' name='password' onChange={changeUserPass} type='password' required></input>
                         <input className='ForgotPasswordPage-forgot-input' placeholder='Confirm New Password' onChange={addConfirmPass} type='password' required></input> <br />
                     </>
                 </form>
                 <button onClick={onSubmit}>Submit Password Change</button>
-                
+                </>
+                }
                 
                 
                 <h4>
