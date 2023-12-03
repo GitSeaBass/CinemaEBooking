@@ -36,13 +36,19 @@ function SearchPage(props) {
     return (
         <>
             <NavBar user={props.user} setUser={props.setUser} />
-
-            <div className="SearchPage-movie-container">
-                {movie}
-                <img className='SearchPage-search-poster' src={poster} alt={movie} />
-                <iframe className='SearchPage-search-trailer' src={trailer} title={movie} />
-                <button className="SearchPage-book-button" onClick={book}>BOOK MOVIE</button>
-            </div>
+            {typeof full != 'undefined' &&
+                <div className="SearchPage-movie-container">
+                    {movie}
+                    <img className='SearchPage-search-poster' src={poster} alt={movie} />
+                    <iframe className='SearchPage-search-trailer' src={trailer} title={movie} />
+                    <button className="SearchPage-book-button" onClick={book}>BOOK MOVIE</button>
+                </div>
+            }
+            {typeof full == 'undefined' &&
+                <div className='SearchPage-not-found'>
+                    <p>No movie was found.</p>
+                </div>
+            }
         </>
     )
 }
