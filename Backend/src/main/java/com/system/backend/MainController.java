@@ -5,11 +5,6 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
-import java.time.LocalTime;
-import java.util.List;
-import java.util.stream.StreamSupport;
-
 
 @Controller
 @CrossOrigin
@@ -75,7 +70,7 @@ public class MainController {
     @PostMapping(path = "/createaccount")
     public @ResponseBody Customer createAccount(@RequestBody Customer customer) {
         Emailer emailer = new Emailer(); // TODO should only be one instance per database session
-        customer.setVerificationCode("123456"/* TODO generate and store confirmation code*/);
+        customer.setConfirmationCode("123456"/* TODO generate and store confirmation code*/);
         // TODO emailer not wokring
         // emailer.sendConfirmationEmail(customer, customer.getVerificationCode());
         return customerRepository.save(customer);
@@ -95,7 +90,7 @@ public class MainController {
 
         // iterates through customerRepository until it finds a customer with the given confirmation code
         for (Customer customer : customerRepository.findAll()) {
-            if (customer.checkVerificationCode(confirmationCode)) {
+            if (customer.checkConfirmationCode(confirmationCode)) {
                 customer.setStatus("ACTIVE"); // sets the user to verified
                 customerRepository.save(customer); // saves the user to the database
                 // TODO show confirmation page

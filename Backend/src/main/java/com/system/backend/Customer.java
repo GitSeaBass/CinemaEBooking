@@ -24,7 +24,7 @@ public class Customer {
     //@Column (name = "status")
     private String status;
 
-    private String verificationCode;
+    private String confirmationCode;
 
     @OneToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "address_address_id", nullable = true)
@@ -96,15 +96,15 @@ public class Customer {
         this.address = address;
     }
 
-    public void setVerificationCode(String verificationCode) {
-        this.verificationCode = verificationCode;
+    public void setConfirmationCode(String confirmationCode) {
+        this.confirmationCode = confirmationCode;
     }
 
-    public String getVerificationCode() {
-        return verificationCode;
+    public String getConfirmationCode() {
+        return confirmationCode;
     }
 
-    public boolean checkVerificationCode(String providedCode) {
-        return providedCode.equals(verificationCode);
+    public boolean checkConfirmationCode(String providedCode) {
+        return providedCode.equals(confirmationCode);
     }
 }
