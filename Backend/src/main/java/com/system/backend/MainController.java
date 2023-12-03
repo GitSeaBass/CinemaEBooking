@@ -23,6 +23,10 @@ public class MainController {
     private PromotionRepository promotionRepository;
     @Autowired
     private BookingRepository bookingRepository;
+    @Autowired
+    private AddressRepository addressRepository;
+    @Autowired
+    private PaymentCardRepository paymentCardRepository;
 
 
     Emailer emailer = Emailer.getInstance();
@@ -135,6 +139,16 @@ public class MainController {
         //customer.setPassword(customer.getPassword())
         emailer.sendConfirmationEmail(customer, customer.getConfirmationCode());
         return customerRepository.save(customer);
+    }
+
+    @PostMapping(path = "/addaddress")
+    public @ResponseBody Address addAddress(@RequestBody Address address) {
+        return addressRepository.save(address);
+    }
+
+    @PostMapping(path = "/addpaymentcard")
+    public @ResponseBody PaymentCard addPaymentCard(@RequestBody PaymentCard paymentCard) {
+        return paymentCardRepository.save(paymentCard);
     }
 
     /**
