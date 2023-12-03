@@ -22,8 +22,8 @@ public class Booking {
     private String showDate;
     private String showTime;
     private String seatSelections; //Comma separated string
-    private Integer paymentCardId;
-    private Integer customerId;
+    //private Integer paymentCardId;
+    private String customerEmail;
 
     public Integer getId() {
         return id;
@@ -105,19 +105,19 @@ public class Booking {
         this.seatSelections = seatSelections;
     }
 
-    public Integer getPaymentCardId() {
-        return paymentCardId;
+//    public Integer getPaymentCardId() {
+//        return paymentCardId;
+//    }
+//
+//    public void setPaymentCardId(Integer paymentCardId) {
+//        this.paymentCardId = paymentCardId;
+//    }
+
+    public String getCustomerEmail() {
+        return customerEmail;
     }
 
-    public void setPaymentCardId(Integer paymentCardId) {
-        this.paymentCardId = paymentCardId;
-    }
-
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
     }
 }

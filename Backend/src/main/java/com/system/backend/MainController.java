@@ -59,6 +59,13 @@ public class MainController {
         return customerRepository.findByEmail(email);
     }
 
+    /**
+     * Takes an email and password. Hashes the input password and if that password matches the stored hashed password, returns
+     * the customer object as a response body. If they do not match, returns null;
+     * @param email
+     * @param password
+     * @return
+     */
     @GetMapping (path = "/login")
     public @ResponseBody Customer login(@RequestParam String email, @RequestParam String password) {
         boolean passwordIsCorrect = false;
