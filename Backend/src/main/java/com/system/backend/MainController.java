@@ -196,7 +196,7 @@ public class MainController {
      * @return the updated promotion
      */
     @PostMapping(path = "/updatePromotion")
-    public @ResponseBody Promotion updateProfile(@RequestBody Promotion updatedPromotion) {
+    public @ResponseBody Promotion updatePromotion(@RequestBody Promotion updatedPromotion) {
         return promotionRepository.save(updatedPromotion);
     }
 
