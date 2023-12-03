@@ -257,4 +257,9 @@ public class MainController {
     public @ResponseBody Booking saveBooking(@RequestBody Booking booking) {
         return bookingRepository.save(booking);
     }
+
+    @GetMapping(path = "/customerbookings")
+    public @ResponseBody Iterable<Booking> getBookingsByCustomerEmail(@RequestParam String customerEmail) {
+        return bookingRepository.findByCustomerEmail(customerEmail);
+    }
 }
