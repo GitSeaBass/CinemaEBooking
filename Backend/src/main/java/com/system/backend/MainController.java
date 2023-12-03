@@ -55,8 +55,36 @@ public class MainController {
     }
 
     @GetMapping(path = "/getuser")
-    public @ResponseBody Iterable<Customer> getUser(@RequestParam String email) {
+    public @ResponseBody Customer getUser(@RequestParam String email) {
         return customerRepository.findByEmail(email);
+    }
+
+    @GetMapping (path = "/login")
+    public boolean login(@RequestParam String email, @RequestParam String password) {
+        boolean passwordIsCorrect = false;
+        Customer customer = customerRepository.findByEmail(email);
+        String hashedPassword = "";
+        try{
+            final MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            final byte[] hash = digest.digest(password.getBytes("UTF-8"));
+            final StringBuilder hexString = new StringBuilder();
+            for (int i = 0; i < hash.length; i++) {
+                final String hex = Integer.toHexString(0xff & hash[i]);
+                if(hex.length() == 1)
+                    hexString.append('0');
+                hexString.append(hex);
+            }
+            hashedPassword = hexString.toString();
+        } catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+
+        if (customer.getPassword().equals(hashedPassword)) {
+            passwordIsCorrect = true;
+        }
+
+        return passwordIsCorrect;
+
     }
 
     @GetMapping(path = "/getallusers")
