@@ -10,6 +10,7 @@ function ForgotPasswordPage() {
         setEnteredEmail(e.target.value)
     }
 
+
     const [user, setUser] = useState()
     const addUser = async () => {
         const temp = await fetchUser()
