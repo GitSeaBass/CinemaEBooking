@@ -12,13 +12,7 @@ function CreateAccountPage(props) {
         status: "INACTIVE",
         email: "",
         password: "",
-        street: "",
-        city: "",
-        state: "",
-        zip: "",
-        cardno: "",
-        carddate: "",
-        promo: false
+        promo: true
     })
     const addNewUser = (e) => {
         setNewUser({
@@ -36,6 +30,30 @@ function CreateAccountPage(props) {
         setPassword2(e.target.value);
     };
 
+    const [address, setAddress] = useState({
+        street: "",
+        city: "",
+        state: "",
+        zip: ""
+    })
+
+    const addAddress = (e) => {
+        setAddress({
+            ...address, [e.target.name]: e.target.value
+        })
+    }
+
+    const [card, setCard] = useState({
+        cardno: "",
+        carddate: ""
+    })
+
+    const addCard = (e) => {
+        setCard({
+            ...card, [e.target.name]: e.target.value
+        })
+    }
+
     const createAccount = async () => {
 
         const requestOptions = {
@@ -44,7 +62,9 @@ function CreateAccountPage(props) {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(newUser)
+            body: [JSON.stringify(newUser),
+            JSON.stringify(address),
+            JSON.stringify(card)]
         };
         console.log(newUser)
 
@@ -86,18 +106,20 @@ function CreateAccountPage(props) {
                     <input type='password' onChange={addPassword2} placeholder='Confirm Password' required></input>
                     <input type='text' placeholder='First Name' name='firstName' onChange={addNewUser} required></input>
                     <input type='text' placeholder='Last Name' name='lastName' onChange={addNewUser} required></input>
-                    <label>Enter Date of Birth</label>
-                    <input type='text' placeholder='MM/DD/YYYY' name='dateOfBirth' onChange={addNewUser} required></input>
+                    <label>Enter Date of Birth
+                        <input type='text' placeholder='MM/DD/YYYY' name='dateOfBirth' onChange={addNewUser} required></input>
+                    </label>
+                    <label>Enter Address
+                        <input type='text' placeholder='Street' name='street' onChange={addAddress}></input>
+                        <input type='text' placeholder='City' name='city' onChange={addAddress}></input>
+                        <input type='text' placeholder='State' name='state' onChange={addAddress}></input>
+                        <input type='text' placeholder='Zipcode' name='zip' onChange={addAddress}></input>
+                    </label>
+                    <label>Enter Payment Card Information
+                        <input type='text' placeholder='Card Number' name='cardno' onChange={addCard}></input>
+                        <input type='text' placeholder='Expiration Date' name='carddate' onChange={addCard}></input>
+                    </label>
                     {/*}
-                    <label className='create-label' value='Address'>Enter Address (Optional) </label><br />
-                    <input type='text' className='CreateAccountPage-create-input CreateAccountPage-address-input' placeholder='Street' name='street' onChange={addNewUser}></input>
-                    <input type='text' className='CreateAccountPage-create-input CreateAccountPage-address-input' placeholder='City' name='city' onChange={addNewUser}></input><br />
-                    <input type='text' className='CreateAccountPage-create-input CreateAccountPage-address-input' placeholder='State' name='state' onChange={addNewUser}></input>
-                    <input type='text' className='CreateAccountPage-create-input CreateAccountPage-address-input' placeholder='Zipcode' name='zip' onChange={addNewUser}></input><br />
-                    <label className='CreateAccountPage-create-label' value='Address'>Enter Payment Card (Optional) </label><br />
-                    <input type='text' className='CreateAccountPage-create-input CreateAccountPage-card-input CreateAccountPage-card-number' placeholder='Card Number' name='cardno' onChange={addNewUser}></input>
-                    <input type='text' className='CreateAccountPage-create-input CreateAccountPage-card-input' placeholder='Expiration Date' name='carddate' onChange={addNewUser}></input><br />
-                    <br />
                     <input type='checkbox' className='CreateAccountPage-create-checkbox' name='promo' onChange={addPromoState}></input>Register for Promotions<br />
     {*/}
                     <button type='submit' className='CreateAccountPage-create-account-button'>Create Account</button>

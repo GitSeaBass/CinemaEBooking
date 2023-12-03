@@ -31,7 +31,7 @@
     border-right: 3px solid #0d0d0d;
     border-radius: 5px;
 
-    overflow: hidden;
+    overflow: auto;
     color: #424279;
 
     background-color: #0d0d0d7b;
@@ -72,7 +72,8 @@
     align-items: center;
 }
 
-.CreateAccountPage-create-account-form>input {
+.CreateAccountPage-create-account-form>input,
+.CreateAccountPage-create-account-form>label>input {
     width: 80%;
     height: 2rem;
 
@@ -87,11 +88,13 @@
     color: #767676;
 }
 
-.CreateAccountPage-create-account-form>input::placeholder {
+.CreateAccountPage-create-account-form>input::placeholder,
+.CreateAccountPage-create-account-form>label>input::placeholder {
     color: #767676;
 }
 
-.CreateAccountPage-create-account-form>input:focus {
+.CreateAccountPage-create-account-form>input:focus,
+.CreateAccountPage-create-account-form>label>input::focus {
     outline: none;
 }
 

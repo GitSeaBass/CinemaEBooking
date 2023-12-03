@@ -23,6 +23,10 @@ public class MainController {
     private PromotionRepository promotionRepository;
     @Autowired
     private BookingRepository bookingRepository;
+    @Autowired
+    private AddressRepository addressRepository;
+    @Autowired
+    private PaymentCardRepository paymentCardRepository;
 
 
     Emailer emailer = Emailer.getInstance();
@@ -137,6 +141,16 @@ public class MainController {
         return customerRepository.save(customer);
     }
 
+    @PostMapping(path = "/addaddress")
+    public @ResponseBody Address addAddress(@RequestBody Address address) {
+        return addressRepository.save(address);
+    }
+
+    @PostMapping(path = "/addpaymentcard")
+    public @ResponseBody PaymentCard addPaymentCard(@RequestBody PaymentCard paymentCard) {
+        return paymentCardRepository.save(paymentCard);
+    }
+
     /**
      * Confirms a user's email address by checking the confirmation code
      *
@@ -196,7 +210,7 @@ public class MainController {
      * @return the updated promotion
      */
     @PostMapping(path = "/updatePromotion")
-    public @ResponseBody Promotion updateProfile(@RequestBody Promotion updatedPromotion) {
+    public @ResponseBody Promotion updatePromotion(@RequestBody Promotion updatedPromotion) {
         return promotionRepository.save(updatedPromotion);
     }
 
