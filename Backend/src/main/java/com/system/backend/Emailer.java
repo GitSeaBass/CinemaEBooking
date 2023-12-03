@@ -61,7 +61,7 @@ public class Emailer extends JavaMailSenderImpl {
         message.setSubject("Please Confirm your Email Address");
         message.setText("Hello, " + customer.getFirstName() + "! Thank you for creating an account at Cinema " +
                 "Ebooking Cinemas. Please click the link below to confirm your email address:\n" +
-                "http://localhost:8080/emailconfirm?id=" + confirmationCode);
+                "http://localhost:3000/emailconfirm/" + confirmationCode);
         send(message);
     }
 
