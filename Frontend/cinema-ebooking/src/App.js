@@ -253,7 +253,7 @@ function App() {
                     <Route path="/showings" element={<SelectShowing setSelectedDate={setSelectedDate} user={user} setUser={setUser} />} />
                     <Route path="/times" element={<SelectTime setSelectedTime={setSelectedTime} user={user} setUser={setUser} />} />
                     <Route path="/seatselect" element={<SelectSeats setChildTickets={setChildTickets} setAdultTickets={setAdultTickets} setSeniorTickets={setSeniorTickets} user={user} setUser={setUser} rooms={rooms} />} />
-                    <Route path="/checkout" element={<Checkout movie={selectedMovie} date={selectedDate} time={selectedTime} child={childTickets} adult={adultTickets} senior={seniorTickets} />} />
+                    <Route path="/checkout" element={<Checkout movie={selectedMovie} date={selectedDate} time={selectedTime} child={childTickets} adult={adultTickets} senior={seniorTickets} user={user}/>} />
                     <Route path="/orderconfirm" element={<OrderConfirm />} />
 
                 </Routes>

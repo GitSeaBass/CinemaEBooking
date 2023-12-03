@@ -8,7 +8,21 @@ function Checkout(props) {
     const navigate = useNavigate()
 
     function clickCheckout() {
-        navigate('/orderconfirm')
+        const data = {
+            'total': total,
+            'num_adult_tickets': adult,
+            'num_child_tickets': child,
+            'num_senior_tickets': senior,
+            'promo': promo,
+            'movie_title': location.state.movie.title,
+            'show_date': props.date,
+            'show_time': props.time,
+            'customer_email': props.user
+            /*'seat_selection': ,*/
+        }
+        console.log(data)
+
+        //navigate('/orderconfirm')
     }
 
     function cancel() {
@@ -21,9 +35,15 @@ function Checkout(props) {
 
     const [total, setTotal] = useState(5 * parseInt(child) + 10 * parseInt(adult) + 7.5 * parseInt(senior))
 
+    const [promo, setPromo] = useState('')
+    const addPromo = (e) => {
+        setPromo(e.target.value)
+    }
+
     function removeChild() {
         let num = parseInt(child) - 1
         setChild(num)
+        console.log(location.state)
     }
 
     function removeAdult() {
@@ -74,7 +94,7 @@ function Checkout(props) {
                         <label>Address</label><br />
                         <input type='text' required></input><br />
                         <label>Promo Code</label><br />
-                        <input type='text'></input><br />
+                        <input type='text' onChange={addPromo}></input><br />
                         <input type='submit' className='Checkout-checkout-button' onClick={clickCheckout} value={'Checkout'}></input>
                     </form>
                     <button className='Checkout-cancel-button' onClick={cancel}>Cancel</button>
