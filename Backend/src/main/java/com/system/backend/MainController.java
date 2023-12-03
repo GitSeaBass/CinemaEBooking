@@ -146,19 +146,17 @@ public class MainController {
     @PostMapping(path = "/confirm/{confirmationCode}")
     public @ResponseBody boolean confirmAccount(@PathVariable String confirmationCode) {
         //List<Customer> matchingCustomers = customerRepository.findByVerificationCode(confirmationCode);
+
         //TODO this is really poor code but it'S the simplest way I could think to do it without
         // making things super messy - maybe change later
-
         // iterates through customerRepository until it finds a customer with the given confirmation code
         for (Customer customer : customerRepository.findAll()) {
             if (customer.checkConfirmationCode(confirmationCode)) {
                 customer.setStatus("ACTIVE"); // sets the user to verified
                 customerRepository.save(customer); // saves the user to the database
-                // TODO show confirmation page
                 return true;
             }
         }
-        // TODO show customer not found page
         return false;
     }
 
@@ -202,24 +200,24 @@ public class MainController {
         return promotionRepository.save(updatedPromotion);
     }
 
-    @PostMapping(path = "/testEmail")
-    public void testEmail() {
+    @PostMapping(path = "/testEmail/{email}")
+    public void testEmail(@PathVariable String email) {
         SimpleMailMessage message = new SimpleMailMessage();
         System.out.println("created message");
         message.setSubject("subject");
         message.setText("text");
-
+        message.setTo(email);
         System.out.println("sending email");
         emailer.send(message);
         System.out.println("sent email");
     }
 
-    @PostMapping(path = "/testAccount")
-    public void testAccount() {
+    @PostMapping(path = "/testAccount/{email}")
+    public void testAccount(@PathVariable String email) {
         Customer customer = new Customer();
         customer.setFirstName("John");
         customer.setLastName("Doe");
-        customer.setEmail("ronnoclleb@gmail.com");
+        customer.setEmail(email);
         customer.setPassword("");
         customer.setDateOfBirth("2000-01-01");
         customer.setStatus("PENDING");
