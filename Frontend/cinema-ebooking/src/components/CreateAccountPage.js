@@ -12,13 +12,13 @@ function CreateAccountPage(props) {
         status: "INACTIVE",
         email: "",
         password: "",
-        /*street: "",
+        street: "",
         city: "",
         state: "",
         zip: "",
         cardno: "",
         carddate: "",
-        promo: false*/
+        promo: false
     })
     const addNewUser = (e) => {
         setNewUser({
@@ -26,10 +26,10 @@ function CreateAccountPage(props) {
         })
     }
 
-    /*const [promoState, setPromoState] = useState(false)
+    const [promoState, setPromoState] = useState(false)
     const addPromoState = () => {
         setPromoState(!promoState)
-    }*/
+    }
 
     const [password2, setPassword2] = useState('')
     const addPassword2 = (e) => {
@@ -88,7 +88,7 @@ function CreateAccountPage(props) {
                     <input type='text' placeholder='Last Name' name='lastName' onChange={addNewUser} required></input>
                     <label>Enter Date of Birth</label>
                     <input type='text' placeholder='MM/DD/YYYY' name='dateOfBirth' onChange={addNewUser} required></input>
-                    {/*}
+                    
                     <label className='create-label' value='Address'>Enter Address (Optional) </label><br />
                     <input type='text' className='CreateAccountPage-create-input CreateAccountPage-address-input' placeholder='Street' name='street' onChange={addNewUser}></input>
                     <input type='text' className='CreateAccountPage-create-input CreateAccountPage-address-input' placeholder='City' name='city' onChange={addNewUser}></input><br />
@@ -99,7 +99,7 @@ function CreateAccountPage(props) {
                     <input type='text' className='CreateAccountPage-create-input CreateAccountPage-card-input' placeholder='Expiration Date' name='carddate' onChange={addNewUser}></input><br />
                     <br />
                     <input type='checkbox' className='CreateAccountPage-create-checkbox' name='promo' onChange={addPromoState}></input>Register for Promotions<br />
-    {*/}
+    
                     <button type='submit' className='CreateAccountPage-create-account-button'>Create Account</button>
                 </form>
                 <h4 className='CreateAccountPage-return-home'>
