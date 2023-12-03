@@ -262,4 +262,9 @@ public class MainController {
     public @ResponseBody Iterable<Booking> getBookingsByCustomerEmail(@RequestParam String customerEmail) {
         return bookingRepository.findByCustomerEmail(customerEmail);
     }
+
+    @PostMapping(path = "/updatecustomer")
+    public @ResponseBody Customer updateCustomer(@RequestBody Customer customer) {
+        return customerRepository.save(customer);
+    }
 }
