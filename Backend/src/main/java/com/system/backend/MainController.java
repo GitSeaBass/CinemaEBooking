@@ -9,11 +9,6 @@ import static com.system.backend.Util.randomString;
 
 
 import java.security.MessageDigest;
-import java.util.Date;
-import java.time.LocalTime;
-import java.util.stream.StreamSupport;
-
-import static com.system.backend.Util.randomString;
 
 
 @Controller
@@ -28,6 +23,9 @@ public class MainController {
     private PromotionRepository promotionRepository;
     @Autowired
     private BookingRepository bookingRepository;
+
+
+    Emailer emailer = Emailer.getInstance();
 
     @PostMapping(path = "/add")
     public @ResponseBody Movies addNewMovie(@RequestBody Movies movie) {
@@ -116,7 +114,6 @@ public class MainController {
 
     @PostMapping(path = "/createaccount")
     public @ResponseBody Customer createAccount(@RequestBody Customer customer) {
-        Emailer emailer = new Emailer(); // TODO should only be one instance per database session
         customer.setConfirmationCode(randomString(10));
 
         String password = customer.getPassword();
@@ -186,7 +183,6 @@ public class MainController {
      */
     @PostMapping(path = "/createPromotion")
     public @ResponseBody Promotion createPromotion(@RequestBody Promotion promotion) {
-        Emailer emailer = new Emailer(); // TODO should only be one instance per database session
         System.out.println(customerRepository.findByWantsPromotions(true));
         emailer.sendPromotionalEmail(promotion, customerRepository.findByWantsPromotions(true));
         promotionRepository.save(promotion); // store promotion in database
@@ -208,9 +204,6 @@ public class MainController {
 
     @PostMapping(path = "/testEmail")
     public void testEmail() {
-        System.out.println("going to send email");
-        Emailer emailer = new Emailer();
-        System.out.println("created emailer");
         SimpleMailMessage message = new SimpleMailMessage();
         System.out.println("created message");
         message.setSubject("subject");

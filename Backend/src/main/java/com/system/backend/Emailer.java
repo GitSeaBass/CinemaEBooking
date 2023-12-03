@@ -11,13 +11,14 @@ import java.util.Properties;
  * Represents an emailer object
  */
 public class Emailer extends JavaMailSenderImpl {
-    String myAddress; // the email address used to send emails
-    String myPassword;
+    private static Emailer instance; // the singleton instance of the Emailer
+    private static String myAddress; // the email address used to send emails
+    private static String myPassword;
 
     /**
      * Creates a new Emailer object
      */
-    public Emailer() {
+    private Emailer() {
         super();
         Properties props = new Properties();
         try {
@@ -25,8 +26,8 @@ public class Emailer extends JavaMailSenderImpl {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        this.myAddress = props.getProperty("email");
-        this.myPassword = props.getProperty("password");
+        myAddress = props.getProperty("email");
+        myPassword = props.getProperty("password");
         this.setHost("smtp.mailgun.org");
         this.setPort(587);
         this.setUsername(myAddress);
@@ -37,6 +38,14 @@ public class Emailer extends JavaMailSenderImpl {
         mailProps.put("mail.smtp.starttls.enable", "true");
         mailProps.put("mail.debug", "true");
 
+    }
+
+    static {
+        instance = new Emailer();
+    }
+
+    public static Emailer getInstance(){
+        return instance;
     }
 
     /**
@@ -52,8 +61,8 @@ public class Emailer extends JavaMailSenderImpl {
         message.setSubject("Please Confirm your Email Address");
         message.setText("Hello, " + customer.getFirstName() + "! Thank you for creating an account at Cinema " +
                 "Ebooking Cinemas. Please click the link below to confirm your email address:\n" +
-                "http://localhost:8080/confirm?code=" + confirmationCode);
-        this.send(message);
+                "http://localhost:8080/emailconfirm?id=" + confirmationCode);
+        send(message);
     }
 
     /**
@@ -68,7 +77,7 @@ public class Emailer extends JavaMailSenderImpl {
             message.setTo(customer.getEmail());
             message.setSubject(getPromotionEmailSubject(promotion));
             message.setText(getPromotionEmailBody(promotion));
-            this.send(message);
+            send(message);
         }
     }
 
