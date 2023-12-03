@@ -5,6 +5,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import static com.system.backend.Util.randomString;
+
 
 @Controller
 @CrossOrigin
@@ -70,7 +72,7 @@ public class MainController {
     @PostMapping(path = "/createaccount")
     public @ResponseBody Customer createAccount(@RequestBody Customer customer) {
         Emailer emailer = new Emailer(); // TODO should only be one instance per database session
-        customer.setConfirmationCode("123456"/* TODO generate and store confirmation code*/);
+        customer.setConfirmationCode(randomString(10));
         // TODO emailer not wokring
         // emailer.sendConfirmationEmail(customer, customer.getVerificationCode());
         return customerRepository.save(customer);
