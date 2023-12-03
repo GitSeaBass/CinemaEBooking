@@ -30,7 +30,8 @@ function Checkout(props) {
             body: JSON.stringify(data)
         };
 
-        const result = await fetch("http://localhost:8080/system/booking", requestOptions)
+        console.log(data)
+        const result = await fetch("http://localhost:8080/system/checkout", requestOptions)
 
         const resultinJSON = await result.json();
         console.log(resultinJSON)
