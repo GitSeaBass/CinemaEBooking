@@ -21,21 +21,21 @@ function LoginPage(props) {
         console.log(email)
 
         try {
-            const result = await fetch(`http://localhost:8080/system/getuser?email=${email}`)
+            const result = await fetch(`http://localhost:8080/system/login?email=${email}&password=${password}`)
 
             const resultinJSON = await result.json();
-            console.log(resultinJSON[0])
+            console.log(resultinJSON)
 
 
             //const foundUser = props.updatableUsers.find((user) => user.email === email)
 
-            if (resultinJSON[0].password === password) {
-                if (resultinJSON[0].status === 'INACTIVE') {
+            if (resultinJSON.email === email) {
+                if (resultinJSON.status === 'INACTIVE') {
                     navigate('/confirmwindow')
                 } else {
                     props.setUser(email);
-                    props.setStatus(resultinJSON[0].status)
-                    navigate(-1);
+                    props.setStatus(resultinJSON.status)
+                    navigate('/');
                 }
             } else {
                 alert("Email or Password is Incorrect")
