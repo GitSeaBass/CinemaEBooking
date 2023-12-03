@@ -263,8 +263,4 @@ public class MainController {
         return bookingRepository.findByCustomerEmail(customerEmail);
     }
 
-    @PostMapping(path = "/updatecustomer")
-    public @ResponseBody Customer updateCustomer(@RequestBody Customer customer) {
-        return customerRepository.save(customer);
-    }
 }
