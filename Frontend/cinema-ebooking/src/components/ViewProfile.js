@@ -7,6 +7,7 @@ function ViewProfile(props) {
     const navigate = useNavigate()
 
     const [currentUser, setCurrentUser] = useState('')
+
     const addCurrentUser = (e) => {
         setCurrentUser({
             ...currentUser, [e.target.name]: e.target.value, promo: promoStatus
@@ -24,22 +25,27 @@ function ViewProfile(props) {
     }
 
     const getUser = async () => {
-        const result = await fetch(`http://localhost:8080/system/getuser?email=${props.user}`)
-        const resultinJSON = await result.json();
-        const resultUser = await resultinJSON
-        if (currentUser === '') {
-            setCurrentUser(resultUser[0])
+        try {
+            const result = await fetch(`http://localhost:8080/system/getuser?email=${props.user}`)
+            const resultinJSON = await result.json();
+            
+            await setCurrentUser(resultinJSON)
+        } catch (err) {
+            console.log(err)
         }
     }
 
     useEffect(() => {
 
-        getUser()
+        if (currentUser === '') {
+            getUser()
+            console.log(currentUser)
+        }
 
         //setCurrentUser(
         //props.updatableUsers.find((item) => item.email === props.user)
         //)
-    })
+    }, [currentUser])
 
     const onSubmit = async (e) => {
         e.preventDefault()
