@@ -183,8 +183,8 @@ public class MainController {
      */
     @PostMapping(path = "/createPromotion")
     public @ResponseBody Promotion createPromotion(@RequestBody Promotion promotion) {
-        System.out.println(customerRepository.findByWantsPromotions(true));
-        emailer.sendPromotionalEmail(promotion, customerRepository.findByWantsPromotions(true));
+        System.out.println(customerRepository.findByWantsPromotions(1));
+        emailer.sendPromotionalEmail(promotion, customerRepository.findByWantsPromotions(1));
         promotionRepository.save(promotion); // store promotion in database
         return promotion;
     }

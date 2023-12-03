@@ -7,5 +7,5 @@ public interface CustomerRepository extends CrudRepository<Customer, Integer> {
     Customer findByEmail(String email);
     List<Customer> findByConfirmationCode(String confirmationCode);
 
-    List<Customer> findByWantsPromotions(boolean wantsPromotions);
+    List<Customer> findByWantsPromotions(int wantsPromotions);
 }
