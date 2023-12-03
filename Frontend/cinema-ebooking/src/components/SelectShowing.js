@@ -17,6 +17,10 @@ function SelectShowing(props) {
         navigate('/times', { state: location.state })
     }
 
+    function check() {
+        console.log(location.state)
+    }
+
     return (
         <>
             <NavBar user={props.user} setUser={props.setUser} />
@@ -31,6 +35,7 @@ function SelectShowing(props) {
                     ))}
                 </div>
                 <button className='SelectShowing-confirm-button' onClick={confirmDate}>Confirm</button>
+                <button onClick={check}>Here</button>
             </div>
         </>
     )

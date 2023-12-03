@@ -35,7 +35,7 @@ function LoginPage(props) {
                 } else {
                     props.setUser(email);
                     props.setStatus(resultinJSON[0].status)
-                    navigate('/');
+                    navigate(-1);
                 }
             } else {
                 alert("Email or Password is Incorrect")

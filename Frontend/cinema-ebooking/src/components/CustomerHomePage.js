@@ -14,7 +14,7 @@ function CustomerHomePage(props) {
             .then(res => res.json())
             .then(data => {
                 setMovies(data)
-                console.log(movies)
+                console.log(data)
             }).catch(err => {
                 console.log(err)
             })
