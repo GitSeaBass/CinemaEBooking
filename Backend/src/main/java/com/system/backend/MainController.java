@@ -213,10 +213,8 @@ public class MainController {
         System.out.println("created emailer");
         SimpleMailMessage message = new SimpleMailMessage();
         System.out.println("created message");
-        message.setFrom("postmaster@sandbox430fa7f531114f3fa448026a88621ca8.mailgun.org");
         message.setSubject("subject");
         message.setText("text");
-        message.setTo("ronnoclleb@gmail.com");
 
         System.out.println("sending email");
         emailer.send(message);
