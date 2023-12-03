@@ -8,7 +8,6 @@ import org.hibernate.annotations.OnDeleteAction;
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@Column(name = "customer_id")
     private Integer customer_id;
     //@Column (name = "first_name")
