@@ -25,6 +25,7 @@ public class Customer {
     private String status;
 
     private String confirmationCode;
+    private boolean wantsPromotions;
 
     @OneToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "address_address_id", nullable = true)
@@ -106,5 +107,13 @@ public class Customer {
 
     public boolean checkConfirmationCode(String providedCode) {
         return providedCode.equals(confirmationCode);
+    }
+
+    public boolean getWantsPromotions() {
+        return wantsPromotions;
+    }
+
+    public void setWantsPromotions(boolean wantsPromotions) {
+        this.wantsPromotions = wantsPromotions;
     }
 }
