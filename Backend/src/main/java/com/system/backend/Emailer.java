@@ -72,7 +72,11 @@ public class Emailer extends JavaMailSenderImpl {
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
-        send(message);
+        try {
+            send(message);
+        } catch (Exception e) {
+            System.out.println("Error sending email. Continuing");
+        }
     }
 
     /**
