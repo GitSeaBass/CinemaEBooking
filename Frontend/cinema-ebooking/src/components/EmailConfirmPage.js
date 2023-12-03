@@ -1,10 +1,27 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import './EmailConfirmPage.css'
 
 function EmailConfirmPage() {
     const navigate = useNavigate()
     
-    function onClick() {
+    const { id } = useParams();
+
+    async function onClick() {
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        };
+
+        const result = await fetch(`http://localhost:8080/confirm/${id}`, requestOptions)
+
+        const resultinJSON = await result.json();
+        console.log(resultinJSON)
+
+        
         navigate('/login')
     }
     
