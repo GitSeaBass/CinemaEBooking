@@ -7,7 +7,7 @@ function Checkout(props) {
 
     const navigate = useNavigate()
 
-    function clickCheckout() {
+    async function clickCheckout() {
         const data = {
             'total': total,
             'num_adult_tickets': adult,
@@ -17,12 +17,25 @@ function Checkout(props) {
             'movie_title': location.state.movie.title,
             'show_date': props.date,
             'show_time': props.time,
-            'customer_email': props.user
-            /*'seat_selection': ,*/
+            'customer_email': props.user,
+            'seat_selection': props.seats
         }
-        console.log(data)
 
-        //navigate('/orderconfirm')
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        };
+
+        const result = await fetch("http://localhost:8080/system/booking", requestOptions)
+
+        const resultinJSON = await result.json();
+        console.log(resultinJSON)
+
+        navigate('/orderconfirm')
     }
 
     function cancel() {

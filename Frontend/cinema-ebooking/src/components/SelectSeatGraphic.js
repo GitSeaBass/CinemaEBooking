@@ -76,6 +76,8 @@ function SelectSeatGraphic(props) {
     })
 
     function onClick(index) {
+        addSelectedSeats(index)
+        props.setSelectedSeats(selectedSeats)
         const newSeats = seats.map((seat) => {
             if (seat.no === index) {
                 const totalSeats = parseInt(seatsToChoose) - parseInt(seatsSelected)
@@ -97,6 +99,15 @@ function SelectSeatGraphic(props) {
         setSeats(newSeats)
     }
     
+    const [selectedSeats, setSelectedSeats] = useState([])
+    const addSelectedSeats = (seatno) => {
+        if (selectedSeats.indexOf(seatno) === -1) {
+            selectedSeats.push(seatno)
+        } else {
+            const temp = selectedSeats.filter((seat) => seat !== seatno)
+            setSelectedSeats(temp)
+        }
+    }
 
     return ( 
         <>
@@ -107,17 +118,17 @@ function SelectSeatGraphic(props) {
                 return (
                     <div className="seat available-seat" id={seat.no}  key={seat.no} onClick={() => {
                         onClick(seat.no)
-                    }}></div>
+                    }}>{seat.no}</div>
                 )
             else if (seat.available === 'selected')
                 return (
                     <div className="seat selected-seat" id={seat.no}  key={seat.no} onClick={() => {
                         onClick(seat.no)
-                    }}></div>
+                    }}>{seat.no}</div>
                 )
             else
                 return (
-                    <div className="seat taken-seat" key={seat.no}></div>
+                    <div className="seat taken-seat" key={seat.no}>{seat.no}</div>
                 )
         })}
         </div>
