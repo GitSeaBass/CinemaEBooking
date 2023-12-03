@@ -59,7 +59,7 @@ function ViewProfile(props) {
             body: JSON.stringify(currentUser)
         };
 
-        const result = await fetch("http://localhost:8080/system/createaccount", requestOptions)
+        const result = await fetch("http://localhost:8080/system/updateProfile", requestOptions)
         const resultinJSON = await result.json();
         console.log(resultinJSON)
         //navigate('/')
