@@ -20,6 +20,8 @@ public class MainController {
     private CustomerRepository customerRepository;
     @Autowired
     private PromotionRepository promotionRepository;
+    @Autowired
+    private BookingRepository bookingRepository;
 
     @PostMapping(path = "/add")
     public @ResponseBody Movies addNewMovie(@RequestBody Movies movie) {
@@ -156,5 +158,10 @@ public class MainController {
         System.out.println("sending email");
         emailer.send(message);
         System.out.println("sent email");
+    }
+
+    @PostMapping(path = "/checkout")
+    public @ResponseBody Booking saveBooking(@RequestBody Booking booking) {
+        return bookingRepository.save(booking);
     }
 }
