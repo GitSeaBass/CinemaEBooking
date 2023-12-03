@@ -8,6 +8,9 @@ function EmailConfirmPage() {
 
     async function onClick() {
 
+        try {
+        console.log(id)
+
         const requestOptions = {
             method: 'POST',
             headers: {
@@ -16,10 +19,13 @@ function EmailConfirmPage() {
             },
         };
 
-        const result = await fetch(`http://localhost:8080/confirm/${id}`, requestOptions)
+        const result = await fetch(`http://localhost:8080/system/confirm/${id}`, requestOptions)
 
         const resultinJSON = await result.json();
         console.log(resultinJSON)
+    } catch (err) {
+        console.log(err)
+    }
 
         
         //navigate('/login')
