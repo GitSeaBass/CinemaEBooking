@@ -36,7 +36,22 @@ function EditMovie(props) {
 
     const navigate = useNavigate()
 
-    function submitChanges() {
+    async function submitChanges() {
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        };
+
+        const result = await fetch("http://localhost:8080/system/add", requestOptions)
+
+        const resultinJSON = await result.json();
+        console.log(resultinJSON)
+
         navigate('/admin')
     }
 
