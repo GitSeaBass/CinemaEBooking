@@ -35,7 +35,7 @@ function ForgotPasswordPage() {
 
         await fetch("http://localhost:8080/system/updateProfile", requestOptions)
     }
-    
+
     const [confirmPass, setConfirmPass] = useState('')
     const addConfirmPass = (e) => {
         setConfirmPass(e.target.value)
@@ -67,39 +67,39 @@ function ForgotPasswordPage() {
         navigate('/')
     }
     return (
-        <div className='ForgotPasswordPage-forgot-page'>
-            <div className='ForgotPasswordPage-forgot-window'>
+        <div className='ForgotPasswordPage-forgot-container'>
+            <div className='ForgotPasswordPage-forgot-form-container'>
                 <h1>Reset Password</h1>
 
                 {!validEmail &&
-                <>
-                <form className='ForgotPasswordPage-forgot-form'>
-                    <label>Enter Your Email</label> <br />
-                    <input className='ForgotPasswordPage-forgot-input' placeholder='Email' onChange={addEnteredEmail} required></input><br />
-                </form>
-                <button onClick={addUser}>Submit Email</button>
-                </>
+                    <>
+                        <form className='ForgotPasswordPage-forgot-form'>
+                            <label>Enter Your Email</label>
+                            <input className='ForgotPasswordPage-forgot-input' placeholder='Email' onChange={addEnteredEmail} required></input>
+                        </form>
+                        <button className='ForgotPasswordPage-submit-button' onClick={addUser}>Submit Email</button>
+                    </>
                 }
 
 
                 {validEmail &&
-                <>
-                <form> 
                     <>
-                        {/*}<input className='ForgotPasswordPage-forgot-input-locked' placeholder='Email' onChange={addEnteredEmail} value={enteredEmail} readOnly disabled required></input><br />
+                        <form>
+                            <>
+                                {/*}<input className='ForgotPasswordPage-forgot-input-locked' placeholder='Email' onChange={addEnteredEmail} value={enteredEmail} readOnly disabled required></input><br />
                         <label>Enter New Password</label> <br /> {*/}
-                        <input className='ForgotPasswordPage-forgot-input' placeholder='New Password' name='password' onChange={changeUserPass} type='password' required></input>
-                        <input className='ForgotPasswordPage-forgot-input' placeholder='Confirm New Password' onChange={addConfirmPass} type='password' required></input> <br />
+                                <input className='ForgotPasswordPage-forgot-input' placeholder='New Password' name='password' onChange={changeUserPass} type='password' required></input>
+                                <input className='ForgotPasswordPage-forgot-input' placeholder='Confirm New Password' onChange={addConfirmPass} type='password' required></input> <br />
+                            </>
+                        </form>
+                        <button onClick={onSubmit}>Submit Password Change</button>
                     </>
-                </form>
-                <button onClick={onSubmit}>Submit Password Change</button>
-                </>
                 }
-                
-                
-                <h4>
-                    Or <button className='ForgotPasswordPage-cancel' onClick={returnHome}> Cancel</button> and Return Home
-                </h4>
+
+
+                <p className='ForgotPasswordPage-cancel'>
+                    Or <button className='ForgotPasswordPage-cancel' onClick={returnHome}> cancel and return home</button>
+                </p>
             </div>
         </div>
     )
