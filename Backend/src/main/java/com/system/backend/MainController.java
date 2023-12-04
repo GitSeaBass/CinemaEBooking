@@ -215,60 +215,6 @@ public class MainController {
         return promotionRepository.save(updatedPromotion);
     }
 
-    @PostMapping(path = "/testEmail/{email}")
-    public void testEmail(@PathVariable String email) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        System.out.println("created message");
-        message.setSubject("subject");
-        message.setText("text");
-        message.setTo(email);
-        System.out.println("sending email");
-        emailer.send(message);
-        System.out.println("sent email");
-    }
-
-    @PostMapping(path = "/testAccount/{email}")
-    public void testAccount(@PathVariable String email) {
-        Customer customer = new Customer();
-        customer.setFirstName("John");
-        customer.setLastName("Doe");
-        customer.setEmail(email);
-        customer.setPassword("ghjkj");
-        customer.setDateOfBirth("2000-01-01");
-        customer.setStatus("PENDING");
-        Address address = new Address();
-        address.setStreet("123 Fake Street");
-        address.setCity("Fake City");
-        address.setState("Fake State");
-        address.setZipcode(12345);
-        address.setId(56);
-        addressRepository.save(address);
-        //customer.setAddress(address);
-        createAccount(customer);
-
-    }
-
-    @PostMapping(path = "/testPromotion")
-    public void testPromotion() {
-        Movies movie = new Movies();
-        movie.setId(1);
-        movie.setTitle("Test Movie");
-        movie.setCategory("Test Category");
-        movie.setCast("Test Cast");
-        movie.setDirector("Test Director");
-        movie.setProducer("Test Producer");
-        movie.setSynopsis("Test Synopsis");
-        movie.setReviews("Test Reviews");
-        movie.setPoster_url("Test Poster URL");
-        movie.setTrailer_url("Test Trailer URL");
-        movie.setMpaa_rating("R");
-        movieRepository.save(movie);
-
-        //Promotion promotion = new Promotion(movie,  "TEST", 50f);
-        //createPromotion(promotion);
-
-    }
-
     @PostMapping(path = "/checkout")
     public @ResponseBody Booking saveBooking(@RequestBody Booking booking) {
         return bookingRepository.save(booking);
