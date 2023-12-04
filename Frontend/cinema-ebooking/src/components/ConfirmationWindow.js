@@ -9,14 +9,14 @@ function ConfirmationWindow() {
     }
 
     return (
-        <div className="ConfirmationWindow-confirm-window">
-            <div className='ConfirmationWindow-message-window'>
-                <h2>Your Account Has Been Created!</h2>
-                <br></br>
-                <h2>A verification email has been sent to the provided email.</h2>
-                <h2>Your account must be verified before you can log in.</h2>
-                <br></br>
-                <button className='ConfirmationWindow-return-button' onClick={goHome}>Return To Login Page</button>
+        <div className="ConfirmationWindow-confirm-container">
+            <div className='ConfirmationWindow-message-container'>
+                <div className='ConfirmationWindow-messages'>
+                    <h3>Your account has been created.</h3>
+                    <h3>A verification email has been sent to the provided email.</h3>
+                    <h3>Your account must be verified before you can log in.</h3>
+                </div>
+                <button className='ConfirmationWindow-return-button' onClick={goHome}>Return to Login Page</button>
             </div>
         </div>
     )
