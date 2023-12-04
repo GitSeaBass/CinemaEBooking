@@ -19,12 +19,12 @@ function ManagePromotions(props) {
     const [code, setCode] = useState('code');
     const [percentage, setPercentage] = useState('percentage');
 
-    const data = {
-        'code': code,
-        'percentage': percentage
-    }
-
     const submitPromotion = async () => {
+
+        const promo = {
+            'code': code,
+            'percentage': percentage
+        }
 
         const requestOptions = {
             method: 'POST',
@@ -32,10 +32,10 @@ function ManagePromotions(props) {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(promo)
         };
-
-        const result = await fetch("http://localhost:8080/system/getAllPromotions", requestOptions)
+        
+        const result = await fetch("http://localhost:8080/system/createPromotion", requestOptions)
 
         const resultinJSON = await result.json();
         console.log(resultinJSON)
@@ -65,8 +65,8 @@ function ManagePromotions(props) {
                         <input type='text' required onChange={(event) => {
                             setPercentage(event.target.value);
                         }} />
-                        <button className='ManagePromotions-add-promo-button' onClick={submitPromotion}>Add</button>
                     </form>
+                    <button className='ManagePromotions-add-promo-button' onClick={submitPromotion}>Add Promo</button>
                 </div>
             </div>
         </>
