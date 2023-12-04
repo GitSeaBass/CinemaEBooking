@@ -17,7 +17,7 @@ import static java.time.LocalTime.now;
 public class Promotion {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer promo_id;
 
     private final String code; // code for the promotion
