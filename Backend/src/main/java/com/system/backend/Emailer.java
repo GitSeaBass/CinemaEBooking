@@ -91,7 +91,11 @@ public class Emailer extends JavaMailSenderImpl {
             message.setTo(customer.getEmail());
             message.setSubject(getPromotionEmailSubject(promotion));
             message.setText(getPromotionEmailBody(promotion));
-            send(message);
+            try {
+                send(message);
+            } catch (Exception e) {
+                System.out.println("Error sending email. Continuing");
+            }
         }
     }
 
