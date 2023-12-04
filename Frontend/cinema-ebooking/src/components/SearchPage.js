@@ -46,6 +46,10 @@ function SearchPage(props) {
         navigate('/showings', { state: { movie: full } })
     }
 
+    function book2(moviee) {
+        navigate('/showings', { state: { movie: moviee } })
+    }
+
     return (
         <>
             <NavBar user={props.user} setUser={props.setUser} />
@@ -66,7 +70,7 @@ function SearchPage(props) {
                         <img className='SearchPage-search-poster' src={item.poster_url} alt={item.title} />
                         <iframe className='SearchPage-search-trailer' src={item.trailer_url} title={item.title} />
                         <button className="SearchPage-book-button" onClick={
-                            book(item)
+                            book2(item)
                         }>BOOK MOVIE</button>
                     </div>
                 ))
@@ -77,8 +81,8 @@ function SearchPage(props) {
                         {item.title}
                         <img className='SearchPage-search-poster' src={item.poster_url} alt={item.title} />
                         <iframe className='SearchPage-search-trailer' src={item.trailer_url} title={item.title} />
-                        <button className="SearchPage-book-button" onClick={
-                            book(item)
+                        <button className='SearchPage-book-button' onClick={
+                            book2(item)
                         }>BOOK MOVIE</button>
                     </div>
                 ))
