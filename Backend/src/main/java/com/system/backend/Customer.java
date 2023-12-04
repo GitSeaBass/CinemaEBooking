@@ -28,7 +28,6 @@ public class Customer {
     private int wantsPromotions;
 
     @OneToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "address_address_id", nullable = true)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Address address;
 
