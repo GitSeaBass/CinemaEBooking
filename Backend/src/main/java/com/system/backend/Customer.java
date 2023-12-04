@@ -27,9 +27,9 @@ public class Customer {
     private String confirmationCode;
     private int wantsPromotions;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = true)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Address address;
+//    @OneToOne(fetch = FetchType.LAZY, optional = true)
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private Address address;
 
 
     public Integer getId() {
@@ -88,13 +88,13 @@ public class Customer {
         this.status = status;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
+//    public Address getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(Address address) {
+//        this.address = address;
+//    }
 
     public void setConfirmationCode(String confirmationCode) {
         this.confirmationCode = confirmationCode;
