@@ -44,10 +44,6 @@ function ViewProfile(props) {
             getUser()
             console.log(currentUser)
         }
-
-        //setCurrentUser(
-        //props.updatableUsers.find((item) => item.email === props.user)
-        //)
     }, [currentUser])
 
     const onSubmit = async (e) => {
@@ -87,11 +83,19 @@ function ViewProfile(props) {
         }
     }
 
-    async function viewbook() {
-        const result = await fetch(`http://localhost:8080/system/customerbookings?customerEmail=${currentUser.email}`)
-            const resultinJSON = await result.json();
+    const [bookings, setBookings] = useState([])
+
+    async function getbook() {
+        const result = await fetch(`http://localhost:8080/system/customerbookings?customerEmail=${props.user}`)
+        const resultinJSON = await result.json();
             
-            await setCurrentUser(resultinJSON)
+        await setBookings(resultinJSON)
+        await navigate('/bookings', {state: {bookings: resultinJSON}})
+    }
+
+    async function viewbook() {
+        getbook()
+        console.log(bookings)
     }
 
     return (
@@ -188,11 +192,9 @@ function ViewProfile(props) {
                     }
                     <button className='ViewProfile-save-changes-button' type='submit' onClick={onSubmit}>Save Changes</button>
                     <button className='ViewProfile-save-changes-button' type='submit' onClick={returnHome}>Return Home</button>
+                    <button className='ViewProfile-save-changes-button' onClick={viewbook}>View Bookings</button>
                 </form>
             </div>
-
-            <button onClick={viewbook}>View Bookings</button>
-
 
 
             {

@@ -1,0 +1,22 @@
+.book-container {
+    display: flex;
+}
+
+.bookings {
+    background-color: white;
+}
+
+.bookings-home-button {
+    border-radius: 5px;
+    height: 40px;
+    width: 120px;
+    margin-left: 20px;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: lightgreen;
+}
+
+.bookings-home-button:hover {
+    cursor: pointer;
+    background-color: rgb(71, 179, 71);
+}

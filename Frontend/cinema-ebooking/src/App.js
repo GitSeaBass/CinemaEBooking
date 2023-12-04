@@ -19,6 +19,7 @@ import Checkout from './components/Checkout';
 import HomePage from './components/HomePage';
 import ForgotPasswordPage from './components/ForgotPasswordPage';
 import EmailConfirmPage from './components/EmailConfirmPage';
+import Bookings from './components/Bookings';
 
 function App() {
     const moviearray = [
@@ -259,6 +260,7 @@ function App() {
                     <Route path="/checkout" element={<Checkout movie={selectedMovie} date={selectedDate} time={selectedTime} child={childTickets} adult={adultTickets} senior={seniorTickets} user={user} seats={seats}/>} />
                     <Route path="/orderconfirm" element={<OrderConfirm />} />
                     <Route path="/emailconfirm/:id" element={<EmailConfirmPage />}/>
+                    <Route path="/bookings" element={<Bookings />}/>
 
                 </Routes>
             </div>
