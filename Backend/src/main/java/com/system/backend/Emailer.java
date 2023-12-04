@@ -100,15 +100,11 @@ public class Emailer extends JavaMailSenderImpl {
     }
 
     public static String getPromotionEmailSubject(Promotion promotion) {
-        // TODO promotion.getMovie().getTitle()
-        String movieTitle = "";
-        return "Get " + promotion.getPercent() + "% off " + movieTitle + " tickets!";
+        return "Get " + promotion.getPercent() + "% off tickets!";
     }
 
     public static String getPromotionEmailBody(Promotion promotion) {
-        // TODO promotion.getMovie().getTitle()
-        String movieTitle = "";
         return "As thanks for being a loyal customer, you can use code " + promotion.getCode() + " to get " +
-                promotion.getPercent() + "% off " + movieTitle + " tickets!";
+                promotion.getPercent() + "% off tickets!";
     }
 }
