@@ -2,18 +2,21 @@
     display: flex;
     flex-direction: column;
 
-    width: 90%;
+    width: 100%;
 
     margin: 0 auto;
     margin-top: 1rem;
 
-    background-color: #5400b8;
+    background-color: #000000;
+
+    color: #ffffff;
 }
 
 .Movie-trailer {
     display: block;
 
-    aspect-ratio: 16/9;
+    width: 100%;
+    height: 600px;
 }
 
 .Movie-information-container {
@@ -24,11 +27,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
 
-.Movie-movie-poster {
-    width: 300px;
-    height: 500px;
+    width: 30%;
 }
 
 .Movie-get-tickets-button {
@@ -42,19 +42,48 @@
 
     background-color: #ffffff;
 
+    text-align: center;
     font-size: 1.8rem;
     color: #000000;
 
     cursor: pointer;
 
-    transition: all ease-in-out 200ms;
+    transition: all 300ms ease-in-out 200ms;
 }
 
 .Movie-get-tickets-button:hover {
     background-color: #d2d2d2;
 }
 
+.Movie-poster {
+    width: 80%;
+
+    margin: 0 auto;
+}
+
 .Movie-right {
     display: flex;
     flex-direction: column;
+
+    width: 70%;
+}
+
+.Movie-right>p {
+    width: 60%;
+
+    margin: 0 auto;
+
+    font-size: 0.8rem;
+}
+
+.Movie-people {
+    font-size: 0.7rem;
+    color: #a3a3a3;
+
+    transition: all 200ms ease-in-out 200ms;
+}
+
+.Movie-people:hover {
+    font-size: 0.8rem;
+    color: #ffffff;
 }
