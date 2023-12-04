@@ -23,7 +23,7 @@ function ManagePromotions(props) {
 
         const promo = {
             'code': code,
-            'percentage': percentage
+            'percent': percentage
         }
 
         const requestOptions = {
