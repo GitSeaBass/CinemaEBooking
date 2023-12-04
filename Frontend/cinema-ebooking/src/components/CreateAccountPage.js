@@ -110,17 +110,18 @@ function CreateAccountPage(props) {
                     </label>
                     <label>Enter Address
                         <input type='text' placeholder='Street' name='street' onChange={addAddress}></input>
-                        <input type='text' placeholder='City' name='city' onChange={addAddress}></input>
-                        <input type='text' placeholder='State' name='state' onChange={addAddress}></input>
-                        <input type='text' placeholder='Zipcode' name='zip' onChange={addAddress}></input>
                     </label>
+                    <input type='text' placeholder='City' name='city' onChange={addAddress}></input>
+                    <input type='text' placeholder='State' name='state' onChange={addAddress}></input>
+                    <input type='text' placeholder='Zipcode' name='zip' onChange={addAddress}></input>
                     <label>Enter Payment Card Information
                         <input type='text' placeholder='Card Number' name='cardno' onChange={addCard}></input>
-                        <input type='text' placeholder='Expiration Date' name='carddate' onChange={addCard}></input>
                     </label>
-                    
-                    <input type='checkbox' className='CreateAccountPage-create-checkbox' name='promo' onChange={addPromoState}></input>Register for Promotions<br />
-    
+                    <input type='text' placeholder='Expiration Date' name='carddate' onChange={addCard}></input>
+                    <input type='text' placeholder='Expiration Date' name='carddate' onChange={addCard}></input>
+                    <label>
+                        <input type='checkbox' className='CreateAccountPage-create-checkbox' name='promo' onChange={addPromoState}></input>Register for Promotions
+                    </label>
                     <button type='submit' className='CreateAccountPage-create-account-button'>Create Account</button>
                 </form>
                 <h4 className='CreateAccountPage-return-home'>
