@@ -28,9 +28,22 @@ function SearchPage(props) {
             })
     }, [id, movie, props])
 
-    function book() {
-        console.log(full)
-        navigate('/showings', { state: { movie: full } })
+    const [movies, setMovies] = useState([])
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/system/all`)
+            .then(res => res.json())
+            .then(data => {
+                setMovies(data)
+                console.log(data)
+            }).catch(err => {
+                console.log(err)
+            })
+    }, [])
+
+    function book(movie) {
+        console.log(movie)
+        navigate('/showings', { state: { movie: movie } })
     }
 
     return (
@@ -41,7 +54,9 @@ function SearchPage(props) {
                     {movie}
                     <img className='SearchPage-search-poster' src={poster} alt={movie} />
                     <iframe className='SearchPage-search-trailer' src={trailer} title={movie} />
-                    <button className="SearchPage-book-button" onClick={book}>BOOK MOVIE</button>
+                    <button className="SearchPage-book-button" onClick={
+                        book(movie)
+                    }>BOOK MOVIE</button>
                 </div>
             }
             {typeof full == 'undefined' &&
@@ -49,6 +64,16 @@ function SearchPage(props) {
                     <p>No movie was found.</p>
                 </div>
             }
+            {movies.filter((item) => item.category === id).map((item) => (
+                <div className="SearchPage-movie-container">
+                    {item.title}
+                    <img className='SearchPage-search-poster' src={item.poster_url} alt={item.title} />
+                    <iframe className='SearchPage-search-trailer' src={item.trailer_url} title={item.title} />
+                    <button className="SearchPage-book-button" onClick={
+                        book(item)
+                    }>BOOK MOVIE</button>
+                </div>
+            ))}
         </>
     )
 }
