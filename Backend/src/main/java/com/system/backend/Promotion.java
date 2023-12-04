@@ -17,7 +17,7 @@ import static java.time.LocalTime.now;
 public class Promotion {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer promo_id;
 
     private final String code; // code for the promotion
@@ -29,7 +29,7 @@ public class Promotion {
         this.movieID = movie.getId();
         this.code = code;
         this.percent = percent;
-        this.promo_id = new Random().nextInt(1000); // TODO figure out database issues
+        //this.promo_id = new Random().nextInt(1000); // TODO figure out database issues
     }
 
     public Promotion() {
