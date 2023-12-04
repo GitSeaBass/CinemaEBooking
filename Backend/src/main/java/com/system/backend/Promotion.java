@@ -24,7 +24,7 @@ public class Promotion {
 
     private final float percent; // discount percent for the promotion
 
-    public Promotion(Movies movie, String code, float percent) {
+    public Promotion(String code, float percent) {
         this.code = code;
         this.percent = percent;
     }
