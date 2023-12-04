@@ -138,6 +138,7 @@ public class MainController {
 
         //customer.setPassword(customer.getPassword())
         emailer.sendConfirmationEmail(customer, customer.getConfirmationCode());
+
         return customerRepository.save(customer);
     }
 
@@ -242,7 +243,7 @@ public class MainController {
         address.setZipcode(12345);
         address.setId(56);
         addressRepository.save(address);
-        customer.setAddress(address);
+        //customer.setAddress(address);
         createAccount(customer);
 
     }
