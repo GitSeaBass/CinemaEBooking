@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer bookingId;
     private Float total;
     private Integer numAdultTickets;
     private Integer numChildTickets;
@@ -26,11 +26,11 @@ public class Booking {
     private String customerEmail;
 
     public Integer getId() {
-        return id;
+        return bookingId;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.bookingId = id;
     }
 
     public Float getTotal() {
