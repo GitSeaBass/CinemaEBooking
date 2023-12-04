@@ -84,7 +84,7 @@ function ForgotPasswordPage() {
 
                 {validEmail &&
                     <>
-                        <form>
+                        <form className='ForgotPasswordPage-forgot-form'>
                             <>
                                 {/*}<input className='ForgotPasswordPage-forgot-input-locked' placeholder='Email' onChange={addEnteredEmail} value={enteredEmail} readOnly disabled required></input><br />
                         <label>Enter New Password</label> <br /> {*/}
@@ -92,7 +92,7 @@ function ForgotPasswordPage() {
                                 <input className='ForgotPasswordPage-forgot-input' placeholder='Confirm New Password' onChange={addConfirmPass} type='password' required></input> <br />
                             </>
                         </form>
-                        <button onClick={onSubmit}>Submit Password Change</button>
+                        <button className='ForgotPasswordPage-submit-button' onClick={onSubmit}>Submit Password Change</button>
                     </>
                 }
 
