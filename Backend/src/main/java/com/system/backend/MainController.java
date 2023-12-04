@@ -138,6 +138,7 @@ public class MainController {
 
         //customer.setPassword(customer.getPassword())
         emailer.sendConfirmationEmail(customer, customer.getConfirmationCode());
+
         return customerRepository.save(customer);
     }
 
