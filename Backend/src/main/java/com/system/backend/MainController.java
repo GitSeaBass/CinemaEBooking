@@ -264,8 +264,8 @@ public class MainController {
         movie.setMpaa_rating("R");
         movieRepository.save(movie);
 
-        Promotion promotion = new Promotion(movie,  "TEST", 50f);
-        createPromotion(promotion);
+        //Promotion promotion = new Promotion(movie,  "TEST", 50f);
+        //createPromotion(promotion);
 
     }
 
