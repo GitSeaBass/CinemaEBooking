@@ -59,8 +59,20 @@ function SearchPage(props) {
                     }>BOOK MOVIE</button>
                 </div>
             }
-            {id === 'Now Showing' || 'Coming Soon' &&
-                movies.filter((item) => item.category === id).map((item) => (
+            {id === 'Now Showing' &&
+                movies.filter((item) => item.category === 'Now Showing').map((item) => (
+                    <div className="SearchPage-movie-container">
+                        {item.title}
+                        <img className='SearchPage-search-poster' src={item.poster_url} alt={item.title} />
+                        <iframe className='SearchPage-search-trailer' src={item.trailer_url} title={item.title} />
+                        <button className="SearchPage-book-button" onClick={
+                            book(item)
+                        }>BOOK MOVIE</button>
+                    </div>
+                ))
+            }
+            {id === 'Coming Soon' &&
+                movies.filter((item) => item.category === 'Coming Soon').map((item) => (
                     <div className="SearchPage-movie-container">
                         {item.title}
                         <img className='SearchPage-search-poster' src={item.poster_url} alt={item.title} />
