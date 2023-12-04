@@ -12,7 +12,7 @@ function CreateAccountPage(props) {
         status: "INACTIVE",
         email: "",
         password: "",
-        promo: true
+        wantsPromotions: 0
     })
     const addNewUser = (e) => {
         setNewUser({
@@ -20,9 +20,10 @@ function CreateAccountPage(props) {
         })
     }
 
-    const [promoState, setPromoState] = useState(false)
     const addPromoState = () => {
-        setPromoState(!promoState)
+        setNewUser({
+            ...newUser, wantsPromotions: 1
+        })
     }
 
     const [password2, setPassword2] = useState('')
@@ -117,9 +118,9 @@ function CreateAccountPage(props) {
                         <input type='text' placeholder='Card Number' name='cardno' onChange={addCard}></input>
                         <input type='text' placeholder='Expiration Date' name='carddate' onChange={addCard}></input>
                     </label>
-                    {/*}
+                    
                     <input type='checkbox' className='CreateAccountPage-create-checkbox' name='promo' onChange={addPromoState}></input>Register for Promotions<br />
-    {*/}
+    
                     <button type='submit' className='CreateAccountPage-create-account-button'>Create Account</button>
                 </form>
                 <h4 className='CreateAccountPage-return-home'>

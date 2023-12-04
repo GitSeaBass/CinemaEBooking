@@ -233,16 +233,17 @@ public class MainController {
         customer.setFirstName("John");
         customer.setLastName("Doe");
         customer.setEmail(email);
-        customer.setPassword("");
+        customer.setPassword("ghjkj");
         customer.setDateOfBirth("2000-01-01");
         customer.setStatus("PENDING");
-        /*
         Address address = new Address();
         address.setStreet("123 Fake Street");
         address.setCity("Fake City");
         address.setState("Fake State");
         address.setZipcode(12345);
-        customer.setAddress(address);*/
+        address.setId(56);
+        addressRepository.save(address);
+        customer.setAddress(address);
         createAccount(customer);
 
     }
