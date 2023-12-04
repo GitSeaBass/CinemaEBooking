@@ -28,7 +28,7 @@ function EmailConfirmPage() {
     }
 
         
-        //navigate('/login')
+        navigate('/login')
     }
     
     return (

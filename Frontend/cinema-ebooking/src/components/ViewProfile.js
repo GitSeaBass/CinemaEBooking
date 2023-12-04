@@ -81,8 +81,13 @@ function ViewProfile(props) {
         } else if (view === 1) {
             setView(0)
         }
+    }
 
-
+    async function viewbook() {
+        const result = await fetch(`http://localhost:8080/system/customerbookings/?email=${currentUser.email}`)
+            const resultinJSON = await result.json();
+            
+            await setCurrentUser(resultinJSON)
     }
 
     return (
@@ -171,6 +176,10 @@ function ViewProfile(props) {
                     <button className='ViewProfile-save-changes-button' type='submit' onClick={returnHome}>Return Home</button>
                 </form>
             </div>
+
+            <button onClick={viewbook}>View Bookings</button>
+
+
 
             {
                 view === 1 &&
