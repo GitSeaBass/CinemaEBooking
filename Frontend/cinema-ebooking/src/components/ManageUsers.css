@@ -108,3 +108,7 @@
 .ManageUsers-suspend-button:hover::after {
     content: 'Suspend';
 }
+
+.ManageUsers-user-email-suspended {
+    color: red;
+}
