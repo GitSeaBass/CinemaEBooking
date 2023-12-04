@@ -41,9 +41,9 @@ function SearchPage(props) {
             })
     }, [])
 
-    function book(movie) {
-        console.log(movie)
-        navigate('/showings', { state: { movie: movie } })
+    function book(full) {
+        console.log(full)
+        navigate('/showings', { state: { movie: full } })
     }
 
     return (
