@@ -62,9 +62,7 @@ function CreateAccountPage(props) {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: [JSON.stringify(address),
-            JSON.stringify(card),
-            JSON.stringify(newUser)]
+            body: JSON.stringify(newUser)
         };
         console.log(newUser)
 
