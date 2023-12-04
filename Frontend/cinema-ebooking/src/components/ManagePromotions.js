@@ -6,7 +6,7 @@ function ManagePromotions(props) {
     const [promotion, setPromotion] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:8080/system/all`)
+        fetch(`http://localhost:8080/system/getAllPromotions`)
             .then(res => res.json())
             .then(data => {
                 setPromotion(data)
@@ -35,7 +35,7 @@ function ManagePromotions(props) {
             body: JSON.stringify(data)
         };
 
-        const result = await fetch("http://localhost:8080/system/add", requestOptions)
+        const result = await fetch("http://localhost:8080/system/getAllPromotions", requestOptions)
 
         const resultinJSON = await result.json();
         console.log(resultinJSON)
