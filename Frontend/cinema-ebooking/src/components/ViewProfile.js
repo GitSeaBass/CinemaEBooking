@@ -24,12 +24,15 @@ function ViewProfile(props) {
         setPromoStatus()
     }
 
+    const [receivePromo, setReceivePromo] = useState(0)
+
     const getUser = async () => {
         try {
             const result = await fetch(`http://localhost:8080/system/getuser?email=${props.user}`)
             const resultinJSON = await result.json();
             
             await setCurrentUser(resultinJSON)
+            await setReceivePromo(resultinJSON.wantsPromotions)
         } catch (err) {
             console.log(err)
         }
@@ -62,6 +65,7 @@ function ViewProfile(props) {
         const result = await fetch("http://localhost:8080/system/updateProfile", requestOptions)
         const resultinJSON = await result.json();
         console.log(resultinJSON)
+        console.log(receivePromo)
         //navigate('/')
     }
 
@@ -84,7 +88,7 @@ function ViewProfile(props) {
     }
 
     async function viewbook() {
-        const result = await fetch(`http://localhost:8080/system/customerbookings/?email=${currentUser.email}`)
+        const result = await fetch(`http://localhost:8080/system/customerbookings?customerEmail=${currentUser.email}`)
             const resultinJSON = await result.json();
             
             await setCurrentUser(resultinJSON)
@@ -124,6 +128,16 @@ function ViewProfile(props) {
                         <label className='ViewProfile-password-label'>Password</label>
                         <button className='ViewProfile-reset-button' onClick={resetPass}>Reset Password</button>
                     </div>
+
+                    {currentUser.wantsPromotions === 0 &&
+                    <div className='ViewProfile-promo-box'>
+                        <input type='checkbox' className='CreateAccountPage-create-checkbox' name='promo'></input>Receive Promotions<br />
+                    </div>}
+                    {currentUser.wantsPromotions === 1 &&
+                    <div className='ViewProfile-promo-box'>
+                        <input type='checkbox' checked={true} className='CreateAccountPage-create-checkbox' name='promo'></input>Receive Promotions<br />
+                    </div>}
+
 
                     {currentUser.address !== null &&
                         <>
